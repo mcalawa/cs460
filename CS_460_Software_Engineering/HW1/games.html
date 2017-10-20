@@ -1,0 +1,325 @@
+<!-- DOCTYPE -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Melissa's Website About Something, I Guess</title>
+    <meta charset="utf-8">
+    <!-- Viewport Meta Tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+	
+	
+    <!-- YOUR CONTENT STARTS HERE -->
+    
+    <nav>
+       <div class="navbar">
+          <h1>Hello, World</h1>
+           <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="games.html" class="active">Games</a></li>
+            <li><a href="anime.html">Anime</a></li>
+            <li><a href="">Page 3</a></li>
+            <li><a href="">Page 4</a></li>
+        </ul>
+       </div>
+    </nav>
+    
+    <div class="content">
+        <p>Click on a category other than beaten to rearrange the table items by that category.</p>
+        
+        <table id = "tableData">
+            <thead>
+                <tr>
+                    <th onclick="sortTableBy(0)">Game</th>
+                    <th onclick="sortTableBy(1)">Series</th>
+                    <th onclick="sortTableBy(2)">System</th>
+                    <th onclick="sortTableBy(3)">Developer</th>
+                    <th onclick="sortTableBy(4)">Publisher</th>
+                    <th onclick="sortTableBy(5)">Year</th>
+                    <th>Beaten?</th>
+                </tr>
+            </thead>
+            <tbody>
+               <tr>
+                    <td>Phoenix Wright: Ace Attorney Trilogy</td>
+                    <td>Ace Attorney</td>
+                    <td>Nintendo 3DS (digital)</td>
+                    <td>Capcom</td>
+                    <td>Capcom</td>
+                    <td>2014</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Apollo Justice: Ace Attorney</td>
+                    <td>Ace Attorney</td>
+                    <td>Nintendo DS</td>
+                    <td>Capcom</td>
+                    <td>Capcom</td>
+                    <td>2008</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Ace Attorney Investigations: Miles Edgeworth</td>
+                    <td>Ace Attorney</td>
+                    <td>Nintendo DS</td>
+                    <td>Capcom</td>
+                    <td>Capcom</td>
+                    <td>2009</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>Phoenix Wright: Ace Attorney - Dual Destinies</td>
+                    <td>Ace Attorney</td>
+                    <td>Nintendo 3DS (digital)</td>
+                    <td>Capcom</td>
+                    <td>Capcom</td>
+                    <td>2013</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Phoenix Wright: Ace Attorney - Spirit of Justice</td>
+                    <td>Ace Attorney</td>
+                    <td>Nintendo 3DS (digital)</td>
+                    <td>Capcom</td>
+                    <td>Capcom</td>
+                    <td>2016</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Professor Layton vs. Phoenix Wright: Ace Attorney</td>
+                    <td>Ace Attorney and Professor Layton (crossover)</td>
+                    <td>Nintendo 3DS</td>
+                    <td>Capcom</td>
+                    <td>Capcom</td>
+                    <td>2014</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Harvest Moon GB</td>
+                    <td>Harvest Moon (Story of Seasons)</td>
+                    <td>Game Boy</td>
+                    <td>Victor Interactive Software</td>
+                    <td>Natsume</td>
+                    <td>1998</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td>Harvest Moon 64</td>
+                    <td>Harvest Moon (Story of Seasons)</td>
+                    <td>Nintendo 64</td>
+                    <td>Victor Interactive Software</td>
+                    <td>Natsume</td>
+                    <td>1999</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Harvest Moon: Back to Nature</td>
+                    <td>Harvest Moon (Story of Seasons)</td>
+                    <td>PlayStation</td>
+                    <td>Victor Interactive Software</td>
+                    <td>Natsume</td>
+                    <td>1999</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>Harvest Moon: Save the Homeland</td>
+                    <td>Harvest Moon (Story of Seasons)</td>
+                    <td>PlayStation 2</td>
+                    <td>Victor Interactive Software</td>
+                    <td>Natsume</td>
+                    <td>2001</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Harvest Moon: Friends of Mineral Town</td>
+                    <td>Harvest Moon (Story of Seasons)</td>
+                    <td>Game Boy Advance</td>
+                    <td>Marvelous Interactive</td>
+                    <td>Natsume</td>
+                    <td>2003</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td>Harvest Moon: A Wonderful Life</td>
+                    <td>Harvest Moon (Story of Seasons)</td>
+                    <td>GameCube</td>
+                    <td>Victor Interactive Software</td>
+                    <td>Natsume USA</td>
+                    <td>2004</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>Harvest Moon: More Friends of Mineral Town</td>
+                    <td>Harvest Moon (Story of Seasons)</td>
+                    <td>Game Boy Advance</td>
+                    <td>Marvelous Interactive</td>
+                    <td>Natsume</td>
+                    <td>2005</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td>Harvest Moon: Another Wonderful Life</td>
+                    <td>Harvest Moon (Story of Seasons)</td>
+                    <td>GameCube</td>
+                    <td>Victor Interactive Software</td>
+                    <td>Natsume USA</td>
+                    <td>2005</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>Harvest Moon: Magical Melody</td>
+                    <td>Harvest Moon (Story of Seasons)</td>
+                    <td>GameCube</td>
+                    <td>Marvelous Interactive</td>
+                    <td>Natsume</td>
+                    <td>2006</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Pokemon Blue</td>
+                    <td>Pokemon</td>
+                    <td>Game Boy</td>
+                    <td>Game Freak</td>
+                    <td>Nintendo</td>
+                    <td>1998</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Professor Layton and the Curious Village</td>
+                    <td>Professor Layton</td>
+                    <td>Nintendo DS</td>
+                    <td>Level-5</td>
+                    <td>Nintendo</td>
+                    <td>2008</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>Professor Layton and the Diabolical Box</td>
+                    <td>Professor Layton</td>
+                    <td>Nintendo DS</td>
+                    <td>Level-5</td>
+                    <td>Nintendo</td>
+                    <td>2009</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Professor Layton and the Miracle Mask</td>
+                    <td>Professor Layton</td>
+                    <td>Nintendo 3DS</td>
+                    <td>Level-5</td>
+                    <td>Nintendo</td>
+                    <td>2012</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <td>Professor Layton and the Azran Legacy</td>
+                    <td>Professor Layton</td>
+                    <td>Nintendo 3DS</td>
+                    <td>Level-5</td>
+                    <td>Nintendo</td>
+                    <td>2014</td>
+                    <td>Yes</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+		
+    <!-- YOUR CONTENT ENDS HERE -->
+
+
+    <!-- JavaScript: placed at the end of the document so the pages load faster -->
+		<!-- jQuery library -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+		<!-- Popper -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
+		<!-- Latest compiled and minified Bootstrap JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    
+    <script>
+        function sortTableBy(n) {
+            var tData, rows, key;
+            
+            if(n === 2) {
+                sortTableByConsole();
+                return;
+            }
+            
+            tData = document.getElementById("tableData");
+            rows = tData.getElementsByTagName("tr");
+            
+            for(i = 2; i < rows.length; i++) {
+                
+                var current = i;
+                var j = i - 1;
+                
+                key = rows[i].getElementsByTagName("td")[n].innerHTML.toLowerCase();
+                
+                while(j >= 1) {
+                    if(key < rows[j].getElementsByTagName("td")[n].innerHTML.toLowerCase()) {
+                        current = j;
+                    }
+                    j = j - 1;
+                }
+                
+                $(rows[i]).insertBefore(rows[current]);
+                
+            }
+        }
+        
+        function sortTableByConsole() {
+            var tData, rows, key, keyIndex;
+            var consoleOrder = ["Nintendo Entertainment System", "Game Boy", "Super Nintendo Entertainment System", "PlayStation", "Sega Saturn", "Nintendo 64", "Game Boy Color", "Dreamcast", "PlayStation 2", "GameCube", "Game Boy Advance", "Xbox", "Nintendo DS", "Xbox 360", "PlayStation Portable", "PlayStation 3", "Wii", "Nintendo 3DS", "PlayStation Vita", "Wii U", "PlayStation 4", "Xbox One", "Nintendo Switch"];
+            
+            tData = document.getElementById("tableData");
+            rows = tData.getElementsByTagName("tr");
+            
+            for(i = 2; i < rows.length; i++) {
+                
+                var current = i;
+                var j = i - 1;
+                
+                key = rows[i].getElementsByTagName("td")[2].innerHTML.toLowerCase();
+                
+                keyIndex = getKeyIndex(key, rows[i].getElementsByTagName("td")[2].innerHTML, consoleOrder);
+                
+                while(j >= 1) {
+                    var compareIndex;
+                    var compareTo = rows[j].getElementsByTagName("td")[2].innerHTML.toLowerCase();
+                    compareIndex = getKeyIndex(compareTo, rows[j].getElementsByTagName("td")[2].innerHTML, consoleOrder);
+                    
+                    if(keyIndex < compareIndex) {
+                        current = j;
+                    }
+                    j = j - 1;
+                }
+                
+                $(rows[i]).insertBefore(rows[current]);
+                
+            }
+        }
+        
+        function getKeyIndex(key, keyProper, order) {
+            var i = $.inArray(keyProper, order);
+            
+            if(i < 0) {
+                i = 0;
+                while((i < order.length) && (key.indexOf(order[i].toLowerCase()) < 0)) {
+                    i = i + 1;
+                }
+            }
+            
+            return i;
+        }
+        
+        
+    </script>
+    
+  </body>
+</html>
