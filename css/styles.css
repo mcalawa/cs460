@@ -1,0 +1,17 @@
+@import url(http://fonts.googleapis.com/css?family=IM+Fell+Double+Pica);
+
+body {
+    padding: 10px;
+}
+
+h1 {
+    font-family: "IM Fell Double Pica";
+    font-size: 2.05em;
+    margin: 10px;
+    line-height: 0.65em;
+}
+
+.byline {
+    font-size: 0.75em;
+    margin-left: 15px;
+}
