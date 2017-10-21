@@ -119,3 +119,34 @@ tr:nth-child(even) {
 .htmlName {
     color: #ff9715;
 }
+
+.col1 {
+    width: 50%;
+    float: left;
+    padding-right: 12px;
+    text-align: justify;
+}
+
+.col2 {
+    width: 50%;
+    float: right;
+    padding-left: 13px;
+}
+
+.quote p {
+    font-family: "Times New Roman", serif;
+    margin-bottom: 0;
+}
+
+.quote p .first {
+    font-family: "Arial", sans-serif;
+    padding-left: 3em;
+}
+
+.tab {
+    padding-left: 3em;
+}
+
+.quotation {
+    font-size: 2em;
+}
