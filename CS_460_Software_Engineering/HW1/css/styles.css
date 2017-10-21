@@ -92,3 +92,30 @@ tr:nth-child(odd) {
 tr:nth-child(even) {
     background-color: #ffe;
 }
+
+.htmlCode {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 15px;
+    border: solid 1px #411;
+    color: #000;
+    line-height: 1.25em;
+    max-width: 55em;
+}
+
+.htmlCode code {
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.htmlTag {
+    color: #083762;
+}
+
+.htmlClass {
+    color: #3a6508;
+}
+
+.htmlName {
+    color: #ff9715;
+}

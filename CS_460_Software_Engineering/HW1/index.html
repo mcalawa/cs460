@@ -56,6 +56,36 @@
             <li>You have a working GitHub Pages repository/web page meeting the requirements described below and during class</li>
             <li>Any HTML or CSS notes, cheat sheets or documentation has been put into your Portfolio in an organized fashion</li>
         </ul>
+        
+        <h2>Some Example Git</h2>
+        <p>I was a little bit intimidated by working with Git, so after initially creating the repository, I left updating it alone for a while while I had far too much fun working with HTML, CSS, and even previewing some JavaScript. However, after I got over my early nerves, Git proved to be relatively simple. So here's how you set up and update a Git repository.</p>
+        
+        <code>
+            git init
+            git remote add origin https://github.com/mcalawa/senior_project.git
+        </code>
+        
+        <h2>All About Lists</h2>
+        <p>We were required to have at least one of each type of list. My <code>ul</code> is actually my navigation with styling to remove the bullet points and made the list items appear horizontal rather than vertical.</p>
+        
+        <div class="htmlCode">
+            <code>
+                <span class="htmlTag">&lt;nav&gt;</span><br/>
+                    &thinsp;&thinsp;&thinsp;&thinsp;&thinsp;<span class="htmlTag">&lt;div</span> <span class="htmlClass">class</span>=<span class="htmlName">"navbar"</span><span class="htmlTag">&gt;</span><br/>
+                        &thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;<span class="htmlTag">&lt;h1&gt;</span>CS 460 Homework 1<span class="htmlTag">&lt;/h1&gt;</span><br/>
+                        &thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;<span class="htmlTag">&lt;ul&gt;</span><br/>
+                            &thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;<span class="htmlTag">&lt;li&gt;&lt;a</span> <span class="htmlClass">href</span>=<span class="htmlName">"index.html"</span> <span class="htmlClass">class</span>=<span class="htmlClass">"active"</span><span class="htmlTag">&gt;</span>Home<span class="htmlTag">&lt;/a&gt;&lt;/li&gt;</span><br/>
+                            &thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;<span class="htmlTag">&lt;li&gt;&lt;a</span> <span class="htmlClass">href</span>=<span class="htmlName">"games.html"</span><span class="htmlTag">&gt;</span>Games<span class="htmlTag">&lt;/a&gt;&lt;/li&gt;</span><br/>
+                            &thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;<span class="htmlTag">&lt;li&gt;&lt;a</span> <span class="htmlClass">href</span>=<span class="htmlName">"anime.html"</span><span class="htmlTag">&gt;</span>Anime<span class="htmlTag">&lt;/a&gt;&lt;/li&gt;</span><br/>
+                            &thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;<span class="htmlTag">&lt;li&gt;&lt;a</span> <span class="htmlClass">href</span>=<span class="htmlName">""</span><span class="htmlTag">&gt;</span>Page 3<span class="htmlTag">&lt;/a&gt;&lt;/li&gt;</span><br/>
+                            &thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;<span class="htmlTag">&lt;li&gt;&lt;a</span> <span class="htmlClass">href</span>=<span class="htmlName">"https://mcalawa.github.io/senior_project/"</span><span class="htmlTag">&gt;</span>Portfolio Home<span class="htmlTag">&lt;/a&gt;&lt;/li&gt;</span><br/>
+                        &thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;&thinsp;<span class="htmlTag">&lt;/ul&gt;</span><br/>
+                    &thinsp;&thinsp;&thinsp;&thinsp;&thinsp;<span class="htmlTag">&lt;/div&gt;</span><br/>
+                &thinsp;<span class="htmlTag">&lt;/nav&gt;</span>
+            </code>
+        </div>
+        
+        <p>The nav tag marks something as navigation, while the div with the class navbar is used to apply the background color and as a wrapper to more specifically target the elements I'll be styling. The ul tag marks an unordered list and each li tag represents a list item. In this case, the list items are all links to the various pages. The main styles of note that I used for the navigation bar were <code>float: left;</code>, which makes the list items float to a single line arranged from left to right, and <code>list-style: none;</code>, which removes the bullet points on an unordered list. Both of these styles were applied to li tags of the class navbar.</p>
     </div>
 		
     <!-- YOUR CONTENT ENDS HERE -->
