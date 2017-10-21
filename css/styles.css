@@ -72,7 +72,7 @@ h1 {
 }
 
 .contentwrapper {
-    background-color: hsla(58%, 33%, 94%, 0.5);
+    background-color: hsl(58%, 33%, 94%);
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     margin-top: -20vh;
