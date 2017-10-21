@@ -1,14 +1,13 @@
-@import url(http://fonts.googleapis.com/css?family=IM+Fell+Double+Pica);
+@import url(http://fonts.googleapis.com/css?family=IM+Fell+Double+Pica|Julius+Sans+One);
 
 body {
-    background-color: #fbfee6;
-    background-color: #eee;
+    background-color: #1C4971;
 }
 
 .tophalf {
     background-color: #001;
     padding: 20px;
-    padding-bottom: 16em;
+    padding-bottom: 5em;
 }
 
 .header {
@@ -31,7 +30,7 @@ h1 {
 
 .navbar {
     border-radius: 25px;
-    background-color: #10bab5;
+    background-color: #10bac5;
     float: right;
     margin-top: -5px;
     padding: 0px;
@@ -51,6 +50,8 @@ h1 {
     margin: 0px;
     list-style: none;
     border-right: dotted 1px #0c4f8b;
+    font-family: "Julius Sans One";
+    font-weight: bold;
 }
 
 .navbar li:last-child {
@@ -64,6 +65,19 @@ h1 {
 .banner {
     background-image: url(images/geometric_blue02.jpg);
     image-orientation: bottom;
-    width: 80%;
-    height: 200px;
+    width: 100%;
+    height: 35vh;
+    border-top: 20px solid #031729;
+    border-bottom: 100px solid #031729;
+}
+
+.contentwrapper {
+    background-color: hsl(58%, 33%, 94%);
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    margin-top: -20vh;
+    margin-left: 15%;
+    width: 70%;
+    height: 71.7vh;
+    padding: 20px;
 }
