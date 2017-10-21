@@ -16,7 +16,7 @@ body {
 }
 
 h1 {
-    font-family: "IM Fell Double Pica";
+    font-family: "IM Fell Double Pica", serif;
     font-size: 2.05em;
     line-height: 0.65em;
     float: left;
@@ -26,6 +26,10 @@ h1 {
 .byline {
     font-size: 0.75em;
     margin-left: 15px;
+}
+
+h2, h3 {
+    font-family: "IM Fell Double Pica", serif;
 }
 
 .navbar {
@@ -50,7 +54,7 @@ h1 {
     margin: 0px;
     list-style: none;
     border-right: dotted 1px #0c4f8b;
-    font-family: "Julius Sans One";
+    font-family: "Julius Sans One", sans-serif;
     font-weight: bold;
 }
 
