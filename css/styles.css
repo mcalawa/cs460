@@ -71,8 +71,11 @@ h3 {
     border-right: none;
 }
 
-.navbar li a {
+li a {
     color: #0c4f8b;
+}
+
+.navbar li a {
     font-weight: bolder;
 }
 
@@ -101,4 +104,12 @@ p {
     width: 95%;
     text-align: justify;
     margin-left: 2.5%;
+}
+
+.contentwrapper li {
+    list-style:square;
+}
+
+.contentwrapper li a:hover {
+    color: #031729;
 }
