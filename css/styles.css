@@ -1,17 +1,69 @@
 @import url(http://fonts.googleapis.com/css?family=IM+Fell+Double+Pica);
 
 body {
-    padding: 10px;
+    background-color: #fbfee6;
+    background-color: #eee;
+}
+
+.tophalf {
+    background-color: #001;
+    padding: 20px;
+    padding-bottom: 16em;
+}
+
+.header {
+    margin-left: 10%;
+    width: 80%;
 }
 
 h1 {
     font-family: "IM Fell Double Pica";
     font-size: 2.05em;
-    margin: 10px;
     line-height: 0.65em;
+    float: left;
+    color: #fefefe;
 }
 
 .byline {
     font-size: 0.75em;
     margin-left: 15px;
+}
+
+.navbar {
+    border-radius: 25px;
+    background-color: #10bab5;
+    float: right;
+    margin-top: -5px;
+    padding: 0px;
+}
+
+.navbar ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+.navbar li {
+    float: left;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 30px;
+    padding-left: 30px;
+    margin: 0px;
+    list-style: none;
+    border-right: dotted 1px #0c4f8b;
+}
+
+.navbar li:last-child {
+    border-right: none;
+}
+
+.navbar li a {
+    color: #0c4f8b;
+}
+
+.banner {
+    background-image: url(images/geometric_blue02.jpg);
+    image-orientation: bottom;
+    width: 80%;
+    height: 200px;
 }
