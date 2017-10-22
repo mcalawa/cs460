@@ -113,3 +113,68 @@ p {
 .contentwrapper li a:hover {
     color: #031729;
 }
+
+.htmlCode, .cssCode, .gitCode {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 15px;
+    border: solid 1px #411;
+    color: #000;
+    line-height: 0.85em;
+    max-width: 70em;
+    margin-bottom: 10px;
+}
+
+code {
+    color: #000;
+    font-family: monospace;
+}
+
+.htmlTag {
+    color: #054681;
+}
+
+.htmlComment {
+    
+}
+
+.htmlClass, .cssMeasure {
+    color: #3a6508;
+}
+
+.htmlName, .cssValue {
+    color: #ff9715;
+}
+
+.cssElement {
+    color: #8e44c1;
+}
+
+.contentwrapper table {
+    width: 90%;
+    margin-left: 5%;
+}
+
+td, th {
+    padding: 5px;
+}
+
+td {
+    border: 1px solid #000;
+    background-color: #56a1b7;
+}
+
+tbody tr:nth-child(odd) td {
+    background-color: #2b71ae;
+}
+
+tbody tr:first-child td {
+    border-top: none;
+}
+
+th {
+    text-align: center;
+    background-color: #031729;
+    color: #fefefe;
+    border: 1px dotted #fefefe;
+}
