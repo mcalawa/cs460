@@ -37,11 +37,164 @@
                Intelligence <input type="number" name="int"><br/>
                Wisdom <input type="number" name="wis"><br/>
                Charisma <input type="number" name="cha"><br/>
+               <br/>
+               <input type="checkbox" name="jack" id="y"> My class is a bard
            </div>
            
            <div class="rightHalf">
-               <span class="radioPro">Acrobatics <input type="radio" name="acrobatics" id="none" checked="checked"> No Modifiers <input type="radio" name="acrobatics" id="pro"> Proficient <input type="radio" name="acrobatics" id="ex"> Expertise<br/></span>
-               <span class="radioPro">Animal Handling <input type="radio" name="animal" id="none" checked="checked"> No Modifiers <input type="radio" name="animal" id="pro"> Proficient <input type="radio" name="animal" id="ex"> Expertise<br/></span>
+               <span class="radioPro">Acrobatics <input type="radio" name="acrobatics" id="none" checked="checked"> No Modifiers <input type="radio" name="acrobatics" id="pro"> Proficient <input type="radio" name="acrobatics" id="ex"> Expertise <input type="checkbox" name="acrobaticsItem" id="y"></span> Item Bonus <span class="itemBonus">of +
+               <select name="acrobaticBonus">
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   <option value="5">5</option>
+               </select></span><br/>
+               
+               <span class="radioPro">Animal Handling <input type="radio" name="animal" id="none" checked="checked"> No Modifiers <input type="radio" name="animal" id="pro"> Proficient <input type="radio" name="animal" id="ex"> Expertise <input type="checkbox" name="animalItem" id="y"></span> Item Bonus <span class="itemBonus">of +
+               <select name="animalBonus">
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   <option value="5">5</option>
+               </select></span><br/>
+               
+               <span class="radioPro">Arcana <input type="radio" name="arcana" id="none" checked="checked"> No Modifiers <input type="radio" name="arcana" id="pro"> Proficient <input type="radio" name="arcana" id="ex"> Expertise <input type="checkbox" name="arcanaItem" id="y"></span> Item Bonus <span class="itemBonus">of +
+               <select name="arcanaBonus">
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   <option value="5">5</option>
+               </select></span><br/>
+               
+               <span class="radioPro">Athletics <input type="radio" name="athletics" id="none" checked="checked"> No Modifiers <input type="radio" name="athletics" id="pro"> Proficient <input type="radio" name="athletics" id="ex"> Expertise <input type="checkbox" name="athleticsItem" id="y"></span> Item Bonus <span class="itemBonus">of +
+               <select name="athleticsBonus">
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   <option value="5">5</option>
+               </select></span><br/>
+               
+               <span class="radioPro">History <input type="radio" name="history" id="none" checked="checked"> No Modifiers <input type="radio" name="history" id="pro"> Proficient <input type="radio" name="history" id="ex"> Expertise <input type="checkbox" name="historyItem" id="y"></span> Item Bonus <span class="itemBonus">of +
+               <select name="historyBonus">
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   <option value="5">5</option>
+               </select></span><br/>
+               
+               <span class="radioPro">Insight <input type="radio" name="insight" id="none" checked="checked"> No Modifiers <input type="radio" name="insight" id="pro"> Proficient <input type="radio" name="insight" id="ex"> Expertise <input type="checkbox" name="insightItem" id="y"></span> Item Bonus <span class="itemBonus">of +
+               <select name="insightBonus">
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   <option value="5">5</option>
+               </select></span><br/>
+               
+               <span class="radioPro">Intimidation <input type="radio" name="intimidation" id="none" checked="checked"> No Modifiers <input type="radio" name="intimidation" id="pro"> Proficient <input type="radio" name="intimidation" id="ex"> Expertise <input type="checkbox" name="intimidationItem" id="y"></span> Item Bonus <span class="itemBonus">of +
+               <select name="intimidationBonus">
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   <option value="5">5</option>
+               </select></span><br/>
+               
+               <span class="radioPro">Investigation <input type="radio" name="investigation" id="none" checked="checked"> No Modifiers <input type="radio" name="investigation" id="pro"> Proficient <input type="radio" name="investigation" id="ex"> Expertise <input type="checkbox" name="investigationItem" id="y"></span> Item Bonus <span class="itemBonus">of +
+               <select name="investigationBonus">
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   <option value="5">5</option>
+               </select></span><br/>
+               
+               <span class="radioPro">Medicine <input type="radio" name="medicine" id="none" checked="checked"> No Modifiers <input type="radio" name="medicine" id="pro"> Proficient <input type="radio" name="medicine" id="ex"> Expertise <input type="checkbox" name="medicineItem" id="y"></span> Item Bonus <span class="itemBonus">of +
+               <select name="medicineBonus">
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   <option value="5">5</option>
+               </select></span><br/>
+               
+               <span class="radioPro">Nature <input type="radio" name="nature" id="none" checked="checked"> No Modifiers <input type="radio" name="nature" id="pro"> Proficient <input type="radio" name="nature" id="ex"> Expertise <input type="checkbox" name="natureItem" id="y"></span> Item Bonus <span class="itemBonus">of +
+               <select name="natureBonus">
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   <option value="5">5</option>
+               </select></span><br/>
+               
+               <span class="radioPro">Perception <input type="radio" name="perception" id="none" checked="checked"> No Modifiers <input type="radio" name="perception" id="pro"> Proficient <input type="radio" name="perception" id="ex"> Expertise <input type="checkbox" name="perceptionItem" id="y"></span> Item Bonus <span class="itemBonus">of +
+               <select name="perceptionBonus">
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   <option value="5">5</option>
+               </select></span><br/>
+               
+               <span class="radioPro">Performance <input type="radio" name="performance" id="none" checked="checked"> No Modifiers <input type="radio" name="performance" id="pro"> Proficient <input type="radio" name="performance" id="ex"> Expertise <input type="checkbox" name="performanceItem" id="y"></span> Item Bonus <span class="itemBonus">of +
+               <select name="performanceBonus">
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   <option value="5">5</option>
+               </select></span><br/>
+               
+               <span class="radioPro">Persuasion <input type="radio" name="persuasion" id="none" checked="checked"> No Modifiers <input type="radio" name="persuasion" id="pro"> Proficient <input type="radio" name="persuasion" id="ex"> Expertise <input type="checkbox" name="persuasionItem" id="y"></span> Item Bonus <span class="itemBonus">of +
+               <select name="persuasionBonus">
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   <option value="5">5</option>
+               </select></span><br/>
+               
+               <span class="radioPro">Religion <input type="radio" name="religion" id="none" checked="checked"> No Modifiers <input type="radio" name="religion" id="pro"> Proficient <input type="radio" name="religion" id="ex"> Expertise <input type="checkbox" name="religionItem" id="y"></span> Item Bonus <span class="itemBonus">of +
+               <select name="religionBonus">
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   <option value="5">5</option>
+               </select></span><br/>
+               
+               <span class="radioPro">Slight of Hand <input type="radio" name="slight" id="none" checked="checked"> No Modifiers <input type="radio" name="slight" id="pro"> Proficient <input type="radio" name="slight" id="ex"> Expertise <input type="checkbox" name="slightItem" id="y"></span> Item Bonus <span class="itemBonus">of +
+               <select name="slightBonus">
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   <option value="5">5</option>
+               </select></span><br/>
+               
+               <span class="radioPro">Stealth <input type="radio" name="stealth" id="none" checked="checked"> No Modifiers <input type="radio" name="stealth" id="pro"> Proficient <input type="radio" name="stealth" id="ex"> Expertise <input type="checkbox" name="stealthItem" id="y"></span> Item Bonus <span class="itemBonus">of +
+               <select name="stealthBonus">
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   <option value="5">5</option>
+               </select></span><br/>
+               
+               
+               <span class="radioPro">Survival <input type="radio" name="survival" id="none" checked="checked"> No Modifiers <input type="radio" name="survival" id="pro"> Proficient <input type="radio" name="survival" id="ex"> Expertise <input type="checkbox" name="survivalItem" id="y"></span> Item Bonus <span class="itemBonus">of +
+               <select name="survivalBonus">
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                   <option value="5">5</option>
+               </select></span><br/>
            </div>
        </form>
         

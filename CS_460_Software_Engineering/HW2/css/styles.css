@@ -23,3 +23,8 @@ form {
 .radioPro input:first-child {
     margin-left: 1em;
 }
+
+.itemBonus input {
+    width: 2.5em;
+    margin-left: 0.25em;
+}
