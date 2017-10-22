@@ -28,3 +28,11 @@ form {
     width: 2.5em;
     margin-left: 0.25em;
 }
+
+.multiInfo {
+    visibility: hidden;
+}
+
+.itemBonus {
+    visibility: hidden;
+}
