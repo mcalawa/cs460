@@ -1,0 +1,25 @@
+form {
+    max-width: 95%;
+}
+
+.leftHalf {
+    float: left;
+    text-align: right;
+}
+
+.leftHalf input {
+    margin-left: 0.5em;
+}
+
+.rightHalf {
+    float: right;
+    text-align: right;
+}
+
+.radioPro input {
+    margin-left: 0.5em;
+}
+
+.radioPro input:first-child {
+    margin-left: 1em;
+}
