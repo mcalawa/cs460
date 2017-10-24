@@ -37,17 +37,104 @@
                Intelligence <input type="number" name="int" id="int"><br/>
                Wisdom <input type="number" name="wis" id="wis"><br/>
                Charisma <input type="number" name="cha" id="cha"><br/>
-               <br/>
+               <br/><br/>
+               
+               <span id="entryError"></span>
            </div>
            
            <div class="rightHalf">
                <span class="radioPro">Acrobatics 
-               <input type="radio" name="acrobatics" value="0" checked="checked"> No Modifiers 
-               <input type="radio" name="acrobatics" value="1"> Proficient 
-               <input type="radio" name="acrobatics" value="2"> Expertise</span><br/>
+               <input type="radio" name="skill0" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill0" value="1"> Proficient 
+               <input type="radio" name="skill0" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Animal Handling 
+               <input type="radio" name="skill1" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill1" value="1"> Proficient 
+               <input type="radio" name="skill1" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Arcana 
+               <input type="radio" name="skill2" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill2" value="1"> Proficient 
+               <input type="radio" name="skill2" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Athletics 
+               <input type="radio" name="skill3" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill3" value="1"> Proficient 
+               <input type="radio" name="skill3" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Deception 
+               <input type="radio" name="skill4" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill4" value="1"> Proficient 
+               <input type="radio" name="skill4" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">History 
+               <input type="radio" name="skill5" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill5" value="1"> Proficient 
+               <input type="radio" name="skill5" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Insight 
+               <input type="radio" name="skill6" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill6" value="1"> Proficient 
+               <input type="radio" name="skill6" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Intimidation 
+               <input type="radio" name="skill7" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill7" value="1"> Proficient 
+               <input type="radio" name="skill7" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Investigation 
+               <input type="radio" name="skill8" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill8" value="1"> Proficient 
+               <input type="radio" name="skill8" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Medicine 
+               <input type="radio" name="skill9" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill9" value="1"> Proficient 
+               <input type="radio" name="skill9" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Nature 
+               <input type="radio" name="skill10" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill10" value="1"> Proficient 
+               <input type="radio" name="skill10" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Perception 
+               <input type="radio" name="skill11" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill11" value="1"> Proficient 
+               <input type="radio" name="skill11" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Performance 
+               <input type="radio" name="skill12" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill12" value="1"> Proficient 
+               <input type="radio" name="skill12" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Persuasion 
+               <input type="radio" name="skill13" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill13" value="1"> Proficient 
+               <input type="radio" name="skill13" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Religion 
+               <input type="radio" name="skill14" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill14" value="1"> Proficient 
+               <input type="radio" name="skill14" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Slight of Hand 
+               <input type="radio" name="skill15" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill15" value="1"> Proficient 
+               <input type="radio" name="skill15" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Stealth 
+               <input type="radio" name="skill16" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill16" value="1"> Proficient 
+               <input type="radio" name="skill16" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Survival 
+               <input type="radio" name="skill17" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill17" value="1"> Proficient 
+               <input type="radio" name="skill17" value="2"> Expertise</span><br/>
            </div>
            
-           <input type="submit" value="Submit">
+           <input type="submit">
        </form>
        
        <div id="resultsTable">
@@ -68,6 +155,6 @@
 		<!-- Latest compiled and minified Bootstrap JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 		
-		<script type="text/javascript" src="javascript/script.js"></script>
+		<script src="javascript/script.js"></script>
   </body>
 </html>
