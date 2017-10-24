@@ -1,10 +1,95 @@
+@import url(//fonts.googleapis.com/css?family=Patrick+Hand+SC);
+
+body {
+    color: #311;
+}
+
+.navbar {
+    background-color: #f96b5c;
+    color: #fec;
+    font-family: "Patrick Hand SC";
+    padding-left: 25px;
+    
+}
+
+a, a:hover {
+    color: #f96b5c;
+}
+
+h1 {
+    width: 100%;
+    margin: 0;
+    font-size: 200%;
+}
+
+h2 {
+    font-family: "Patrick Hand SC";
+    font-size: 150%;
+}
+
+nav ul {
+    margin-bottom: 0px;
+}
+
+nav li {
+    list-style-type: none;
+    float: left;
+    margin-right: 35px;
+    font-size: 120%;
+}
+
+nav li>a {
+    color: #411;
+    
+}
+
+nav li>a:hover {
+    text-decoration: none;
+    color: #fec;
+    
+}
+
+.content {
+    padding: 25px;
+}
+
+table {
+    border: 3px solid;
+    border-color: #411;
+}
+
+td, th {
+    border: 1px solid #411;
+    padding: 5px;
+}
+
+th {
+    border-bottom: 3px solid;
+    font-family: "Patrick Hand SC";
+    font-size: 110%;
+    color: #411;
+    background-color: #f76;
+}
+
+tr:nth-child(odd) {
+    background-color: #fec;
+}
+
+tr:nth-child(even) {
+    background-color: #ffe;
+}
+
 form {
-    max-width: 95%;
+    max-width: 75%;
+    min-height: 31em;
+    margin-bottom: 10px;
 }
 
 .leftHalf {
     float: left;
     text-align: right;
+    min-height: 29em;
+    width: 50%;
 }
 
 .leftHalf input {
@@ -14,6 +99,8 @@ form {
 .rightHalf {
     float: right;
     text-align: right;
+    min-height: 29em;
+    width: 50%;
 }
 
 .radioPro input {
@@ -24,15 +111,11 @@ form {
     margin-left: 1em;
 }
 
-.itemBonus input {
-    width: 2.5em;
-    margin-left: 0.25em;
+.formSubmit {
+    float: right;
+    margin-right: 37%;
 }
 
-.multiInfo {
-    visibility: hidden;
-}
-
-.itemBonus {
-    visibility: hidden;
+#resultsTable {
+    margin-left: 30%;
 }
