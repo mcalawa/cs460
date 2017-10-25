@@ -18,7 +18,7 @@
        <div class="navbar">
           <h1>CS 460 Homework 1</h1>
            <ul>
-            <li><a href="index.md" class="active">Home</a></li>
+            <li><a href="CS_460_Software_Engineering/HW1/" class="active">Home</a></li>
             <li><a href="games.html">Games</a></li>
             <li><a href="anime.html">Anime</a></li>
             <li><a href="english.html">Words</a></li>
