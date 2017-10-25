@@ -58,9 +58,9 @@
         <h2>Some Example Git</h2>
         <p>I was a little bit intimidated by working with Git, so after initially creating the repository, I left updating it alone for a while while I had far too much fun working with HTML, CSS, and even previewing some JavaScript. However, after I got over my early nerves, Git proved to be relatively simple. So here's how you set up and update a Git repository.</p>
         
-        ```git
-            git init
-            git remote add origin https://github.com/mcalawa/senior_project.git
+        ```bash
+        git init
+        git remote add origin https://github.com/mcalawa/senior_project.git
         ```
         
         <h2>All About Lists</h2>
@@ -85,16 +85,16 @@
         
         ```html
         <nav>
-           <div class="navbar">
-              <h1>CS 460 Homework 1</h1>
-               <ul>
-                <li><a href="index.md" class="active">Home</a></li>
-                <li><a href="games.html">Games</a></li>
-                <li><a href="anime.html">Anime</a></li>
-                <li><a href="english.html">Words</a></li>
-                <li><a href="https://mcalawa.github.io/senior_project/">Portfolio Home</a></li>
-            </ul>
-           </div>
+        <div class="navbar">
+        <h1>CS 460 Homework 1</h1>
+        <ul>
+        <li><a href="/" class="active">Home</a></li>
+        <li><a href="games.html">Games</a></li>
+        <li><a href="anime.html">Anime</a></li>
+        <li><a href="english.html">Words</a></li>
+        <li><a href="https://mcalawa.github.io/senior_project/">Portfolio Home</a></li>
+        </ul>
+        </div>
         </nav>
         ```
         
