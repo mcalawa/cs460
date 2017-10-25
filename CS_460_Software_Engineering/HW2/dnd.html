@@ -27,10 +27,11 @@
        </div>
     </nav>
     
-    <div class="content">
+    <div class="content" id="dndColumns">
        
        <form id="dndForm">
            <div class="leftHalf">
+               <div class="formHeader"><h2>Calculate Your Skill Modifers by Level</h2></div><br/><br/>
                Strength <input type="number" name="str" id="str"><br/>
                Dexterity <input type="number" name="dex" id="dex"><br/>
                Constitution <input type="number" name="con" id="con"><br/>
@@ -40,9 +41,7 @@
                <br/>
                
                <span id="entryError"></span>
-           </div>
-           
-           <div class="rightHalf">
+               
                <span class="radioPro">Acrobatics 
                <input type="radio" name="skill0" value="0" checked="checked"> No Modifiers 
                <input type="radio" name="skill0" value="1"> Proficient 
@@ -132,10 +131,10 @@
                <input type="radio" name="skill17" value="0" checked="checked"> No Modifiers 
                <input type="radio" name="skill17" value="1"> Proficient 
                <input type="radio" name="skill17" value="2"> Expertise</span><br/>
+               
+               <br/>
+               <div class="formSubmit"><input type="submit"></div>
            </div>
-           
-           <br/>
-           <span class="formSubmit"><input type="submit"></span>
        </form>
        
        <div id="resultsTable">

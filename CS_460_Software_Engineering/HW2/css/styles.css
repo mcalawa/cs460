@@ -53,9 +53,15 @@ nav li>a:hover {
     padding: 25px;
 }
 
+#dndColumns {
+    columns: 2;
+    column-gap: 40px;
+}
+
 table {
     border: 3px solid;
     border-color: #411;
+    break-inside: avoid-column;
 }
 
 td, th {
@@ -79,28 +85,14 @@ tr:nth-child(even) {
     background-color: #ffe;
 }
 
-form {
-    max-width: 75%;
-    min-height: 31em;
-    margin-bottom: 10px;
-}
-
 .leftHalf {
-    float: left;
     text-align: right;
-    min-height: 29em;
-    width: 50%;
+    padding: 10px;
+    break-inside: avoid-column;
 }
 
 .leftHalf input {
     margin-left: 0.5em;
-}
-
-.rightHalf {
-    float: right;
-    text-align: right;
-    min-height: 29em;
-    width: 50%;
 }
 
 .radioPro input {
@@ -111,11 +103,14 @@ form {
     margin-left: 1em;
 }
 
-.formSubmit {
+.content .leftHalf .formSubmit {
+    width: 27em;
+    text-align: center;
     float: right;
-    margin-right: 37%;
 }
 
-#resultsTable {
-    margin-left: 30%;
+.content .leftHalf .formHeader {
+    width: 27em;
+    text-align: center;
+    float: right;
 }

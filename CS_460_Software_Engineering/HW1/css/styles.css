@@ -120,17 +120,8 @@ tr:nth-child(even) {
     color: #8e44c1;
 }
 
-.col1 {
-    width: 50%;
-    float: left;
-    padding-right: 12px;
-    text-align: justify;
-}
-
-.col2 {
-    width: 50%;
-    float: right;
-    padding-left: 13px;
+.twoColumns {
+    columns: 2;
 }
 
 .tab {
