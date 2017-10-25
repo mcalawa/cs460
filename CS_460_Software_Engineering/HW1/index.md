@@ -1,5 +1,4 @@
 <!-- DOCTYPE -->
-<!DOCTYPE html>
 <html lang="en">
   <head>
     <title>CS 460 Homework 1</title>
@@ -60,10 +59,10 @@
         <h2>Some Example Git</h2>
         <p>I was a little bit intimidated by working with Git, so after initially creating the repository, I left updating it alone for a while while I had far too much fun working with HTML, CSS, and even previewing some JavaScript. However, after I got over my early nerves, Git proved to be relatively simple. So here's how you set up and update a Git repository.</p>
         
-        <code>
+        ```git
             git init
             git remote add origin https://github.com/mcalawa/senior_project.git
-        </code>
+        ```
         
         <h2>All About Lists</h2>
         <p>We were required to have at least one of each type of list. My <code><span class="htmlTag">ul</span></code> is actually my navigation with styling to remove the bullet points and made the list items appear horizontal rather than vertical.</p>
@@ -84,6 +83,21 @@
                 &thinsp;<span class="htmlTag">&lt;/nav&gt;</span>
             </code>
         </div>
+        
+        ```html
+        <nav>
+           <div class="navbar">
+              <h1>CS 460 Homework 1</h1>
+               <ul>
+                <li><a href="index.md" class="active">Home</a></li>
+                <li><a href="games.html">Games</a></li>
+                <li><a href="anime.html">Anime</a></li>
+                <li><a href="english.html">Words</a></li>
+                <li><a href="https://mcalawa.github.io/senior_project/">Portfolio Home</a></li>
+            </ul>
+           </div>
+        </nav>
+        ```
         
         <p>The nav tag marks something as navigation, while the div with the class navbar is used to apply the background color and as a wrapper to more specifically target the elements I'll be styling. The ul tag marks an unordered list and each li tag represents a list item. In this case, the list items are all links to the various pages. The main styles of note that I used for the navigation bar were <code><span class="cssElement">float</span>: <span class="cssValue">left</span>;</code>, which makes the list items float to a single line arranged from left to right, and <code><span class="cssElement">list-style</span>: <span class="cssValue">none</span>;</code>, which removes the bullet points on an unordered list. Both of these styles were applied to li tags of the class navbar.</p>
         
