@@ -7,7 +7,7 @@
     <!-- Viewport Meta Tag -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <!-- Main Style Sheet -->
     <link rel="stylesheet" href="css/styles.css">
   </head>
@@ -85,6 +85,21 @@
             </code>
         </div>
         
+        ```html
+        <nav>
+           <div class="navbar">
+            <h1>CS 460 Homework 1</h1>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li><a href="anime.html">Anime</a></li>
+                    <li><a href="english.html">Words</a></li>
+                    <li><a href="https://mcalawa.github.io/senior_project/">Portfolio Home</a></li>
+                </ul>
+            </div>
+        </nav>
+        ```
+        
         <p>The nav tag marks something as navigation, while the div with the class navbar is used to apply the background color and as a wrapper to more specifically target the elements I'll be styling. The ul tag marks an unordered list and each li tag represents a list item. In this case, the list items are all links to the various pages. The main styles of note that I used for the navigation bar were <code><span class="cssElement">float</span>: <span class="cssValue">left</span>;</code>, which makes the list items float to a single line arranged from left to right, and <code><span class="cssElement">list-style</span>: <span class="cssValue">none</span>;</code>, which removes the bullet points on an unordered list. Both of these styles were applied to li tags of the class navbar.</p>
         
         <p>The ordered list is pretty similar to the unordered list. You just use an <code><span class="htmlTag">ol</span></code> instead of a <code><span class="htmlTag">ul</span></code> and it will give you a nice numbered list instead of one will bullet points. The final type of list is a definition list. I don't think definition lists were actually a thing when I first learned HTML back in the early 2000s (my Neopets days) and then more formerly in the latter half of the first decade of the 21st century. As the name would suggest, definition lists are used for defining things. Here is an example of a definition list in action.</p>
@@ -146,12 +161,11 @@
 
     <!-- JavaScript: placed at the end of the document so the pages load faster -->
 		<!-- jQuery library -->
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 
-		<!-- Popper -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 
-		<!-- Latest compiled and minified Bootstrap JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+        <!-- Latest compiled and minified Bootstrap JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>\
   </body>
 </html>
