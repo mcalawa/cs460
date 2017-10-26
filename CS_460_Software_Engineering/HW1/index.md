@@ -1,14 +1,14 @@
---
+---
 title: CS 460 Homework 1
 layout: default
---
+---
 # CS 460 Homework 1
 
-*[Home](https://mcalawa.github.io/senior_project/CS_460_Software_Engineering/HW1/)
-*[Games](games.html)
-*[Anime](anime.html)
-*[Words](english.html)
-*[Portfolio Home](https://mcalawa.github.io/senior_project/)
+* [Home](https://mcalawa.github.io/senior_project/CS_460_Software_Engineering/HW1/)
+* [Games](games.html)
+* [Anime](anime.html)
+* [Words](english.html)
+* [Portfolio Home](https://mcalawa.github.io/senior_project/)
 
 ## General Information
 
