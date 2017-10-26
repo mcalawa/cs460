@@ -10,8 +10,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <!-- Main Style Sheet -->
     <link rel="stylesheet" href="css/styles.css">
-    
-    AddType application/x-httpd-php .php .html
   </head>
   <body>
 	
@@ -32,9 +30,7 @@
     </nav>
     
     <div class="content">
-       <?php 
-           {{partial "content.html" | print | markdownify}} 
-        ?>
+       <object data="content.html" type="text/html"></object>
     </div>
 		
     <!-- YOUR CONTENT ENDS HERE -->
