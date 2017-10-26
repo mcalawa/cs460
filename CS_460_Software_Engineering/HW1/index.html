@@ -30,10 +30,7 @@
     </nav>
     
     <div class="content">
-        <?php 
-            $contents = file_get_contents('index.md'); 
-            echo $contents;
-        ?>
+       {{partial "content.html" | print | markdownify}}
     </div>
 		
     <!-- YOUR CONTENT ENDS HERE -->
