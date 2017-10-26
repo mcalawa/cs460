@@ -1,14 +1,4 @@
 <head><link rel="stylesheet" href="css/styles.css"></head>
-
-<nav>
-    <div class="navbar">
-        <h1>CS 460 Homework 1</h1>
-        <ul>
-           <li><a href="https://mcalawa.github.io/senior_project/CS_460_Software_Engineering/HW1/" class="active">Home</a></li><li><a href="games.html">Games</a></li><li><a href="anime.html">Anime</a></li><li><a href="english.html">Words</a></li><li><a href="https://mcalawa.github.io/senior_project/">Portfolio Home</a></li>
-        </ul>
-    </div>
-</nav>
-
 ## General Information
 
 In homework 1, you must first begin by creating a Git repository. One of the main goals is to learn Git, so you should be making multiple commits as you go along. You are also required to make a website with a unified design, an example of both single column layout and two or more column formatting, a seperate CSS file with your own classes, a navigation bar/menu with links to all of your pages, at least one table, examples of `<ol>`, `<ul`, and `<dl>`, and a page with code that summarizes your process in completing the assignment.
