@@ -1,6 +1,6 @@
 ---
 title: CS 460 Homework 1
-layout: default
+layout: hw1
 ---
 # CS 460 Homework 1
 
