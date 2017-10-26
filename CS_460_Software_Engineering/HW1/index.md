@@ -4,21 +4,14 @@
     <div class="navbar">
         <h1>CS 460 Homework 1</h1>
         <ul>
-            <li><a href="https://mcalawa.github.io/senior_project/CS_460_Software_Engineering/HW1/" class="active">Home</a></li>
-            <li><a href="games.html">Games</a></li>
-            <li><a href="anime.html">Anime</a></li>
-            <li><a href="english.html">Words</a></li>
-            <li><a href="https://mcalawa.github.io/senior_project/">Portfolio Home</a></li>
+           <li><a href="https://mcalawa.github.io/senior_project/CS_460_Software_Engineering/HW1/" class="active">Home</a></li>
+           <li><a href="games.html">Games</a></li>
+           <li><a href="anime.html">Anime</a></li>
+           <li><a href="english.html">Words</a></li>
+           <li><a href="https://mcalawa.github.io/senior_project/">Portfolio Home</a></li>
         </ul>
     </div>
 </nav>
-
-# CS 460 Homework 1
-* [Home](https://mcalawa.github.io/senior_project/CS_460_Software_Engineering/HW1/)
-* [Games](games.html)
-* [Anime](anime.html)
-* [Words](english.html)
-* [Portfolio Home](https://mcalawa.github.io/senior_project/)
 
 ## General Information
 
