@@ -30,7 +30,10 @@
     </nav>
     
     <div class="content">
-       {{md 'index.md'}}
+        <?php 
+            $contents = file_get_contents('index.md'); 
+            echo $contents;
+        ?>
     </div>
 		
     <!-- YOUR CONTENT ENDS HERE -->
