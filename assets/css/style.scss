@@ -43,6 +43,11 @@ a, a:hover {
     color: #f96b5c;
 }
 
+:-webkit-any(article,aside,nav,section) :-webkit-any(article,aside,nav,section) h1 {
+    -webkit-margin-before: 0.83em;
+    -webkit-margin-after: 0.83em;
+}
+
 h1 {
     width: 100%;
     margin: 0;
