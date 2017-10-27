@@ -3,7 +3,11 @@
 
 @import "{{ site.theme }}";
 
-@import url(//fonts.googleapis.com/css?family=Patrick+Hand+SC);\
+@import url(//fonts.googleapis.com/css?family=Patrick+Hand+SC);
+
+* {
+    box-sizing: inherit;
+}
 
 body {
     color: #311;
@@ -14,6 +18,15 @@ body {
     color: #fec;
     font-family: "Patrick Hand SC";
     padding-left: 25px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+    padding-top: 0.5rem;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
     
 }
 
@@ -23,19 +36,21 @@ a, a:hover {
 
 h1 {
     width: 100%;
-    margin: 0px;
+    margin: 0;
     font-size: 200%;
     font-weight: normal;
+    line-height: 1.1;
 }
 
 h2 {
     font-family: "Patrick Hand SC";
     font-size: 150%;
     font-weight: normal;
+    line-height: 1.1;
 }
 
 nav ul {
-    display: inline;
+    margin-bottom: 0px;
 }
 
 nav li {
