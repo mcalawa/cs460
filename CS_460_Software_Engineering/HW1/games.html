@@ -249,11 +249,12 @@
             if(n === 2) {
                 sortTableByConsole();
                 return;
-            }
+            } //uses a different function because there's a table of consoles that gives the order
             
             tData = document.getElementById("tableData");
             rows = tData.getElementsByTagName("tr");
             
+            //starting with 2 because we are not sorting the headers and 1 is covered by j
             for(i = 2; i < rows.length; i++) {
                 
                 var current = i;
@@ -263,16 +264,17 @@
                 
                 while(j >= 1) {
                     if(key < rows[j].getElementsByTagName("td")[n].innerHTML.toLowerCase()) {
-                        current = j;
+                        current = j; //setting current to the row with the lowest value data that the key is lower than
                     }
                     j = j - 1;
                 }
                 
-                $(rows[i]).insertBefore(rows[current]);
+                $(rows[i]).insertBefore(rows[current]); //always done because if none of them are lower than key, current never changes and the row stays in the same place
                 
             }
         }
         
+        //same thing as the previous function, but gets its order from an array with console names in it
         function sortTableByConsole() {
             var tData, rows, key, keyIndex;
             var consoleOrder = ["Nintendo Entertainment System", "Game Boy", "Super Nintendo Entertainment System", "PlayStation", "Sega Saturn", "Nintendo 64", "Game Boy Color", "Dreamcast", "PlayStation 2", "GameCube", "Game Boy Advance", "Xbox", "Nintendo DS", "Xbox 360", "PlayStation Portable", "PlayStation 3", "Wii", "Nintendo 3DS", "PlayStation Vita", "Wii U", "PlayStation 4", "Xbox One", "Nintendo Switch"];
@@ -305,6 +307,7 @@
             }
         }
         
+        //custom function to get the key index because indexOf doesn't allow you to compare lower case versions
         function getKeyIndex(key, keyProper, order) {
             var i = $.inArray(keyProper, order);
             
