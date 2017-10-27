@@ -17,6 +17,11 @@ body {
     background-color: #fff;
 }
 
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
 .navbar {
     background-color: #f96b5c;
     color: #fec;
@@ -52,6 +57,7 @@ h2 {
     font-weight: 500;
     line-height: 1.1;
     margin-top: 0;
+    margin-bottom: .5rem;
 }
 
 nav ul {
