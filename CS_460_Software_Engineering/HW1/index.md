@@ -33,8 +33,12 @@ The homework assignment page can be found [here](//www.wou.edu/~morses/classes/c
 I was a little bit intimidated by working with Git, so after initially creating the repository, I left updating it alone for a while while I had far too much fun working with HTML, CSS, and even previewing some JavaScript. However, after I got over my early nerves, Git proved to be relatively simple. So here's how you set up and update a Git repository.
 
 ```bash
+cd Documents/School/Senior Project/Portfolio
 git init
 git remote add origin https://github.com/mcalawa/senior_project.git
+git add .
+git commit -m "Made some changes!"
+git push
 ```
 
 ## All About Lists
