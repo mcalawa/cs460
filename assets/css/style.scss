@@ -3,11 +3,7 @@
 
 @import "{{ site.theme }}";
 
-@import url(//fonts.googleapis.com/css?family=Patrick+Hand+SC);
-
-* {
-    box-sizing: content-box;
-}
+@import url(//fonts.googleapis.com/css?family=Patrick+Hand+SC);\
 
 body {
     color: #311;
@@ -39,7 +35,6 @@ h2 {
 }
 
 nav ul {
-    margin-bottom: 0px;
     display: inline;
 }
 
