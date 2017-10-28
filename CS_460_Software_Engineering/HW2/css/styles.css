@@ -49,32 +49,31 @@ nav li>a:hover {
     
 }
 
-nav li>a.active {
-    color: #ffbd9b;
-    cursor: default;
-    
-}
-
 .content {
     padding: 25px;
+}
+
+#dndColumns {
+    column-count: 2;
+    column-width: 30em;
+    column-gap: 40px;
+}
+
+#resultsTable {
+    display: flex;
+    justify-content: center;
+    break-inside: avoid-column;
 }
 
 table {
     border: 3px solid;
     border-color: #411;
+    display: block;
 }
 
 td, th {
     border: 1px solid #411;
     padding: 5px;
-}
-
-td:nth-child(2) {
-    font-style: italic;
-}
-
-td:nth-last-child(1) {
-    font-weight: bold;
 }
 
 th {
@@ -93,6 +92,38 @@ tr:nth-child(even) {
     background-color: #ffe;
 }
 
-.twoColumns {
-    columns: 2;
+#dndForm {
+    display: flex;
+    justify-content: center;
+}
+
+.leftHalf {
+    text-align: right;
+    padding: 10px;
+    break-inside: avoid-column;
+    align-items: center;
+}
+
+.leftHalf input {
+    margin-left: 0.5em;
+}
+
+.radioPro input {
+    margin-left: 0.5em;
+}
+
+.radioPro input:first-child {
+    margin-left: 1em;
+}
+
+.content .leftHalf .formSubmit {
+    width: 27em;
+    text-align: center;
+    float: right;
+}
+
+.content .leftHalf .formHeader {
+    width: 27em;
+    text-align: center;
+    float: right;
 }

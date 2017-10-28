@@ -1,0 +1,160 @@
+<!-- DOCTYPE -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CS 460 Homework 2</title>
+    <meta charset="utf-8">
+    <!-- Viewport Meta Tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+	
+	
+    <!-- YOUR CONTENT STARTS HERE -->
+    
+    <nav>
+       <div class="navbar">
+          <h1>CS 460 Homework 2</h1>
+          <ul>
+              <li><a href="https://mcalawa.github.io/senior_project/CS_460_Software_Engineering/HW2/">Home</a></li>
+              <li><a href="dnd.html">D&amp;D Skill Calculator</a></li>
+              <li><a href="https://mcalawa.github.io/senior_project/">Portfolio Home</a></li>
+          </ul>
+       </div>
+    </nav>
+    
+    <div class="content" id="dndColumns">
+       
+       <form id="dndForm">
+           <div class="leftHalf">
+               <div class="formHeader"><h2>Calculate Your Skill Modifers by Level</h2></div><br/><br/>
+               Strength <input type="number" name="str" id="str"><br/>
+               Dexterity <input type="number" name="dex" id="dex"><br/>
+               Constitution <input type="number" name="con" id="con"><br/>
+               Intelligence <input type="number" name="int" id="int"><br/>
+               Wisdom <input type="number" name="wis" id="wis"><br/>
+               Charisma <input type="number" name="cha" id="cha"><br/>
+               <br/>
+               
+               <span id="entryError"></span>
+               
+               <span class="radioPro">Acrobatics 
+               <input type="radio" name="skill0" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill0" value="1"> Proficient 
+               <input type="radio" name="skill0" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Animal Handling 
+               <input type="radio" name="skill1" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill1" value="1"> Proficient 
+               <input type="radio" name="skill1" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Arcana 
+               <input type="radio" name="skill2" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill2" value="1"> Proficient 
+               <input type="radio" name="skill2" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Athletics 
+               <input type="radio" name="skill3" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill3" value="1"> Proficient 
+               <input type="radio" name="skill3" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Deception 
+               <input type="radio" name="skill4" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill4" value="1"> Proficient 
+               <input type="radio" name="skill4" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">History 
+               <input type="radio" name="skill5" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill5" value="1"> Proficient 
+               <input type="radio" name="skill5" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Insight 
+               <input type="radio" name="skill6" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill6" value="1"> Proficient 
+               <input type="radio" name="skill6" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Intimidation 
+               <input type="radio" name="skill7" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill7" value="1"> Proficient 
+               <input type="radio" name="skill7" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Investigation 
+               <input type="radio" name="skill8" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill8" value="1"> Proficient 
+               <input type="radio" name="skill8" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Medicine 
+               <input type="radio" name="skill9" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill9" value="1"> Proficient 
+               <input type="radio" name="skill9" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Nature 
+               <input type="radio" name="skill10" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill10" value="1"> Proficient 
+               <input type="radio" name="skill10" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Perception 
+               <input type="radio" name="skill11" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill11" value="1"> Proficient 
+               <input type="radio" name="skill11" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Performance 
+               <input type="radio" name="skill12" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill12" value="1"> Proficient 
+               <input type="radio" name="skill12" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Persuasion 
+               <input type="radio" name="skill13" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill13" value="1"> Proficient 
+               <input type="radio" name="skill13" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Religion 
+               <input type="radio" name="skill14" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill14" value="1"> Proficient 
+               <input type="radio" name="skill14" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Slight of Hand 
+               <input type="radio" name="skill15" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill15" value="1"> Proficient 
+               <input type="radio" name="skill15" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Stealth 
+               <input type="radio" name="skill16" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill16" value="1"> Proficient 
+               <input type="radio" name="skill16" value="2"> Expertise</span><br/>
+               
+               <span class="radioPro">Survival 
+               <input type="radio" name="skill17" value="0" checked="checked"> No Modifiers 
+               <input type="radio" name="skill17" value="1"> Proficient 
+               <input type="radio" name="skill17" value="2"> Expertise</span><br/>
+               
+               <br/>
+               <div class="formSubmit"><input type="submit"></div>
+           </div>
+       </form>
+       
+       <div id="resultsTable">
+       </div>
+        
+    </div>
+		
+    <!-- YOUR CONTENT ENDS HERE -->
+
+
+    <!-- JavaScript: placed at the end of the document so the pages load faster -->
+		<!-- jQuery library -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+		<!-- Popper -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
+		<!-- Latest compiled and minified Bootstrap JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+		
+		<script src="javascript/script.js"></script>
+  </body>
+</html>
