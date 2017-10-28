@@ -52,6 +52,7 @@ Therefore, I decided to use number inputs for the ability scores (I included all
 </form>
 ```
 
+
 The form has an id so that it can be easily called in Javascript. The surrounding `div`, leftHalf, is used to wrap all of the contents because I wanted to put the form and its output in two different columns and I didn't want the form to get cut in half to fit in the two columns prior to the results being output. To accomplish this, I used the CSS `{break-inside: avoid-column;}` to keep it all in a single column. 
 
 As you can see, the `input` types I used were `number`, `radio`, and `submit`. The `number` inputs have both a `name` and an `id` for identification purposes, while the `radio` inputs have a `name` for identification purposes (and to mark them as a group) and a `value` that functions as the multiplier for your proficiency bonus. Additionally, I made the radio button that indicated you weren't proficient in a skill prechecked so that there was one less thing that needed error checking.
@@ -63,7 +64,8 @@ Speaking of error checking, I also have a span for outputting an error message s
 Deciding what Javascript you should use means that you first need to decide what your output is going to look like. I knew I was going to want one column for the skill name and then another column for levels 1-4 (the levels before your proficiency bonus increases for the first time) and then another column for each 4 levels after that. Once I had decided that, I started with creating a few constants. 
 
 ```javascript
-const skillName = ["Acrobatics", "Animal Handling", "Arcana", "Athletics", "Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", "Performance", "Persuasion", "Religion", "Slight of Hand", "Stealth", "Survival"];
+const skillName = ["Acrobatics", "Animal Handling", "Arcana", "Athletics", "Deception", "History", "Insight", "Intimidation", "Investigation", 
+"Medicine", "Nature", "Perception", "Performance", "Persuasion", "Religion", "Slight of Hand", "Stealth", "Survival"];
 //the name of each skill so I can for loop my output instead of having to write it manually
 
 const skillAbility = [1, 3, 2, 0, 4, 2, 3, 4, 2, 3, 2, 3, 4, 4, 4, 2, 1, 1, 3]; //the array index of the ability score modifier that affects each skill
@@ -122,6 +124,7 @@ $("#dndForm").submit(function (event) {
 });
 ```
 
+
 As you can see, this function calls a couple of other functions. The function used to turn ability scores into ability score modifiers, getStatMod, is very simple with just a large if/if else/else statement, so I won't be showing it. Instead I will share the function I create and return a table to display the calculated data with, skillTable.
 
 ```javascript
@@ -177,5 +180,6 @@ function skillTable(abilityMod, proMultiplier) {
     return tab; //return the table we created so it can be posted
 }
 ```
+
 
 And that is a working stat calculator for your D&D skill modifiers! As I said, there are other things that can affect skill modifiers, so if I had more time I could make this much more complicated, but this is the simple version that matches the assignment criteria of "not too complicated."
