@@ -1,0 +1,97 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+@import url(//fonts.googleapis.com/css?family=Patrick+Hand+SC);
+
+* {
+    box-sizing: inherit;
+}
+
+body {
+    color: #311;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    background-color: #fff;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.navbar {
+    background-color: #f96b5c;
+    color: #fec;
+    font-family: "Patrick Hand SC";
+    padding-left: 25px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+    
+}
+
+a, a:hover {
+    color: #f96b5c;
+}
+
+h1 {
+    width: 100%;
+    margin: 0;
+    font-size: 200%;
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h2 {
+    font-family: "Patrick Hand SC";
+    font-size: 150%;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-top: 0;
+    margin-bottom: .5rem;
+}
+
+nav ul {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+nav li {
+    list-style-type: none;
+    float: left;
+    margin-right: 35px;
+    font-size: 120%;
+}
+
+nav li>a {
+    color: #411;
+    
+}
+
+nav li>a:hover {
+    text-decoration: none;
+    color: #fec;
+    
+}
+
+nav li>a.active {
+    color: #ffbd9b;
+    cursor: default;
+    
+}
+
+.content {
+    padding: 25px;
+}

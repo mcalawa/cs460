@@ -54,14 +54,21 @@ nav li>a:hover {
 }
 
 #dndColumns {
-    columns: 2;
+    column-count: 2;
+    column-width: 30em;
     column-gap: 40px;
+}
+
+#resultsTable {
+    display: flex;
+    justify-content: center;
+    break-inside: avoid-column;
 }
 
 table {
     border: 3px solid;
     border-color: #411;
-    break-inside: avoid-column;
+    display: block;
 }
 
 td, th {
@@ -85,10 +92,16 @@ tr:nth-child(even) {
     background-color: #ffe;
 }
 
+#dndForm {
+    display: flex;
+    justify-content: center;
+}
+
 .leftHalf {
     text-align: right;
     padding: 10px;
     break-inside: avoid-column;
+    align-items: center;
 }
 
 .leftHalf input {

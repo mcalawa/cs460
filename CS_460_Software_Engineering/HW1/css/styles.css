@@ -93,37 +93,6 @@ tr:nth-child(even) {
     background-color: #ffe;
 }
 
-.htmlCode, .cssCode, .gitCode {
-    background-color: #f8f9fa;
-    padding: 10px;
-    border-radius: 15px;
-    border: solid 1px #411;
-    color: #000;
-    line-height: 1.25em;
-    max-width: 70em;
-    margin-bottom: 10px;
-}
-
-.htmlTag {
-    color: #054681;
-}
-
-.htmlClass, .cssMeasure {
-    color: #3a6508;
-}
-
-.htmlName, .cssValue {
-    color: #ff9715;
-}
-
-.cssElement {
-    color: #8e44c1;
-}
-
 .twoColumns {
     columns: 2;
-}
-
-.tab {
-    padding-left: 3em;
 }
