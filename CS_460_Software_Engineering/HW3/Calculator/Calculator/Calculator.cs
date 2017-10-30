@@ -103,5 +103,43 @@ namespace Calculator
 
             return ((double)(Stack.Pop())).ToString();
         }
+
+        public double DoOperation(double a, double b, string s)
+        {
+            double c = 0.0;
+            if(s.Equals("+"))
+            {
+                c = a + b;
+            }
+            else if(s.Equals("-"))
+            {
+                c = a - b;
+            }
+            else if(s.Equals("*"))
+            {
+                c = a * b;
+            }
+            else if(s.Equals("/"))
+            {
+                try
+                {
+                    c = a / b;
+                    if(double.IsInfinity(c))
+                    {
+                        throw new ArithmeticException("Can't divide by zero");
+                    }
+                }
+                catch(ArithmeticException e)
+                {
+                    throw new FormatException(e.Message);
+                }
+            }
+            else
+            {
+                throw new FormatException("Improper operator: " + s + ", is not one of +, -, *, or /");
+            }
+
+            return c;
+        }
     }
 }
