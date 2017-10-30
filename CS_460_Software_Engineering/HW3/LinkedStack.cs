@@ -15,27 +15,45 @@ namespace Calculator
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            Top = null;
         }
 
         public bool IsEmpty()
         {
-            throw new NotImplementedException();
+            return Top == null;
         }
 
         public object Peek()
         {
-            throw new NotImplementedException();
+            if(IsEmpty())
+            {
+                return null;
+            }
+
+            return Top.Data;
         }
 
         public object Pop()
         {
-            throw new NotImplementedException();
+            if (IsEmpty())
+            {
+                return null;
+            }
+
+            object TopItem = Top.Data;
+            Top = Top.Next;
+            return TopItem;
         }
 
         public object Push(object NewItem)
         {
-            throw new NotImplementedException();
+            if(NewItem == null)
+            {
+                return null;
+            }
+
+            Node NewNode = new Node(NewItem, Top);
+            return NewItem;
         }
     }
 }
