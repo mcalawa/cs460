@@ -12,7 +12,7 @@ namespace Calculator
 	     * to the item pushed so that an anonymous object can be pushed and then used.
 	     * @param newItem The object to push onto the top of the stack.  Should not be null
 	     * @return A reference to the object that was pushed, or null if newItem == null*/
-        object Push(object NewItem);
+        object Push(object newItem);
 
         /*Remove and return the top item on the stack. This operation should 
 	     * result in an error if the stack is empty. Returns a reference to the 

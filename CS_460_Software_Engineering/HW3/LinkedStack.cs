@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Calculator
 {
-    class LinkedStack : IStackADT
+    public class LinkedStack : IStackADT
     {
         private Node Top;
 
@@ -34,20 +34,20 @@ namespace Calculator
                 return null;
             }
 
-            object TopItem = Top.Data;
+            object topItem = Top.Data;
             Top = Top.Next;
-            return TopItem;
+            return topItem;
         }
 
-        public object Push(object NewItem)
+        public object Push(object newItem)
         {
-            if(NewItem == null)
+            if(newItem == null)
             {
                 return null;
             }
 
-            Node NewNode = new Node(NewItem, Top);
-            return NewItem;
+            Node newNode = new Node(newItem, Top);
+            return newItem;
         }
     }
 }

@@ -9,22 +9,10 @@ namespace Calculator
 {
     public class Node
     {
-        private object data; //the payload
-        private Node next; //reference to the next Node in the chain
+        public object Data;
+        public Node Next;
 
-        public Node()
-        {
-            Data = null;
-            Next = null;
-        }
-
-        public Node(object data, Node next)
-        {
-            Data = data;
-            Next = next;
-        }
-
-        public Node Next { get => next; set => next = value; }
-        public object Data { get => data; set => data = value; }
+        public Node () { Data = null; Next = null; }
+        public Node (object data, Node next) { Data = data; Next = next; }
     }
 }
