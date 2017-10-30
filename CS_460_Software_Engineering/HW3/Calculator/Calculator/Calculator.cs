@@ -65,16 +65,18 @@ namespace Calculator
             // Clear our stack before doing a new calculation
             Stack.Clear();
 
-            StringReader reader = new StringReader(input);
-            while(reader.Peek() >= 0)
-            {
-
-            }
-
-            string s;
+            string[] s;
             double a;
             double b;
             double c;
+
+            StringReader reader = new StringReader(input);
+            s = reader.ReadToEnd().Split(' ');
+            int length = s.Length;
+            for(int i = 0; i < length; i++)
+            {
+
+            }
 
             return "";
         }
