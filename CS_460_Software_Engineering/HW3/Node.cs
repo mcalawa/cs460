@@ -18,10 +18,10 @@ namespace Calculator
             Next = null;
         }
 
-        public Node(object Data, Node Next)
+        public Node(object data, Node next)
         {
-            this.Data = Data;
-            this.Next = Next;
+            Data = data;
+            Next = next;
         }
     }
 }
