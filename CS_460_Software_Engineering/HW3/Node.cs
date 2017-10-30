@@ -9,8 +9,8 @@ namespace Calculator
 {
     public class Node
     {
-        public object Data; //the payload
-        public Node Next; //reference to the next Node in the chain
+        private object data; //the payload
+        private Node next; //reference to the next Node in the chain
 
         public Node()
         {
@@ -23,5 +23,8 @@ namespace Calculator
             Data = data;
             Next = next;
         }
+
+        public Node Next { get => next; set => next = value; }
+        public object Data { get => data; set => data = value; }
     }
 }

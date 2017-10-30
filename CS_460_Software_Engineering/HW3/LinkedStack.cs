@@ -8,15 +8,9 @@ namespace Calculator
     {
         private Node Top;
 
-        public LinkedStack()
-        {
-            Top = null;
-        }
+        public LinkedStack() => Top = null;
 
-        public void Clear()
-        {
-            Top = null;
-        }
+        public void Clear() => Top = null;
 
         public bool IsEmpty()
         {
