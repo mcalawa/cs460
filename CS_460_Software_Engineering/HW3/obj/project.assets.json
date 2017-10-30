@@ -673,9 +673,9 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\melis\\OneDrive\\Documents\\School\\Computer Science\\Senior Project\\Portfolio\\GitHub\\senior_project\\CS_460_Software_Engineering\\HW3\\HW3\\HW3\\HW3.csproj",
-      "projectName": "HW3",
-      "projectPath": "C:\\Users\\melis\\OneDrive\\Documents\\School\\Computer Science\\Senior Project\\Portfolio\\GitHub\\senior_project\\CS_460_Software_Engineering\\HW3\\HW3\\HW3\\HW3.csproj",
+      "projectUniqueName": "C:\\Users\\melis\\OneDrive\\Documents\\School\\Computer Science\\Senior Project\\Portfolio\\GitHub\\senior_project\\CS_460_Software_Engineering\\HW3\\HW3\\HW3\\Calculator.csproj",
+      "projectName": "Calculator",
+      "projectPath": "C:\\Users\\melis\\OneDrive\\Documents\\School\\Computer Science\\Senior Project\\Portfolio\\GitHub\\senior_project\\CS_460_Software_Engineering\\HW3\\HW3\\HW3\\Calculator.csproj",
       "packagesPath": "C:\\Users\\melis\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\melis\\OneDrive\\Documents\\School\\Computer Science\\Senior Project\\Portfolio\\GitHub\\senior_project\\CS_460_Software_Engineering\\HW3\\HW3\\HW3\\obj\\",
       "projectStyle": "PackageReference",
