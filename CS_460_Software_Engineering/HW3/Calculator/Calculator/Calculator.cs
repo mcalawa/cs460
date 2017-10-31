@@ -14,7 +14,6 @@ namespace Calculator
 	     *  Our data structure, used to hold operands for the postfix calculation.
 	     */
         private IStackADT Stack = new LinkedStack();
-        private TextReader Text = Console.In;
 
         static void Main(string[] args)
         {
@@ -35,7 +34,7 @@ namespace Calculator
             string input = "2 2 +";
             Console.Write("> "); //prompt user
 
-            input = Text.ReadLine();
+            input = Console.ReadLine();
 
             // See if the user wishes to quit
             if(input.StartsWith("q") || input.StartsWith("Q"))
@@ -48,7 +47,7 @@ namespace Calculator
             {
                 output = EvaluatePostFixInput(input);
             }
-            catch( FormatException e )
+            catch( Exception e )
             {
                 output = e.Message;
             }
@@ -61,7 +60,7 @@ namespace Calculator
         {
             if(input == null || input.Equals(""))
             {
-                throw new FormatException("Null or the empty string are not valid postfix expressions.");
+                throw new NullReferenceException("Null or the empty string are not valid postfix expressions.");
             }
             // Clear our stack before doing a new calculation
             Stack.Clear();
@@ -78,7 +77,7 @@ namespace Calculator
             {
                 if(double.TryParse(s[i], out a))
                 {
-                    Stack.Push(double.Parse(s[i])); // if it's a number push it on the stack
+                    Stack.Push((object)double.Parse(s[i])); // if it's a number push it on the stack
                 }
                 else
                 {
@@ -98,6 +97,9 @@ namespace Calculator
                         throw new FormatException("Improper input format. Stack became empty when expecting second operand.");
                     }
                     a = ((double)(Stack.Pop()));
+                    // Wrap up all operations in a single method, easy to add other binary operators this way if desired
+                    c = DoOperation(a, b, s[i]);
+                    Stack.Push((double)c);
                 }
             }
 
