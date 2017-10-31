@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-/*Interface defining a stack
+﻿/*Interface defining a stack
  * Adapted from Java code written by Scot Morse*/
 
 namespace Calculator
 {
-    interface IStackADT
+    public interface IStackADT
     {
         /*Push an item onto the top of the stack. Pushing an object that 
 	     * doesn’t exist should result in an error and should not succeed.

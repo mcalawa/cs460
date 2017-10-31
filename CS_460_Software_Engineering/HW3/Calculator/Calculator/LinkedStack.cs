@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-/*A singlely-linked stack implementation
+﻿/*A singlely-linked stack implementation
  Adapted from Java code written by Scot Morse*/
 
 namespace Calculator

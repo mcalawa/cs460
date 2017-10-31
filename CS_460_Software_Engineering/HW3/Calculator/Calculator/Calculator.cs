@@ -23,7 +23,7 @@ namespace Calculator
 	     *
 	     *@param  args  The command line arguments
 	     */
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             // Instantiate a "Main" object so we don't have to make everything static
             Calculator app = new Calculator();

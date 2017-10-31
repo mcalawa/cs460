@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-/*A simple singlely-linked Node class. 
+﻿/*A simple singly-linked Node class. 
  * Adapted from Java code written by Scot Morse.*/
 
 namespace Calculator
