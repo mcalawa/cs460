@@ -21,7 +21,7 @@ namespace Calculator
             Calculator app = new Calculator();
             bool playAgain = true;
 
-            Console.WriteLine("\nPostfix Calculator.Recognizes these operators: +-* / ");
+            Console.WriteLine("\nPostfix Calculator.Recognizes these operators: + - * / ");
             while (playAgain)
             {
                 playAgain = app.DoCalculation();
@@ -33,7 +33,7 @@ namespace Calculator
         {
             Console.WriteLine("Please enter q to quit\n");
             string input = "2 2 +";
-            Console.WriteLine("> "); //prompt user
+            Console.Write("> "); //prompt user
 
             input = Text.ReadLine();
 
@@ -46,11 +46,11 @@ namespace Calculator
             string output = "4";
             try
             {
-
+                output = EvaluatePostFixInput(input);
             }
             catch( FormatException e )
             {
-                e.ToString();
+                output = e.Message;
             }
 
             Console.WriteLine("\n\t>>> " + input + " = " + output);

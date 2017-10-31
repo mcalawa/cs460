@@ -23,6 +23,7 @@ namespace Calculator
             }
 
             Node newNode = new Node(newItem, Top);
+            Top = newNode;
             return newItem;
         }
 
