@@ -11,9 +11,9 @@ namespace Calculator
 {
     public class LinkedStack : IStackADT
     {
-        private Node Top;
+        private Node top;
 
-        public LinkedStack() => Top = null; //empty stack condition
+        public LinkedStack() => top = null; //empty stack condition
 
         public object Push(object newItem)
         {
@@ -22,8 +22,8 @@ namespace Calculator
                 return null;
             }
 
-            Node newNode = new Node(newItem, Top);
-            Top = newNode;
+            Node newNode = new Node(newItem, top);
+            top = newNode;
             return newItem;
         }
 
@@ -34,8 +34,8 @@ namespace Calculator
                 return null;
             }
 
-            object topItem = Top.Data;
-            Top = Top.Next;
+            object topItem = top.Data;
+            top = top.Next;
             return topItem;
         }
 
@@ -46,14 +46,14 @@ namespace Calculator
                 return null;
             }
 
-            return Top.Data;
+            return top.Data;
         }
 
         public bool IsEmpty()
         {
-            return Top == null;
+            return top == null;
         }
 
-        public void Clear() => Top = null;
+        public void Clear() => top = null;
     }
 }
