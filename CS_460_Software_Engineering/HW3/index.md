@@ -172,7 +172,9 @@ From there, the rest of the code is pretty much the same other than the minor ch
 Here are some screenshots of the final C# program running. I used the same inputs as I did for the original Java program and the output is identical in each case:
 
 ![The C# program making calculations](images/csharp_equations.PNG)
+
 Here's the C# program calculating inputs...
 
 ![The C# program printing error messages and being closed](images/csharp_exceptions.PNG)
+
 ...and the C# program printing error messages and being closed.
