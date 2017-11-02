@@ -64,7 +64,7 @@ I rewrote the interface next because it needs to exist in order to be used by th
 
 ## The LinkedStack Class
 
-The LinkedStack class implements the interface outlined in the previous step. Similar to the rest of the files thus far, it requires only minor changes, mostly having to do with the inclusion of the namespace and various differences in capitalization. The biggest change is probably the way interfaces are implemented as C# uses the syntax `public class LinkedStack : IStackADT` rather than Java's `public class LinkedStack implements StackADT`. Finally, C# allows for expression body definitions, which are shorthand method definitions for constructors, finalizers, indexers, and get and sets using the `=>` operator. Using this syntax, the Java code
+The LinkedStack class implements the interface outlined in the previous step. Similar to the rest of the files thus far, it requires only minor changes, mostly having to do with the inclusion of the namespace and various differences in capitalization. The biggest change is probably the way interfaces are implemented as C# uses the syntax `public class LinkedStack : IStackADT` rather than Java's `public class LinkedStack implements StackADT`. Luckily, C# has garbage collection (this was a big relief for me since I have a background in C++ and manual deallocation makes everything more complicated), so even the Clear() method can stay the same aside from a limited amount of formatting. Finally, C# allows for expression body definitions, which are shorthand method definitions for constructors, finalizers, indexers, and get and sets using the `=>` operator. Using this syntax, the Java code
 
 ```java
 public LinkedStack()
@@ -76,4 +76,103 @@ becomes `public LinkedStack() => top = null; //empty stack condition`.
 
 ## The Calculator Class
 
-The Calculator class is where the real meat of the changes can be found. Some of these changes are the same type of changes you see in the other files: including the namespace, differences in capitalization, and slight changes in syntax such as loading outside files with `using` rather than `import`, printing output with `Console.WriteLine()` rather than `System.out.println()`, using `bool` rather than `boolean`, and throwing the errors `NullReferenceException` and `FormatException` rather than `IllegalArgumentException`. The programs only become noticably different in the EvaluatePostFixInput method. 
+The Calculator class is where the real meat of the changes can be found. Some of these changes are the same type of changes you see in the other files: including the namespace, differences in capitalization, and slight changes in syntax such as loading outside files with `using` rather than `import`, printing output with `Console.WriteLine()` rather than `System.out.println()`, using `bool` rather than `boolean`, and throwing the errors `NullReferenceException` and `FormatException` rather than `IllegalArgumentException`. 
+
+The most notable difference between the Java and C# versions is the way the user input is handled. The Java version of the Calculator class gets and reads user input with a global Scanner variable that has `System.in` as its source. This variable is named scin. This proved to be the most difficult aspect of the program to write in C#, as I learned that C# doesn't have a Scanner class already built in. 
+
+```java
+System.out.println("Please enter q to quit\n");
+String input = "2 2 +";
+System.out.print("> ");			// prompt user
+	
+input = scin.nextLine();
+```
+The above code from the doCalculation method in the Java version of the Calculator class illustrates how the program receives its input from the user. The data from the Scanner is used to populate a String. This is the only place scin is used in the program. Every other method that uses the data from scin gets it by passing the String input as a parameter. In fact, the evaluatePostFixInput method actually creates a new local Scanner with the input String it was passed as its source. Clearly, there was no good reason why you needed a global variable to store your input or why that input had to be received by a Scanner. Instead, the input is assigned to a string that is a local variable in the DoCalculation method like so:
+```cs
+Console.WriteLine("Please enter q to quit\n");
+string input = "2 2 +";
+Console.Write("> "); //prompt user
+
+input = Console.ReadLine(); 
+```
+
+In both versions, the string input is then passed to another method, where it is first error checked to make sure the string isn't empty or null. If neither of those are true, the Java code continues to check the input with the following code:
+```java
+Scanner st = new Scanner( input );
+while( st.hasNext() )
+{
+    if( st.hasNextDouble() )
+    {
+        stack.push( new Double( st.nextDouble() ) );	// if it's a number push it on the stack
+    }
+    else
+    {
+        // Must be an operator or some other character or word.
+        s = st.next();
+        if( s.length() > 1 )
+            throw new IllegalArgumentException("Input Error: " + s + " is not an allowed number or operator");
+        // it may be an operator so pop two values off the stack and perform the indicated operation
+        if( stack.isEmpty() )
+            throw new IllegalArgumentException( "Improper input format. Stack became empty when expecting second operand." );
+        b = ( (Double)( stack.pop() ) ).doubleValue();
+        if( stack.isEmpty() )
+            throw new IllegalArgumentException( "Improper input format. Stack became empty when expecting first operand." );
+        a = ( (Double)( stack.pop() ) ).doubleValue();
+        // Wrap up all operations in a single method, easy to add other binary operators this way if desired
+        c = doOperation( a, b, s );
+        // push the answer back on the stack
+        stack.push( new Double( c ) );
+    }
+}// End while
+```
+As you can see, the Java code uses a Scanner with the input String as its source to traverse through the content of the string, seperating it into different parts and examining each part in turn. While C# doesn't have a Scanner class built in, it has several classes that have some similar functions. They are in System.IO and include TextReader, StreamReader, and StringReader. I used the StringReader class for obvious reasons. There are some major differences between Java's Scanner class and C#'s StringReader that change the way you use them. For example, StringReader doesn't have a hasNext, hasNextDouble, or even a next method. StringReader can read one character at a time, a certain number of characters that you specify, the whole line, or until the end of the string. Obviously none of these work perfectly for what we are trying to do since you could have numbers that are multiple digits and there's no way of knowing the number of characters a user is going to enter head of time. The fact that's no method to tell you when a string is finished and no way to tell the type of data a character is when reading makes things more complicated. Luckily, I was able to figure out some workarounds to use in my C# code.
+
+```cs
+StringReader reader = new StringReader(input); //used to read the input in place of a scanner
+s = reader.ReadToEnd().Split(new [] { ' ', '\t'}, StringSplitOptions.RemoveEmptyEntries); 
+//seperates all the different parts of the string into an array with one word per index
+int length = s.Length; //how many array elements we have
+for(int i = 0; i < length; i++)
+{
+    if(double.TryParse(s[i], out a)) //TryParse returns t/f and Parse returns a double or throws an exception
+    {
+        stack.Push(double.Parse(s[i])); // if it's a number, push it on the stack
+    }
+    else
+    {
+        // Must be an operator or some other character or word.
+        if (s[i].Length > 1)
+        {
+            throw new FormatException("Input Error: " + s[i] + " is not an allowed number or operator");
+        }
+        // it may be an operator so pop two values off the stack and perform the indicated operation
+        if(stack.IsEmpty())
+        {
+            throw new FormatException("Improper input format. Stack became empty when expecting second operand.");
+        }
+        b = ((double)(stack.Pop())); //set to b because order matters if we are doing subtraction or division
+        if (stack.IsEmpty())
+        {
+            throw new FormatException("Improper input format. Stack became empty when expecting second operand.");
+        }
+        a = ((double)(stack.Pop()));
+        // Wrap up all operations in a single method, easy to add other binary operators this way if desired
+        c = DoOperation(a, b, s[i]); //get the result of the operation 
+        // push the answer back on the stack
+        stack.Push((double)c);
+    }
+} //end for
+```
+After making a StringReader for the input string we are working with, I tell the reader to read from it until the end of the string and then split it into seperate parts by spaces or tab. I also used a split option that removes all the whitespace entries, which means it still works properly should someone seperate things by multiple spaces. In this case, s is a string array rather than a single string like it was in the Java code. Since we are working with something that has a set size, it makes more sense to use a for loop rather than a while loop. The next challenge is to figure out how to tell whether or not each piece of the input is a double. C# has two methods that are perfect for the job: TryParse and Parse. These are both made to be used with doubles and the difference between them is how they handle something that isn't a double. Parse throws an exception if you pass it something that it can't parse. This is not desirable behavior in this case since there are parts of the input that aren't doubles which are valid. This is where the method TryParse comes in. TryParse returns a bool that will be true if what you passed it can be parsed to a double and will be false otherwise. Therefore, anything that returns true is safe to use parse on, giving us a perfect if condition that works just as well as Java's hasNextDouble.
+
+From there, the rest of the code is pretty much the same other than the minor changes already mentioned other than the fact that I decided to streamline the `if( c == Double.NEGATIVE_INFINITY || c == Double.POSITIVE_INFINITY )` from the original code into `if (double.IsInfinity(c))` since C# already has a method that will return true if either of those or conditions from the Java are true. Neat!
+
+## The Final Product
+
+Here are some screenshots of the final C# program running. I used the same inputs as I did for the original Java program and the output is identical in each case:
+
+![The C# program making calculations](/images/csharp_equations.png)
+Here's the C# program calculating inputs...
+
+![The C# program printing error messages and being closed](/images/csharp_exceptions.png)
+...and the C# program printing error messages and being closed.

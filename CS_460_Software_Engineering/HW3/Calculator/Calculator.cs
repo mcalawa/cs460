@@ -96,21 +96,21 @@ namespace Calculator
             double c; // ...for answer
 
             StringReader reader = new StringReader(input); //used to read the input in place of a scanner
-            s = reader.ReadToEnd().Split(' '); 
+            s = reader.ReadToEnd().Split(new [] { ' ', '\t'}, StringSplitOptions.RemoveEmptyEntries); 
             //seperates all the different parts of the string into an array with one word per index
             int length = s.Length; //how many array elements we have
             for(int i = 0; i < length; i++)
             {
                 if(double.TryParse(s[i], out a)) //TryParse returns t/f and Parse returns a double or throws an exception
                 {
-                    stack.Push((object)double.Parse(s[i])); // if it's a number, push it on the stack
+                    stack.Push(double.Parse(s[i])); // if it's a number, push it on the stack
                 }
                 else
                 {
                     // Must be an operator or some other character or word.
                     if (s[i].Length > 1)
                     {
-                        throw new FormatException("Input Error: " + s + " is not an allowed number or operator");
+                        throw new FormatException("Input Error: " + s[i] + " is not an allowed number or operator");
                     }
                     // it may be an operator so pop two values off the stack and perform the indicated operation
                     if(stack.IsEmpty())
