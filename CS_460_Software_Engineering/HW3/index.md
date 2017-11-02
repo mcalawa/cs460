@@ -12,11 +12,11 @@ The Java files we were given were written by our instructor, Scot Morse. The pro
 
 When you run the program, it will prompt you to enter what you want calculated. Any calculation you want to do must be written on one line, but multiple operations can be performed. A calculation must start with two numbers and an operator, but after that, there are multiple combinations of numbers and operators that are valid. The below image gives at least one example of each operator, plus two more complicated equations to calculate the 6th number in the Fibbonaci sequence and the number of days in a year:
 
-![The original Java program making calculations](images/java_equations.png)
+![The original Java program making calculations](images/java_equations.PNG)
 
 In addition, the program will give you error messages should you input the wrong thing and will print a farewell when you quit the program:
 
-![The original Java program printing error messages and being closed](images/java_exceptions.png)
+![The original Java program printing error messages and being closed](images/java_exceptions.PNG)
 
 ## The Node Class
 
@@ -171,8 +171,8 @@ From there, the rest of the code is pretty much the same other than the minor ch
 
 Here are some screenshots of the final C# program running. I used the same inputs as I did for the original Java program and the output is identical in each case:
 
-![The C# program making calculations](images/csharp_equations.png)
+![The C# program making calculations](images/csharp_equations.PNG)
 Here's the C# program calculating inputs...
 
-![The C# program printing error messages and being closed](images/csharp_exceptions.png)
+![The C# program printing error messages and being closed](images/csharp_exceptions.PNG)
 ...and the C# program printing error messages and being closed.
