@@ -50,6 +50,6 @@ nav li > a:hover {
     padding: 25px;
 }
 
-.restOfDate {
+#restOfDate {
     visibility: hidden;
 }

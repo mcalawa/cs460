@@ -4,14 +4,14 @@
 }
 
 <div class="content">
-    <form action="/Home/Page1Form" method="get" id="page1Form">
+    <form action="/Home/Page1Result" method="get" id="page1Form">
         What shall I call you?<br/>
-        <input type="text" name="firstname" class="firstname" />
+        <input type="text" name="firstname" id="firstname" />
         <br/><br />
         When were you born?<br/>
-        Year: <input type="number" name="year" class="year" /><br />
-        <div class="restOfDate">Month: 
-            <select class="month" name="month">
+        Year: <input type="number" name="year" id="year" /><br />
+        <div id="restOfDate">Month: 
+            <select name="month" id="month">
                 <option value="1" selected>January</option>
                 <option value="2">February</option>
                 <option value="3">March</option>
@@ -25,41 +25,42 @@
                 <option value="11">November</option>
                 <option value="12">December</option>
             </select><br />
-            Day: 
-            <select id="days" name="day">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-                <option value="21">21</option>
-                <option value="22">22</option>
-                <option value="23">23</option>
-                <option value="24">24</option>
-                <option value="25">25</option>
-                <option value="26">26</option>
-                <option value="27">27</option>
-                <option value="28">28</option>
-                <option value="29">29</option>
-                <option value="30">30</option>
-                <option value="31">31</option>
-            </select>
-        </div>
+           <div id="daysContainer">
+                Day: <select name="day" id="days">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                </select>
+            </div>
+        </div><br/>
 
         <input type="submit" id="submitForm" disabled />
     </form>
@@ -78,57 +79,62 @@
 <script>
         function dayOfMonth(numOfDays) {
             "use strict";
-            $("#days").empty();
 
-            var start = $(""); //what we're connecting the options to
+            var sel = $('<select id="days" name="day">'); //what we're connecting the options to
             var opt = null;
             for (var i = 1; i <= numOfDays; i++) {
-                opt = $("<option value=\"" + numOfDays + "\">").html(numOfDays);
-                opt.appendTo(start);
+                opt = $('<option value="' + i + '">').html(i);
+                opt.appendTo(sel);
             }
 
-            $("#days").append(start);
+            return sel;
         }
 
-        $("#page1Form .year").on("change", function () {
-            if ($(this).is(":empty")) {
-                $(".restOfDate").css("visibility", "hidden");
+        $("#year").change(function () {
+            if ($(this).val().length <= 0) {
+                $("#restOfDate").css("visibility", "hidden");
                 $("#submitForm").attr("disabled", "disabled");
             }
             else {
-                $(".restOfDate").css("visibility", "visible");
-                if ($("#submitForm").is(":disabled") && !($(".firstname").is(":empty"))) {
+                $("#restOfDate").css("visibility", "visible");
+                if ($("#submitForm").is(":disabled") && $("#firstname").val().length > 0) {
                     $("#submitForm").removeAttr("disabled");
                 }
             }
         })
 
-        $("#page1Form .firstname").on("change", function () {
-            if ($(this).is(":empty")) {
+        $("#firstname").change(function () {
+            if ($(this).val().length <= 0) {
                 $("#submitForm").attr("disabled", "disabled");
             }
             else {
-                if ($("#submitForm").is(":disabled") && !($(".firstname").is(":empty"))) {
+                if ($("#submitForm").is(":disabled") && $("#year").val().length > 0) {
                     $("#submitForm").removeAttr("disabled");
                 }
             }
         })
 
-        $("#page1Form .month").on("change", function () {
-            var whichMonth = $("select option: selected").val();
-            var whichYear = $(".year").val();
+        $("#month").change(function () {
+            var whichMonth = $("#month").val();
+            var whichYear = $("#year").val();
+
+            $("#daysContainer").empty();
 
             if (whichMonth == 1 || whichMonth == 3 || whichMonth == 5 || whichMonth == 7 || whichMonth == 8 || whichMonth == 9 || whichMonth == 10 || whichMonth == 12) {
-                dayOfMonth(31);
+                $("#daysContainer").append("Day: ");
+                $("#daysContainer").append(dayOfMonth(31));
             }
             else if (whichMonth == 4 || whichMonth == 6 || whichMonth == 11) {
-                dayOfMonth(30);
+                $("#daysContainer").append("Day: ");
+                $("#daysContainer").append(dayOfMonth(30));
             }
             else if (whichYear % 4 === 0) {
-                dayOfMonth(29);
+                $("#daysContainer").append("Day: ");
+                $("#daysContainer").append(dayOfMonth(29));
             }
             else {
-                dayOfMonth(28);
+                $("#daysContainer").append("Day: ");
+                $("#daysContainer").append(dayOfMonth(28));
             }
         })
 </script>
