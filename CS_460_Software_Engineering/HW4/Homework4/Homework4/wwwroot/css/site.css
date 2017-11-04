@@ -1,35 +1,51 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿@import url(//fonts.googleapis.com/css?family=Patrick+Hand+SC);
+
+body {
+    color: #311;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.navbar {
+    background-color: #f96b5c;
+    color: #fec;
+    font-family: "Patrick Hand SC";
+    padding-left: 25px;
 }
 
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
+a, a:hover {
+    color: #f96b5c;
 }
 
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
+h1 {
     width: 100%;
+    margin: 0;
+    font-size: 200%;
 }
 
-/* QR code generator */
-#qrCode {
-    margin: 15px;
+h2 {
+    font-family: "Patrick Hand SC";
+    font-size: 150%;
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
-    }
+nav ul {
+    margin-bottom: 0px;
+}
+
+nav li {
+    list-style-type: none;
+    float: left;
+    margin-right: 35px;
+    font-size: 120%;
+}
+
+nav li > a {
+    color: #411;
+}
+
+nav li > a:hover {
+    text-decoration: none;
+    color: #fec;
+}
+
+.content {
+    padding: 25px;
 }
