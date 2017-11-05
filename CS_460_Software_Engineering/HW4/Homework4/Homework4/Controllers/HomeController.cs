@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
 namespace Homework4.Controllers
 {
@@ -189,6 +190,18 @@ namespace Homework4.Controllers
                 ViewBag.Message = "There are " + daysUntil + " days until your " + nextAgeString + " birthday, " + firstname + ".";
             }
 
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Page2(FormCollection form)
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Page2Result()
+        {
             return View();
         }
     }
