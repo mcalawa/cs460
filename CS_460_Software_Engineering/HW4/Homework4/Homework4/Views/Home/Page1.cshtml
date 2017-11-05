@@ -3,138 +3,65 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="content">
-    <form action="/Home/Page1Result" method="get" id="page1Form">
-        What shall I call you?<br/>
-        <input type="text" name="firstname" id="firstname" />
-        <br/><br />
-        When were you born?<br/>
-        Year: <input type="number" name="year" id="year" /><br />
-        <div id="restOfDate">Month: 
-            <select name="month" id="month">
-                <option value="1" selected>January</option>
-                <option value="2">February</option>
-                <option value="3">March</option>
-                <option value="4">April</option>
-                <option value="5">May</option>
-                <option value="6">June</option>
-                <option value="7">July</option>
-                <option value="8">August</option>
-                <option value="9">September</option>
-                <option value="10">October</option>
-                <option value="11">November</option>
-                <option value="12">December</option>
-            </select><br />
-           <div id="daysContainer">
-                Day: <select name="day" id="days">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                    <option value="13">13</option>
-                    <option value="14">14</option>
-                    <option value="15">15</option>
-                    <option value="16">16</option>
-                    <option value="17">17</option>
-                    <option value="18">18</option>
-                    <option value="19">19</option>
-                    <option value="20">20</option>
-                    <option value="21">21</option>
-                    <option value="22">22</option>
-                    <option value="23">23</option>
-                    <option value="24">24</option>
-                    <option value="25">25</option>
-                    <option value="26">26</option>
-                    <option value="27">27</option>
-                    <option value="28">28</option>
-                    <option value="29">29</option>
-                    <option value="30">30</option>
-                    <option value="31">31</option>
-                </select>
-            </div>
-        </div><br/>
+<form action="/Home/Page1Result" method="get" id="page1Form">
+    What shall I call you?<br/>
+    <input type="text" name="firstname" id="firstname" />
+    <br/><br />
+    When were you born?<br/>
+    Year: <input type="number" name="year" id="year" />
+    <div id="errorMessage"></div>
+    <div id="restOfDate">Month: 
+        <select name="month" id="month">
+            <option value="1" selected>January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+        </select><br />
+        <div id="daysContainer">
+            Day: <select name="day" id="days">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+            </select>
+        </div>
+    </div><br/>
 
-        <input type="submit" id="submitForm" disabled />
-    </form>
-</div>
+    <input type="submit" id="submitForm" disabled />
+</form>
 
-<!-- JavaScript: placed at the end of the document so the pages load faster -->
-<!-- jQuery library -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-
-<!-- Popper -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-
-<!-- Latest compiled and minified Bootstrap JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-
-<script>
-        function dayOfMonth(numOfDays) {
-            "use strict";
-
-            var sel = $('<select id="days" name="day">'); //what we're connecting the options to
-            var opt = null;
-            for (var i = 1; i <= numOfDays; i++) {
-                opt = $('<option value="' + i + '">').html(i);
-                opt.appendTo(sel);
-            }
-
-            return sel;
-        }
-
-        $("#year").change(function () {
-            if ($(this).val().length <= 0) {
-                $("#restOfDate").css("visibility", "hidden");
-                $("#submitForm").attr("disabled", "disabled");
-            }
-            else {
-                $("#restOfDate").css("visibility", "visible");
-                if ($("#submitForm").is(":disabled") && $("#firstname").val().length > 0) {
-                    $("#submitForm").removeAttr("disabled");
-                }
-            }
-        })
-
-        $("#firstname").change(function () {
-            if ($(this).val().length <= 0) {
-                $("#submitForm").attr("disabled", "disabled");
-            }
-            else {
-                if ($("#submitForm").is(":disabled") && $("#year").val().length > 0) {
-                    $("#submitForm").removeAttr("disabled");
-                }
-            }
-        })
-
-        $("#month").change(function () {
-            var whichMonth = $("#month").val();
-            var whichYear = $("#year").val();
-
-            $("#daysContainer").empty();
-
-            if (whichMonth == 1 || whichMonth == 3 || whichMonth == 5 || whichMonth == 7 || whichMonth == 8 || whichMonth == 9 || whichMonth == 10 || whichMonth == 12) {
-                $("#daysContainer").append("Day: ");
-                $("#daysContainer").append(dayOfMonth(31));
-            }
-            else if (whichMonth == 4 || whichMonth == 6 || whichMonth == 11) {
-                $("#daysContainer").append("Day: ");
-                $("#daysContainer").append(dayOfMonth(30));
-            }
-            else if (whichYear % 4 === 0) {
-                $("#daysContainer").append("Day: ");
-                $("#daysContainer").append(dayOfMonth(29));
-            }
-            else {
-                $("#daysContainer").append("Day: ");
-                $("#daysContainer").append(dayOfMonth(28));
-            }
-        })
-</script>
