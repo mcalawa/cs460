@@ -1,7 +1,0 @@
-C:\Users\melis\OneDrive\Documents\School\Computer Science\Senior Project\Portfolio\GitHub\senior_project\CS_460_Software_Engineering\HW3\Calculator\Calculator\bin\Debug\Calculator.exe.config
-C:\Users\melis\OneDrive\Documents\School\Computer Science\Senior Project\Portfolio\GitHub\senior_project\CS_460_Software_Engineering\HW3\Calculator\Calculator\bin\Debug\Calculator.exe
-C:\Users\melis\OneDrive\Documents\School\Computer Science\Senior Project\Portfolio\GitHub\senior_project\CS_460_Software_Engineering\HW3\Calculator\Calculator\bin\Debug\Calculator.pdb
-C:\Users\melis\OneDrive\Documents\School\Computer Science\Senior Project\Portfolio\GitHub\senior_project\CS_460_Software_Engineering\HW3\Calculator\Calculator\obj\Debug\Calculator.csprojResolveAssemblyReference.cache
-C:\Users\melis\OneDrive\Documents\School\Computer Science\Senior Project\Portfolio\GitHub\senior_project\CS_460_Software_Engineering\HW3\Calculator\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
-C:\Users\melis\OneDrive\Documents\School\Computer Science\Senior Project\Portfolio\GitHub\senior_project\CS_460_Software_Engineering\HW3\Calculator\Calculator\obj\Debug\Calculator.exe
-C:\Users\melis\OneDrive\Documents\School\Computer Science\Senior Project\Portfolio\GitHub\senior_project\CS_460_Software_Engineering\HW3\Calculator\Calculator\obj\Debug\Calculator.pdb
