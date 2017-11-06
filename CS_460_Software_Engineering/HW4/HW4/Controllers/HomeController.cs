@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Mvc.Html5;
+using HW4.Models;
 
-namespace Homework4NotCore.Controllers
+namespace HW4.Controllers
 {
     public class HomeController : Controller
     {
@@ -366,6 +368,73 @@ namespace Homework4NotCore.Controllers
             {
                 ViewBag.Message = "There are " + daysUntil + " days until your " + nextAgeString + " birthday, " + form["firstname"] + ".";
             }
+
+            return View();
+        }
+
+        public ActionResult Page3()
+        {
+            return View(new InvestmentCalculator());
+        }
+
+        [HttpPost]
+        public ActionResult Page3(InvestmentCalculator c)
+        {
+            double total = Math.Round(c.Principle, 2);
+            double n = c.Term * c.Time;
+            double interest = c.Interest / 100;
+            double totalEarned = 0;
+            string interestType = "";
+            string termString = "";
+            string yearString = "";
+
+            if(c.Time == 1)
+            {
+                yearString = " year";
+            }
+            else
+            {
+                yearString = " years";
+            }
+
+            if(c.Term == 365)
+            {
+                termString = "daily";
+            }
+            else if(c.Term == 52)
+            {
+                termString = "weekly";
+            }
+            else if(c.Term == 12)
+            {
+                termString = "monthly";
+            }
+            else
+            {
+                termString = "annually";
+            }
+
+            if(c.Compound)
+            {
+                totalEarned = Math.Round((c.Principle * Math.Pow((1 + interest), n) - c.Principle), 2);
+                interestType = " compounded ";
+            }
+            else
+            {
+                totalEarned = Math.Round((c.Principle * interest * n), 2);
+                interestType = " calculated ";
+            }
+
+            total += totalEarned;
+
+            ViewBag.Message = "An investment of $" + Math.Round(c.Principle, 2) + " with a " + c.Interest + "% interest rate " + interestType + termString + " over " + c.Time + yearString + " would earn $" + totalEarned + " for a total ending balance of $" + total + ".";
+
+            return View("Page3Result", "~/Views/Shared/_Layout.cshtml", ViewBag.Message);
+        }
+
+        public ActionResult Page3Result(string m)
+        {
+            ViewBag.Message = m;
 
             return View();
         }

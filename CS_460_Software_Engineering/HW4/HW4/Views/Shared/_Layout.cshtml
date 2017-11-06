@@ -180,6 +180,118 @@
 
             return true;
         }
+
+        $("#principle").change(function () {
+            $("#errorMessage").empty();
+
+            if ($(this).val().length <= 0) {
+                $("#submitButton").attr("disabled", "disabled");
+                $("#errorMessage").append("Please enter your principle.");
+            }
+            else if ($(this).val() < 0)
+            {
+                $("#errorMessage").append("A principle cannot be below $0.00.");
+                $("#submitButton").attr("disabled", "disabled");
+            }
+            else if (isValidInput()) {
+                if ($("#submitButton").is(":disabled")) {
+                    $("#submitButton").removeAttr("disabled");
+                }
+            }
+            else {
+                $("#submitButton").attr("disabled", "disabled");
+            }
+        })
+
+        $("#rate").change(function () {
+            $("#errorMessage").empty();
+
+            if ($(this).val().length <= 0) {
+                $("#submitButton").attr("disabled", "disabled");
+                $("#errorMessage").append("Please enter your interest rate.");
+            }
+            else if ($(this).val() < 0) {
+                $("#errorMessage").append("An interest rate cannot be less than 0.");
+                $("#submitButton").attr("disabled", "disabled");
+            }
+            else if (isValidInput()) {
+                if ($("#submitButton").is(":disabled")) {
+                    $("#submitButton").removeAttr("disabled");
+                }
+            }
+            else {
+                $("#submitButton").attr("disabled", "disabled");
+            }
+        })
+
+        $("#years").change(function () {
+            $("#errorMessage").empty();
+
+            if ($(this).val().length <= 0) {
+                $("#submitButton").attr("disabled", "disabled");
+                $("#errorMessage").append("Please enter how many of years of interest you would like to calculate.");
+            }
+            else if ($(this).val() < 1) {
+                $("#errorMessage").append("Interest cannot be calculated for period of less than a year.");
+                $("#submitButton").attr("disabled", "disabled");
+            }
+            else if (Math.floor($(this).val()) = $(this).val())
+            {
+                $("#errorMessage").append("Interest cannot be calculated for partial years.");
+                $("#submitButton").attr("disabled", "disabled");
+            }
+            else if (isValidInput()) {
+                if ($("#submitButton").is(":disabled")) {
+                    $("#submitButton").removeAttr("disabled");
+                }
+            }
+            else {
+                $("#submitButton").attr("disabled", "disabled");
+            }
+        })
+
+        function isValidInput() {
+            var p = $("#principle").val();
+            var iRate = $("#rate").val();
+            var years = $("#years").val();
+
+            if (p.length <= 0)
+            {
+                $("#errorMessage").append("Please enter your principle.");
+                return false;
+            }
+            else if (iRate.length <= 0)
+            {
+                $("#errorMessage").append("Please enter your interest rate.");
+                return false;
+            }
+            else if (years.length <= 0)
+            {
+                $("#errorMessage").append("Please enter how many of years of interest you would like to calculate.");
+                return false;
+            }
+            else if(p < 0) 
+            {
+                $("#errorMessage").append("A principle cannot be below $0.00.");
+                return false;
+            }
+            else if (iRate < 0)
+            {
+                $("#errorMessage").append("An interest rate cannot be less than 0%.");
+                return false;
+            }
+            else if (years < 1)
+            {
+                $("#errorMessage").append("Interest cannot be calculated for period of less than a year.");
+                return false;
+            }
+            else if (Math.floor(years) != years) {
+                $("#errorMessage").append("Interest cannot be calculated for partial years.");
+                return false;
+            }
+
+            return true;
+        }
     </script>
 </body>
 </html>
