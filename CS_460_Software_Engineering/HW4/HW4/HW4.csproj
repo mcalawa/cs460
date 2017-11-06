@@ -121,6 +121,7 @@
     <Content Include="Views\Home\Page2.cshtml" />
     <Content Include="Views\Home\Page3.cshtml" />
     <Content Include="Views\Home\Page3Result.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
