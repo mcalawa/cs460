@@ -4,7 +4,7 @@ layout: hw3
 ---
 ## About Homework 3
 
-[Here](/www.wou.edu/~morses/classes/cs46x/assignments/HW3.html) is the assignment page for homework 3. The code for homework 3 can be found [here](https://github.com/mcalawa/senior_project/tree/master/CS_460_Software_Engineering/HW3). The goal of homework 3 was to learn C#. To facilitate that goal, we were provided with Java files for a command line postfix calculator program and asked to rewrite the program in C#. We were specifically told to write the code as we went rather than pasting the Java code and fixing the errors until it worked in C#.
+[Here](https://www.wou.edu/~morses/classes/cs46x/assignments/HW3.html) is the assignment page for homework 3. The code for homework 3 can be found [here](https://github.com/mcalawa/senior_project/tree/master/CS_460_Software_Engineering/HW3). The goal of homework 3 was to learn C#. To facilitate that goal, we were provided with Java files for a command line postfix calculator program and asked to rewrite the program in C#. We were specifically told to write the code as we went rather than pasting the Java code and fixing the errors until it worked in C#.
 
 ## The Original Program
 
