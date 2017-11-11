@@ -4,7 +4,7 @@ layout: hw2
 ---
 ## About Homework 2
 
-[Here](http://www.wou.edu/~morses/classes/cs46x/assignments/HW2.html) is the assignment page for homework 2. The code for homework 2 can be found [here](https://github.com/mcalawa/senior_project/tree/master/CS_460_Software_Engineering/HW2). Basically the goal was to learn JavaScript, jQuery, and how to use HTML forms. We had to include a form that took multiple inputs, did something to modify them, and then created a table to display the results. I decided to create a calculator that measured your skill bonus at various levels for D&D 5e because I'm a big ol' nerd.
+[Here](https://www.wou.edu/~morses/classes/cs46x/assignments/HW2.html) is the assignment page for homework 2. The code for homework 2 can be found [here](https://github.com/mcalawa/senior_project/tree/master/CS_460_Software_Engineering/HW2). Basically the goal was to learn JavaScript, jQuery, and how to use HTML forms. We had to include a form that took multiple inputs, did something to modify them, and then created a table to display the results. I decided to create a calculator that measured your skill bonus at various levels for D&D 5e because I'm a big ol' nerd.
 
 ## Starting With a Design
 
