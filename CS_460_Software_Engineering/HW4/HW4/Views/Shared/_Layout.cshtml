@@ -37,6 +37,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
     <script>
+        //script for page 1 and page 2
+        //creates a select for the days of the month based on the actual days of the month for each month
         function dayOfMonth(numOfDays) {
             "use strict";
 
@@ -56,6 +58,7 @@
 
             $("#errorMessage").empty();
 
+            //don't show the other inputs if there isn't a year or a valid year
             if ($(this).val().length <= 0) {
                 $("#restOfDate").css("visibility", "hidden");
                 $("#submitForm").attr("disabled", "disabled");
@@ -137,6 +140,7 @@
             }
         })
 
+        //can't use change() because #days doesn't exist until it's created
         $("#daysContainer").on("change", "#days", function () {
             $("#errorMessage").empty();
 
@@ -181,6 +185,7 @@
             return true;
         }
 
+        //script for page 3
         $("#principle").change(function () {
             $("#errorMessage").empty();
 
