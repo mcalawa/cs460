@@ -2,13 +2,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<form method="post">
-    ODL/Permit/ID/Customer # <input type="number" id="driverID"/><br />
-    Date of Birth (MM/DD/YYYY) <input type="text" id="dateOfBirth" /><br />
-    Full Name (Last Name, First Name Middle Initial) <input type="text" id="fullName" /><br />
-    Address <input type="text" id="address" /><br />
-    City <input type="text" id="city" /><br />
-    State <select id="state">
+<form method="post" id="DMVForm">
+    ODL/Permit/ID/Customer # <input type="number" id="driverID" name="Id"/><br />
+    Date of Birth (MM/DD/YYYY) <input type="text" id="dateOfBirth"/><br />
+    Full Name (Last Name, First Name Middle Initial) <input type="text" id="fullName" name="FullName" /><br />
+    Address <input type="text" id="address" name="Address"/><br />
+    City <input type="text" id="city" name="City" /><br />
+    State <select id="state" name="State">
         <option value="AL">Alabama</option>
         <option value="AK">Alaska</option>
         <option value="AZ">Arizona</option>
@@ -61,12 +61,12 @@
 	    <option value="WI">Wisconsin</option>
 	    <option value="WY">Wyoming</option>
     </select><br />
-    Zip Code <input type="text" id="zipCode" /><br />
-    County <input type="text" id="county" /><br />
-    Today's Date (MM/DD/YYYY) <input type="text" id="dateOfChange" /><br />
+    Zip Code <input type="text" id="zipCode" name="ZipCode" /><br />
+    County <input type="text" id="county" name="County"/><br />
+    Today's Date (MM/DD/YYYY) <input type="text" id="dateOfChange"/><br />
     <div id="errorMessage"></div>
 
-    <input type="submit" id="submitButton" disabled />
+    <input type="submit" id="submitButton"/>
 </form>
 
 @section PageScripts
@@ -300,5 +300,18 @@
 
             return false;
         }
+
+        $("#DMVForm").submit(function (event) {
+            var birthDateElement = $("#dateOfBirth").split("/");
+            var currentDateElement = $("#dateOfChange").split("/");
+
+            return {
+                DateOfBirth: new Date(birthDateElement[2] + "-" + birthDateElement[0] + "-" + birthDateElement[1]).toISOString()
+            }
+
+            return {
+                DateOfChange: new Date(currentDateElement[2] + "-" + currentDateElement[0] + "-" + currentDateElement[1]).toISOString()
+            }
+        });
     </script>
 }

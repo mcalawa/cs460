@@ -1,14 +1,14 @@
 ﻿CREATE TABLE dbo.Driver
 (
 	[DriverID] INT NOT NULL PRIMARY KEY,
-	[DateOfBirth] Date NOT NULL,
+	[DateOfBirth] DATETIME2 NOT NULL,
 	[FullName] NVARCHAR(128) NOT NULL,
 	[Address] NVARCHAR(128) NOT NULL,
 	[City] NVARCHAR(64) NOT NULL,
 	[State] NVARCHAR(16) NOT NULL,
 	[ZipCode] NVARCHAR(16) NOT NULL,
 	[County] NVARCHAR(32) NOT NULL,
-	[Date] Date NOT NULL
+	[Date] DATETIME2 NOT NULL
 );
 
 INSERT INTO dbo.Driver ([DriverID], [DateOfBirth], [FullName], [Address], [City], [State], [ZipCode], [County], [Date]) VALUES

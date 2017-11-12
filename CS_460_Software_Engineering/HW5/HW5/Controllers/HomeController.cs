@@ -4,11 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using HW5.Models;
+using HW5.DAL;
 
 namespace HW5.Controllers
 {
     public class HomeController : Controller
     {
+        private volatile Type _dependency = typeof(System.Data.Entity.SqlServer.SqlProviderServices);
+        private DriverContext database = new DriverContext();
+
         // GET: Home
         public ActionResult Index()
         {
@@ -20,9 +24,18 @@ namespace HW5.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult ChangeAddressForm([Bind(Include = "DriverID,DateOfBirth,FullName,Address,City,State,ZipCode,County,Date")] Driver driver)
+        {
+            database.Drivers.Add(driver);
+            database.SaveChanges();
+
+            return RedirectToAction("AddressChanges");
+        }
+
         public ActionResult AddressChanges()
         {
-            return View();
+            return View(database.Drivers.ToList());
         }
     }
 }
