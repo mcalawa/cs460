@@ -13,5 +13,15 @@ namespace HW5.Controllers
         {
             return View();
         }
+
+        public ActionResult ChangeAddressForm()
+        {
+            return View();
+        }
+
+        public ActionResult AddressChanges()
+        {
+            return View();
+        }
     }
 }
