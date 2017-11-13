@@ -1,7 +1,6 @@
 ﻿CREATE TABLE dbo.Drivers
 (
-	[RecordID] INT IDENTITY (1,1) NOT NULL,
-	[DriverID] INT NOT NULL,
+	[DriverID] INT NOT NULL PRIMARY KEY,
 	[DateOfBirth] DATETIME NOT NULL,
 	[FullName] NVARCHAR(128) NOT NULL,
 	[Address] NVARCHAR(128) NOT NULL,
@@ -10,15 +9,13 @@
 	[ZipCode] NVARCHAR(16) NOT NULL,
 	[County] NVARCHAR(32) NOT NULL,
 	[DateOfChange] DATETIME NOT NULL
-
-	CONSTRAINT [PK_dbo.Drivers] PRIMARY KEY CLUSTERED (RecordID ASC)
 );
 
 INSERT INTO dbo.Drivers ([DriverID], [DateOfBirth], [FullName], [Address], [City], [State], [ZipCode], [County], [DateOfChange]) VALUES
-	('1654200', '1922-05-31', 'Carraway, Melia N', '3714 N Haight Ave', 'Portland', 'OR', '97227', 'Multnomah', '1998-04-10'),
-	('2988989', '2000-02-29', 'Highchurch, Merle H', '160 E Jefferson St', 'Huntington', 'OR', '97907', 'Baker', '2016-12-31'),
-	('2358532', '1973-06-07', 'Shivers, Nick', '28083 SW Engle St', 'Wilsonville', 'OR', '97070', 'Clackamas', '1975-10-01'),
-	('2555756', '1990-11-12', 'Jacobs, Jake J', '250 Clay St W', 'Monmouth', 'OR', '97351', 'Polk', '2002-01-17'),
-	('2245820', '1952-03-11', 'Hunter, Janet', '1406 Goldcrest Ave NW', 'Salem', 'OR', '97304', 'Polk', '1983-09-15');
+	(1654200, '1922-05-31', 'Carraway, Melia N', '3714 N Haight Ave', 'Portland', 'OR', '97227', 'Multnomah', '1998-04-10'),
+	(2988989, '2000-02-29', 'Highchurch, Merle H', '160 E Jefferson St', 'Huntington', 'OR', '97907', 'Baker', '2016-12-31'),
+	(2358532, '1973-06-07', 'Shivers, Nick', '28083 SW Engle St', 'Wilsonville', 'OR', '97070', 'Clackamas', '1975-10-01'),
+	(2555756, '1990-11-12', 'Jacobs, Jake J', '250 Clay St W', 'Monmouth', 'OR', '97351', 'Polk', '2002-01-17'),
+	(2245820, '1952-03-11', 'Hunter, Janet', '1406 Goldcrest Ave NW', 'Salem', 'OR', '97304', 'Polk', '1983-09-15');
 
 GO
