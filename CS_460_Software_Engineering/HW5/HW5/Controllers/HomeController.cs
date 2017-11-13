@@ -25,7 +25,7 @@ namespace HW5.Controllers
         }
 
         [HttpPost]
-        public ActionResult ChangeAddressForm([Bind(Include = "DriverID,DateOfBirth,FullName,Address,City,State,ZipCode,County,DateOfChange")] Driver driver)
+        public ActionResult ChangeAddressForm([Bind(Include = "RecordID,DriverID,DateOfBirth,FullName,Address,City,State,ZipCode,County,DateOfChange")] Driver driver)
         {
             if (ModelState.IsValid)
             {
