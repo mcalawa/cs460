@@ -118,6 +118,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\ChangeAddressForm.cshtml" />
     <Content Include="Views\Home\AddressChanges.cshtml" />
+    <None Include="Properties\PublishProfiles\mcalawahw5 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\mcalawahw5 - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

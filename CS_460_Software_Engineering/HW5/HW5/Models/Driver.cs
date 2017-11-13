@@ -13,6 +13,7 @@ namespace HW5.Models
         public int DriverID { get; set; } //ID for the driver
 
         [Required]
+        [DataType(DataType.Date)]
         [Display(Name = "Date of Birth")]
         public DateTime DateOfBirth { get; set; }
 
@@ -41,6 +42,7 @@ namespace HW5.Models
         public string County { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
         [Display(Name = "Date of Address Change")]
         public DateTime DateOfChange { get; set; }
     }

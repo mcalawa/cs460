@@ -60,14 +60,6 @@ td, th {
     padding: 5px;
 }
 
-    td:nth-child(2) {
-        font-style: italic;
-    }
-
-    td:nth-last-child(1) {
-        font-weight: bold;
-    }
-
 th {
     border-bottom: 3px solid;
     font-family: "Patrick Hand SC";
