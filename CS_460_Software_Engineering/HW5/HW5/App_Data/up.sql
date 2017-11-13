@@ -1,17 +1,17 @@
-﻿CREATE TABLE dbo.Driver
+﻿CREATE TABLE dbo.Drivers
 (
 	[DriverID] INT NOT NULL PRIMARY KEY,
-	[DateOfBirth] DATETIME2 NOT NULL,
+	[DateOfBirth] DATETIME NOT NULL,
 	[FullName] NVARCHAR(128) NOT NULL,
 	[Address] NVARCHAR(128) NOT NULL,
 	[City] NVARCHAR(64) NOT NULL,
 	[State] NVARCHAR(16) NOT NULL,
 	[ZipCode] NVARCHAR(16) NOT NULL,
 	[County] NVARCHAR(32) NOT NULL,
-	[Date] DATETIME2 NOT NULL
+	[DateOfChange] DATETIME NOT NULL
 );
 
-INSERT INTO dbo.Driver ([DriverID], [DateOfBirth], [FullName], [Address], [City], [State], [ZipCode], [County], [Date]) VALUES
+INSERT INTO dbo.Drivers ([DriverID], [DateOfBirth], [FullName], [Address], [City], [State], [ZipCode], [County], [DateOfChange]) VALUES
 	(1654200, '1922-05-31', 'Carraway, Melia N', '3714 N Haight Ave', 'Portland', 'OR', '97227', 'Multnomah', '1998-04-10'),
 	(2988989, '2000-02-29', 'Highchurch, Merle H', '160 E Jefferson St', 'Huntington', 'OR', '97907', 'Baker', '2016-12-31'),
 	(2358532, '1973-06-07', 'Shivers, Nick', '28083 SW Engle St', 'Wilsonville', 'OR', '97070', 'Clackamas', '1975-10-01'),

@@ -25,12 +25,15 @@ namespace HW5.Controllers
         }
 
         [HttpPost]
-        public ActionResult ChangeAddressForm([Bind(Include = "DriverID,DateOfBirth,FullName,Address,City,State,ZipCode,County,Date")] Driver driver)
+        public ActionResult ChangeAddressForm([Bind(Include = "DriverID,DateOfBirth,FullName,Address,City,State,ZipCode,County,DateOfChange")] Driver driver)
         {
-            database.Drivers.Add(driver);
-            database.SaveChanges();
-
-            return RedirectToAction("AddressChanges");
+            if (ModelState.IsValid)
+            {
+                database.Drivers.Add(driver);
+                database.SaveChanges();
+                return RedirectToAction("AddressChanges");
+            }
+            return View(driver);
         }
 
         public ActionResult AddressChanges()

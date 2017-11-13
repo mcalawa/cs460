@@ -7,14 +7,30 @@
     <table>
         <thead>
             <tr>
-                <th>ID</th>
+                <th>@Html.DisplayNameFor(model => model.DriverID)</th>
+                <th>@Html.DisplayNameFor(model => model.DateOfBirth)</th>
+                <th>@Html.DisplayNameFor(model => model.FullName)</th>
+                <th>@Html.DisplayNameFor(model => model.Address)</th>
+                <th>@Html.DisplayNameFor(model => model.City)</th>
+                <th>@Html.DisplayNameFor(model => model.State)</th>
+                <th>@Html.DisplayNameFor(model => model.ZipCode)</th>
+                <th>@Html.DisplayNameFor(model => model.County)</th>
+                <th>@Html.DisplayNameFor(model => model.DateOfChange)</th>
             </tr>
         </thead>
         <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <td>item.DriverID</td>
+                <td>@Html.DisplayFor(ModelItem => item.DriverID)</td>
+                <td>@Html.DisplayFor(ModelItem => item.DateOfBirth)</td>
+                <td>@Html.DisplayFor(ModelItem => item.FullName)</td>
+                <td>@Html.DisplayFor(ModelItem => item.Address)</td>
+                <td>@Html.DisplayFor(ModelItem => item.City)</td>
+                <td>@Html.DisplayFor(ModelItem => item.State)</td>
+                <td>@Html.DisplayFor(ModelItem => item.ZipCode)</td>
+                <td>@Html.DisplayFor(ModelItem => item.County)</td>
+                <td>@Html.DisplayFor(ModelItem => item.DateOfChange)</td>
             </tr>
         }
         </tbody>

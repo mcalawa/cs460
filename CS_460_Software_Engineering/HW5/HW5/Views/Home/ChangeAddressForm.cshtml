@@ -1,10 +1,11 @@
-﻿@{
+﻿@model HW5.Models.Driver
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <form method="post" id="DMVForm">
-    ODL/Permit/ID/Customer # <input type="number" id="driverID" name="Id"/><br />
-    Date of Birth (MM/DD/YYYY) <input type="text" id="dateOfBirth"/><br />
+    ODL/Permit/ID/Customer # <input type="number" id="driverID" name="DriverID"/><br />
+    Date of Birth (MM/DD/YYYY) <input type="date" id="dateOfBirth" name="DateOfBirth"/><br />
     Full Name (Last Name, First Name Middle Initial) <input type="text" id="fullName" name="FullName" /><br />
     Address <input type="text" id="address" name="Address"/><br />
     City <input type="text" id="city" name="City" /><br />
@@ -63,7 +64,7 @@
     </select><br />
     Zip Code <input type="text" id="zipCode" name="ZipCode" /><br />
     County <input type="text" id="county" name="County"/><br />
-    Today's Date (MM/DD/YYYY) <input type="text" id="dateOfChange"/><br />
+    Today's Date (MM/DD/YYYY) <input type="date" id="dateOfChange" name="DateOfChange"/><br />
     <div id="errorMessage"></div>
 
     <input type="submit" id="submitButton"/>
@@ -88,24 +89,6 @@
             }
 
         }) //$("#driverID").change()
-
-        $("#dateOfBirth").change(function () {
-            var birthDate = $(this).val();
-
-            $("#errorMessage").empty();
-
-            if (isValidDate(birthDate))
-            {
-                if (isComplete() && $("#submitButton").is(":disabled")) {
-                    $("#submitButton").removeAttr("disabled");
-                }
-            }
-            else
-            {
-                $("#errorMessage").append("Your date of birth must be a valid date in the format MM/DD/YYYY.");
-                $("#submitButton").attr("disabled", "disabled");
-            }
-        }) //$("#dateOfBirth").change()
 
         $("#fullName").change(function () {
             var name = $(this).val();
@@ -186,102 +169,6 @@
             }
         }) //$("#county").change()
 
-        $("#dateOfChange").change(function () {
-            var changeDate = $(this).val();
-            var today = new Date(); //a date to check against
-
-            $("#errorMessage").empty();
-            //if the date is valid
-            if (isValidDate(changeDate)) {
-                var dateElement = changeDate.split("/");
-                //if the date they entered is the same date as the current date
-                if ((today.getMonth() + 1) == dateElement[0] && today.getDate() == dateElement[1] && today.getFullYear() == dateElement[2])
-                {
-                    if (isComplete() && $("#submitButton").is(":disabled")) {
-                        $("#submitButton").removeAttr("disabled");
-                    }
-
-                    return;
-                } //if the date matches today's date
-                else
-                {
-                    $("#errorMessage").append("The date entered must match today's date.");
-                } //if the date doesn't match today's date
-            } //if the date is valid
-            else {
-                $("#errorMessage").append("Today's date must be in the format MM/DD/YYYY.");
-            } //if the date isn't valid
-
-            $("#submitButton").attr("disabled", "disabled");
-        }) //$("#dateOfChange").change()
-
-        function isValidDate(dateString) {
-            var dateElement = dateString.split("/");
-
-            //if there are exactly 3 elements split by a /
-            if (dateElement.length == 3)
-            {
-                //if the first element is a number
-                if (isNaN(parseInt(dateElement[0])) == false)
-                {
-                    var month = parseInt(dateElement[0]);
-                    //if the first element is a number that is a valid month
-                    if (month > 0 && month < 13)
-                    {
-                        //if the third element is a number
-                        if (isNaN(parseInt(dateElement[2])) == false)
-                        {
-                            //if the third element is the right length
-                            if (dateElement[2].length == 4)
-                            {
-                                var year = parseInt(dateElement[2]);
-                                //if the second element is a number
-                                if (isNaN(parseInt(dateElement[1])) == false)
-                                {
-                                    var day = parseInt(dateElement[1]);
-                                    //if the day could potentially be valid
-                                    if (day > 0 && day < 32)
-                                    {
-                                        //if the day is a day of the month that exists
-                                        if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 9 || month == 10 || month == 12)
-                                        {
-                                            return true;
-                                        }
-                                        else if (day < 31)
-                                        {
-                                            //if the day is a day of the month that exists
-                                            if (month == 4 || month == 6 || month == 11)
-                                            {
-                                                return true;
-                                            }
-                                            else if (day < 28)
-                                            {
-                                                return true;
-                                            }
-                                            else if (day == 29 && month == 2)
-                                            {
-                                                //if the year is a leap year
-                                                if (year % 400 == 0)
-                                                {
-                                                    return true;
-                                                }
-                                                else if (year % 4 == 0 && year % 100 != 0)
-                                                {
-                                                    return true;
-                                                }
-                                            } //if the year is a leap year and the date is 02/29
-                                        } //if days is between 1 and 30
-                                    } //if days is between 1 and 31
-                                } //if the day is a number
-                            } //if the year is 4 digits
-                        } //if the year is a number
-                    } //if the month is between 1 and 12
-                } //if the month is a number
-            } //if there are the correct number of elements in the date
-
-            return false;
-        } //isValidDate(dateString)
-
         function isComplete()
         {
             var id = $("#driverID").val();
@@ -300,18 +187,5 @@
 
             return false;
         }
-
-        $("#DMVForm").submit(function (event) {
-            var birthDateElement = $("#dateOfBirth").split("/");
-            var currentDateElement = $("#dateOfChange").split("/");
-
-            return {
-                DateOfBirth: new Date(birthDateElement[2] + "-" + birthDateElement[0] + "-" + birthDateElement[1]).toISOString()
-            }
-
-            return {
-                DateOfChange: new Date(currentDateElement[2] + "-" + currentDateElement[0] + "-" + currentDateElement[1]).toISOString()
-            }
-        });
     </script>
 }
