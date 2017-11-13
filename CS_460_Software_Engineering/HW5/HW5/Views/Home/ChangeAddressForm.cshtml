@@ -67,7 +67,7 @@
     Today's Date (MM/DD/YYYY) <input type="date" id="dateOfChange" name="DateOfChange"/><br />
     <div id="errorMessage"></div>
 
-    <input type="submit" id="submitButton"/>
+    <input type="submit" id="submitButton" disabled/>
 </form>
 
 @section PageScripts
@@ -89,6 +89,12 @@
             }
 
         }) //$("#driverID").change()
+
+        $("#dateOfBirth").change(function () {
+            if (isComplete() && $("#submitButton").is(":disabled")) {
+                $("#submitButton").removeAttr("disabled");
+            }
+        })
 
         $("#fullName").change(function () {
             var name = $(this).val();
@@ -168,6 +174,12 @@
                 $("#submitButton").attr("disabled", "disabled");
             }
         }) //$("#county").change()
+
+        $("#dateOfChange").change(function () {
+            if (isComplete() && $("#submitButton").is(":disabled")) {
+                $("#submitButton").removeAttr("disabled");
+            }
+        })
 
         function isComplete()
         {
