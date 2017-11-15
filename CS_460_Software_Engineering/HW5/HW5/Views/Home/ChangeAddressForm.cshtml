@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm(FormMethod.Post))
+@*@using (Html.BeginForm(FormMethod.Post))
 {
     <div class="formInput" id="driverID">
         @Html.LabelFor(m => m.DriverID)
@@ -95,9 +95,9 @@
     <div id="errorMessage"></div>
 
     <input type="submit" id="submitButton" disabled />
-}
+}*@
 
-@*<form method="post" id="DMVForm">
+<form method="post" id="DMVForm">
     ODL/Permit/ID/Customer # <input type="number" id="driverID" name="DriverID"/><br />
     Date of Birth (MM/DD/YYYY) <input type="date" id="dateOfBirth" name="DateOfBirth"/><br />
     Full Name (Last Name, First Name Middle Initial) <input type="text" id="fullName" name="FullName" /><br />
@@ -162,12 +162,12 @@
     <div id="errorMessage"></div>
 
     <input type="submit" id="submitButton" disabled/>
-</form>*@
+</form>
 
 @section PageScripts
 {
     <script>
-        $("#driverID input").change(function () {
+        $("#driverID").change(function () {
             var id = $(this).val();
 
             $("#errorMessage").empty();
@@ -184,13 +184,13 @@
 
         }) //$("#driverID").change()
 
-        $("#dateOfBirth input").change(function () {
+        $("#dateOfBirth").change(function () {
             if (isComplete() && $("#submitButton").is(":disabled")) {
                 $("#submitButton").removeAttr("disabled");
             }
         })
 
-        $("#fullName input").change(function () {
+        $("#fullName").change(function () {
             var name = $(this).val();
             var nameParts = name.split(", ");
 
@@ -207,7 +207,7 @@
             }
         }) //$("#fullName").change()
 
-        $("#address input").change(function () {
+        $("#address").change(function () {
             var address = $(this).val();
             var addressParts = address.split(" ");
 
@@ -235,7 +235,7 @@
             }
         }) //$("#city").change()
 
-        $("#zipCode input").change(function () {
+        $("#zipCode").change(function () {
             var zip = $(this).val();
 
             $("#errorMessage").empty();
@@ -253,7 +253,7 @@
             }
         }) //$("#zipCode").change()
 
-        $("#county input").change(function () {
+        $("#county").change(function () {
             var county = $(this).val().split(" ");
 
             if ($(this).val().length > 0 && county.length == 1)
@@ -269,7 +269,7 @@
             }
         }) //$("#county").change()
 
-        $("#dateOfChange input").change(function () {
+        $("#dateOfChange").change(function () {
             if (isComplete() && $("#submitButton").is(":disabled")) {
                 $("#submitButton").removeAttr("disabled");
             }
@@ -277,14 +277,14 @@
 
         function isComplete()
         {
-            var id = $("#driverID input").val();
-            var address = $("#address input").val();
-            var city = $("#city input").val();
-            var dateOfBirth = $("#dateOfBirth input").val();
-            var name = $("#fullName input").val();
-            var zip = $("#zipCode input").val();
-            var county = $("#county input").val();
-            var today = $("#dateOfChange input").val();
+            var id = $("#driverID").val();
+            var address = $("#address").val();
+            var city = $("#city").val();
+            var dateOfBirth = $("#dateOfBirth").val();
+            var name = $("#fullName").val();
+            var zip = $("#zipCode").val();
+            var county = $("#county").val();
+            var today = $("#dateOfChange").val();
 
             if (id.length > 0 && address.length > 0 && city.length > 0 && dateOfBirth.length > 0 && name.length > 0 && zip.length > 0 && county.length > 0 && today.length > 0)
             {
