@@ -1,0 +1,297 @@
+﻿@model HW5.Models.Driver
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*@using (Html.BeginForm(FormMethod.Post))
+{
+    <div class="formInput" id="driverID">
+        @Html.LabelFor(m => m.DriverID)
+        @Html.EditorFor(m => m.DriverID)
+    </div>
+    <div class="formInput" id="dateOfBirth">
+        <label>Date of Birth (MM/DD/YYYY)</label>
+        @Html.EditorFor(m => m.DateOfBirth)
+    </div>
+    <div class="formInput" id="fullName">
+        <label>Full Name (Last Name, First Name Middle Initial)</label>
+        @Html.EditorFor(m => m.FullName)
+    </div>
+    <div class="formInput" id="address">
+        <label>Address</label>
+        @Html.EditorFor(m => m.Address)
+    </div>
+    <div class="formInput" id="city">
+        <label>City</label>
+        @Html.EditorFor(m => m.City)
+    </div>
+    <div class="formInput">
+    <label>State</label> <select id="state" name="State">
+        <option value="AL">Alabama</option>
+        <option value="AK">Alaska</option>
+        <option value="AZ">Arizona</option>
+        <option value="AR">Arkansas</option>
+        <option value="CA">California</option>
+        <option value="CO">Colorado</option>
+        <option value="CT">Connecticut</option>
+        <option value="DE">Delaware</option>
+        <option value="DC">District Of Columbia</option>
+        <option value="FL">Florida</option>
+        <option value="GA">Georgia</option>
+        <option value="HI">Hawaii</option>
+        <option value="ID">Idaho</option>
+        <option value="IL">Illinois</option>
+        <option value="IN">Indiana</option>
+        <option value="IA">Iowa</option>
+        <option value="KS">Kansas</option>
+        <option value="KY">Kentucky</option>
+        <option value="LA">Louisiana</option>
+        <option value="ME">Maine</option>
+        <option value="MD">Maryland</option>
+        <option value="MA">Massachusetts</option>
+        <option value="MI">Michigan</option>
+        <option value="MN">Minnesota</option>
+        <option value="MS">Mississippi</option>
+        <option value="MO">Missouri</option>
+        <option value="MT">Montana</option>
+        <option value="NE">Nebraska</option>
+        <option value="NV">Nevada</option>
+        <option value="NH">New Hampshire</option>
+        <option value="NJ">New Jersey</option>
+        <option value="NM">New Mexico</option>
+        <option value="NY">New York</option>
+        <option value="NC">North Carolina</option>
+        <option value="ND">North Dakota</option>
+        <option value="OH">Ohio</option>
+        <option value="OK">Oklahoma</option>
+        <option value="OR">Oregon</option>
+        <option value="PA">Pennsylvania</option>
+        <option value="RI">Rhode Island</option>
+        <option value="SC">South Carolina</option>
+        <option value="SD">South Dakota</option>
+        <option value="TN">Tennessee</option>
+        <option value="TX">Texas</option>
+        <option value="UT">Utah</option>
+        <option value="VT">Vermont</option>
+        <option value="VA">Virginia</option>
+        <option value="WA">Washington</option>
+        <option value="WV">West Virginia</option>
+        <option value="WI">Wisconsin</option>
+        <option value="WY">Wyoming</option>
+    </select>
+    </div>
+    <div class="formInput" id="zipCode">
+        <label>Zip Code</label>
+        @Html.EditorFor(m => m.ZipCode)
+    </div>
+    <div class="formInput" id="county">
+        <label>County</label>
+        @Html.EditorFor(m => m.County)
+    </div>
+    <div class="formInput" id="dateOfChange">
+        <label>Today's Date (MM/DD/YYYY)</label>
+        @Html.EditorFor(m => m.DateOfChange)
+    </div>
+    <div id="errorMessage"></div>
+
+    <input type="submit" id="submitButton" disabled />
+}*@
+
+<form method="post" id="DMVForm">
+    ODL/Permit/ID/Customer # <input type="number" id="driverID" name="DriverID"/><br />
+    Date of Birth (MM/DD/YYYY) <input type="date" id="dateOfBirth" name="DateOfBirth"/><br />
+    Full Name (Last Name, First Name Middle Initial) <input type="text" id="fullName" name="FullName" /><br />
+    Address <input type="text" id="address" name="Address"/><br />
+    City <input type="text" id="city" name="City" /><br />
+    State <select id="state" name="State">
+        <option value="AL">Alabama</option>
+        <option value="AK">Alaska</option>
+        <option value="AZ">Arizona</option>
+        <option value="AR">Arkansas</option>
+        <option value="CA">California</option>
+        <option value="CO">Colorado</option>
+        <option value="CT">Connecticut</option>
+        <option value="DE">Delaware</option>
+        <option value="DC">District Of Columbia</option>
+	    <option value="FL">Florida</option>
+	    <option value="GA">Georgia</option>
+	    <option value="HI">Hawaii</option>
+	    <option value="ID">Idaho</option>
+	    <option value="IL">Illinois</option>
+	    <option value="IN">Indiana</option>
+	    <option value="IA">Iowa</option>
+	    <option value="KS">Kansas</option>
+	    <option value="KY">Kentucky</option>
+	    <option value="LA">Louisiana</option>
+	    <option value="ME">Maine</option>
+	    <option value="MD">Maryland</option>
+	    <option value="MA">Massachusetts</option>
+	    <option value="MI">Michigan</option>
+	    <option value="MN">Minnesota</option>
+	    <option value="MS">Mississippi</option>
+	    <option value="MO">Missouri</option>
+	    <option value="MT">Montana</option>
+	    <option value="NE">Nebraska</option>
+	    <option value="NV">Nevada</option>
+	    <option value="NH">New Hampshire</option>
+	    <option value="NJ">New Jersey</option>
+	    <option value="NM">New Mexico</option>
+	    <option value="NY">New York</option>
+	    <option value="NC">North Carolina</option>
+	    <option value="ND">North Dakota</option>
+	    <option value="OH">Ohio</option>
+	    <option value="OK">Oklahoma</option>
+	    <option value="OR">Oregon</option>
+	    <option value="PA">Pennsylvania</option>
+	    <option value="RI">Rhode Island</option>
+	    <option value="SC">South Carolina</option>
+	    <option value="SD">South Dakota</option>
+	    <option value="TN">Tennessee</option>
+	    <option value="TX">Texas</option>
+	    <option value="UT">Utah</option>
+	    <option value="VT">Vermont</option>
+	    <option value="VA">Virginia</option>
+	    <option value="WA">Washington</option>
+	    <option value="WV">West Virginia</option>
+	    <option value="WI">Wisconsin</option>
+	    <option value="WY">Wyoming</option>
+    </select><br />
+    Zip Code <input type="text" id="zipCode" name="ZipCode" /><br />
+    County <input type="text" id="county" name="County"/><br />
+    Today's Date (MM/DD/YYYY) <input type="date" id="dateOfChange" name="DateOfChange"/><br />
+    <div id="errorMessage"></div>
+
+    <input type="submit" id="submitButton" disabled/>
+</form>
+
+@section PageScripts
+{
+    <script>
+        $("#driverID").change(function () {
+            var id = $(this).val();
+
+            $("#errorMessage").empty();
+            if (id.length == 7 && isNaN(parseInt(id)) == false)
+            {
+                if (isComplete() && $("#submitButton").is(":disabled")) {
+                    $("#submitButton").removeAttr("disabled");
+                }
+            }
+            else {
+                $("#errorMessage").append("An ID must be a 7-digit number.");
+                $("#submitButton").attr("disabled", "disabled");
+            }
+
+        }) //$("#driverID").change()
+
+        $("#dateOfBirth").change(function () {
+            if (isComplete() && $("#submitButton").is(":disabled")) {
+                $("#submitButton").removeAttr("disabled");
+            }
+        })
+
+        $("#fullName").change(function () {
+            var name = $(this).val();
+            var nameParts = name.split(", ");
+
+            $("#errorMessage").empty();
+            //if the name is in the correct format
+            if (nameParts.length == 2) {
+                if (isComplete() && $("#submitButton").is(":disabled")) {
+                    $("#submitButton").removeAttr("disabled");
+                }
+            }
+            else {
+                $("#errorMessage").append("Your name must be entered in the format 'Last Name, First Name (Middle Initial)'.");
+                $("#submitButton").attr("disabled", "disabled");
+            }
+        }) //$("#fullName").change()
+
+        $("#address").change(function () {
+            var address = $(this).val();
+            var addressParts = address.split(" ");
+
+            $("#errorMessage").empty();
+            if (address.length > 0 && addressParts.length >= 3) {
+                if (isComplete() && $("#submitButton").is(":disabled")) {
+                    $("#submitButton").removeAttr("disabled");
+                }
+            }
+            else {
+                $("#errorMessage").append("Please enter a valid address.");
+                $("#submitButton").attr("disabled", "disabled");
+            }
+        }) //$("#address").change()
+
+        $("#city").change(function () {
+            if ($(this).val().length > 0) {
+                if (isComplete() && $("#submitButton").is(":disabled")) {
+                    $("#submitButton").removeAttr("disabled");
+                }
+            }
+            else {
+                $("#errorMessage").append("Please enter a valid city.");
+                $("#submitButton").attr("disabled", "disabled");
+            }
+        }) //$("#city").change()
+
+        $("#zipCode").change(function () {
+            var zip = $(this).val();
+
+            $("#errorMessage").empty();
+            //if the zip code is the correct length
+            if (zip.length == 5 && isNaN(parseInt(zip)) == false)
+            {
+                if (isComplete() && $("#submitButton").is(":disabled")) {
+                    $("#submitButton").removeAttr("disabled");
+                }
+            }
+            else
+            {
+                $("#errorMessage").append("Zip code must be a 5-digit number.");
+                $("#submitButton").attr("disabled", "disabled");
+            }
+        }) //$("#zipCode").change()
+
+        $("#county").change(function () {
+            var county = $(this).val().split(" ");
+
+            if ($(this).val().length > 0 && county.length == 1)
+            {
+                if (isComplete() && $("#submitButton").is(":disabled")) {
+                    $("#submitButton").removeAttr("disabled");
+                }
+            }
+            else
+            {
+                $("#errorMessage").append("Please enter a valid county.");
+                $("#submitButton").attr("disabled", "disabled");
+            }
+        }) //$("#county").change()
+
+        $("#dateOfChange").change(function () {
+            if (isComplete() && $("#submitButton").is(":disabled")) {
+                $("#submitButton").removeAttr("disabled");
+            }
+        })
+
+        function isComplete()
+        {
+            var id = $("#driverID").val();
+            var address = $("#address").val();
+            var city = $("#city").val();
+            var dateOfBirth = $("#dateOfBirth").val();
+            var name = $("#fullName").val();
+            var zip = $("#zipCode").val();
+            var county = $("#county").val();
+            var today = $("#dateOfChange").val();
+
+            if (id.length > 0 && address.length > 0 && city.length > 0 && dateOfBirth.length > 0 && name.length > 0 && zip.length > 0 && county.length > 0 && today.length > 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+    </script>
+}
