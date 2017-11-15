@@ -8,6 +8,9 @@ namespace HW5.Models
 {
     public class Driver
     {
+        [Key]
+        public int TableItem { get; set; }
+
         [Required]
         [Display(Name = "ODL/Permit/ID/Customer #")]
         public int DriverID { get; set; } //ID for the driver
