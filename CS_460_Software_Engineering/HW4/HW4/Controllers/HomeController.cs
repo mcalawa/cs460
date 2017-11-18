@@ -561,7 +561,7 @@ namespace HW4.Controllers
 
             total += totalEarned;
 
-            ViewBag.Message = "An investment of $" + Math.Round(c.Principle, 2) + " with a " + c.Interest + "% interest rate " + interestType + termString + " over " + c.Time + yearString + " would earn $" + totalEarned + " for a total ending balance of $" + total + ".";
+            ViewBag.Message = "An investment of $" + Math.Round(c.Principle, 2) + " with a " + c.Interest + "% interest rate " + interestType + termString + " over " + c.Time + yearString + " would earn $" + String.Format("{0:n}", totalEarned) + " for a total ending balance of $" + String.Format("{0:n}", total) + ".";
 
             return View("Page3Result", "~/Views/Shared/_Layout.cshtml", ViewBag.Message);
         } //manipulation of data from Page3

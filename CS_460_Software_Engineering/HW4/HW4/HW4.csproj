@@ -100,6 +100,8 @@
     <Content Include="Global.asax" />
     <Content Include="css\site.css" />
     <Content Include="images\modelbinding1.png" />
+    <Content Include="images\page1demo1.png" />
+    <Content Include="images\page1demo2.png" />
     <Content Include="images\page1_jspart1.png" />
     <Content Include="images\page1_jspart2.png" />
     <Content Include="images\page1_jspart3.png" />
@@ -109,12 +111,16 @@
     <Content Include="images\page1_part2.png" />
     <Content Include="images\page1_part3.png" />
     <Content Include="images\page1_part4.png" />
+    <Content Include="images\page2demo1.png" />
+    <Content Include="images\page2demo2.png" />
     <Content Include="images\page2_part1.png" />
     <Content Include="images\page2_part2.png" />
     <Content Include="images\page2_part3.png" />
     <Content Include="images\page3-1.png" />
     <Content Include="images\page3-2.png" />
     <Content Include="images\page3-3.png" />
+    <Content Include="images\page3demo1.png" />
+    <Content Include="images\page3demo2.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
