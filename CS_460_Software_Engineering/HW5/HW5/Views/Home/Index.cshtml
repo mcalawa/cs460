@@ -8,6 +8,24 @@
     <a href="https://www.wou.edu/~morses/classes/cs46x/assignments/HW5.html">here</a> and the code can be found 
     <a href="https://github.com/mcalawa/senior_project/tree/master/CS_460_Software_Engineering/HW5">here</a>.</p>
 
+<h2>The Data Model</h2>
+<p>We were told to start with creating the data model. The assignment was to create a database for the Oregon DMV 
+    <a href="http://www.oregon.gov/ODOT/Forms/DMV/6438fill.pdf">change of address form</a>. We weren't required to include both a resident 
+    and mailing address, but we were supposed to seperate the street address, the city, state, zip, and county. Additionally, we'd still 
+    need the ID, the full name, date of birth, and date that the form is being filled out, for a total of nine fields. (Neither the signature 
+    field or voter registration information was required, so they don't count toward the number of fields.) These fields show up in both the 
+    SQL file used to create the database and the Model used for the comparable class that would be used for the model binding.</p>
+
+<img src="~/images/datamodel1.png" />
+
+<p>As you can see, I ended up using not 9, but 10 fields for the data model. This wasn't originally part of my plan, but while trying to 
+    get my live demo to work, I kept getting a null exception when trying to submit a value for the DriverID field. After a lot of frustration, 
+    I figured out that the error was being caused because when a model is created in ASP.NET MVC, one of the member fields is automatically 
+    designated as the key member. For some reason, there's a strange error that won't let you input a key using model binding. In order to 
+    fix this issue, I created a dummy member in both the SQL table and the C# model called TableItem that would automatically create a key 
+    for each item without needing to have one passed to it through user input. TableItem is never actually output anywhere on the site because 
+    it is not information that is actually needed by either the user or the DMV's system.</p>
+
 <h2>Screenshots</h2>
 <p>While there is also a live demo, so you can try out the finished product for yourself, we were requested to include screenshots to prove 
     that our website was working correctly. So, to begin, here is the page displaying the initial database before any new information was 
