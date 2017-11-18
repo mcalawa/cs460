@@ -8,7 +8,7 @@
     <a href="https://www.wou.edu/~morses/classes/cs46x/assignments/HW5.html">here</a> and the code can be found 
     <a href="https://github.com/mcalawa/senior_project/tree/master/CS_460_Software_Engineering/HW5">here</a>.</p>
 
-<h2>The Data Model</h2>
+<h2>Building and Populating the Database</h2>
 <p>We were told to start with creating the data model. The assignment was to create a database for the Oregon DMV 
     <a href="http://www.oregon.gov/ODOT/Forms/DMV/6438fill.pdf">change of address form</a>. We weren't required to include both a resident 
     and mailing address, but we were supposed to seperate the street address, the city, state, zip, and county. Additionally, we'd still 
@@ -26,7 +26,72 @@
     for each item without needing to have one passed to it through user input. TableItem is never actually output anywhere on the site because 
     it is not information that is actually needed by either the user or the DMV's system.</p>
 
-<h2>Screenshots</h2>
+<p>We were also supposed to have code to create five initial database entries in our database. As the key populates itself, I was able to add 
+    all of the data I needed with the following SQL:</p>
+
+<img src="~/images/datamodel2.png" />
+
+<p>The SQL code is included in the project to allow someone who wants to download our project from GitHub and run it to create the database 
+    themselves as the actual database wasn't to be included among the files we uploaded. Therefore, we were also required to have a file called 
+    down.sql that would clear the database. The code used is as follows:</p>
+
+<code>DROP TABLE dbo.Driver;</code><br /><br />
+
+<h2>The Model Class and Database Context Class</h2>
+<p>The code for the model class is a little long and has all of the same members as the table in the database, so I won't show the entire 
+    class and will instead just provide the code for the first few members:</p>
+
+<img src="~/images/datamodel3.png" />
+
+<p>The code makes use of metadata to create display names for each of the members, mark them as required, and specify the data type for 
+    several the DateTime elements so they display correctly. Finally, a context class must be created so that the system knows about the 
+    connection between the model in the database and the model class. The code for the context class is very simple:</p>
+
+<img src="~/images/datamodel4.png" />
+
+<p>In addition to connecting the model class and the database table, a connection must be made to the database itself. The connection to 
+    the database is created with a connection string in the Web.config file, which I won't post here, as it is very long, but it can be 
+    found with the rest of my code on GitHub.</p>
+
+<h2>Model Binding and Data Display</h2>
+<p>The next task was to start creating the views to display the data, as well as to enter in new data. The code that displays the data in 
+    a table starts with the code in the view itself:</p>
+
+<img src="~/images/datadisplay1.png" />
+
+<p>The code uses Razor HTML to access the display names that I gave each of the different class members in the model class, as well as the 
+    database members themselves. The helper methods used are all strongly typed. In addition to the code that creates the table itself, 
+    the database items had to be passed in using the view controller like so:</p>
+
+<img src="~/images/datadisplay2.png" />
+
+<p>The "database" referenced in the view is an instance of the database context that is created at the beginning of the controller. This 
+    allows the view to access all the items in the database. </p>
+
+<p>The code for the form itself is fairly straightforward and similar to form elements I have written for previous assignments. I chose not 
+    to use Razor to create the form as I feel that HTML forms are much more readable than ones created with Razor. Additionally, Razor HTML 
+    did not allow for the level of control over form elements that I decided. This was mainly true of the select element I used for the state 
+    field. I wanted to display the states using their full names, but I wanted the states that were sent to the database to be in the form of 
+    their two-letter state abbreviations. In order to accomplish this, I needed to assign values to the options that were different from the 
+    text they were displaying, which the Razor code for select elements does not allow you to do.</p>
+
+<p>Also on the view for the form, I included Javascript code to error check entries and keep the user from being able to submit if there 
+    were any issues with their inputs or the form hadn't been completed. Once again, this code is very similar to code I've used on a 
+    previous assignment for this class, in this case the Javascript code for the form in homework 4. Since it is both long and similar to 
+    code shown previously, I won't include anything from the view itself and will let you view it on GitHub if you so desire. Instead, 
+    I will show you the GET-POST-Redirect pattern and model binding used in the controller that allows the code in the view to work as it 
+    is supposed to and add to the database:</p>
+
+<img src="~/images/datadisplay3.png" />
+
+<p>As you will recall, the AddressChanges view displays all of the items in the database. Therefore, the ChangeAddressForm() controller 
+    displays the form until the submit button has been pressed to pass the input to the database. The [HttpPost] version of the view controller 
+    then receives the input and binds it to a new object of the Driver class named driver. While there shouldn't be a problem because I 
+    have error checking built in, if the model created is valid, the driver object is added to the database and the changes to the database 
+    are saved. The page is then redirected to the AddressChanges view, where a table of all the database items is displayed, including the 
+    one you just added. On the off chance that an error does somehow get through, the current view is returned with the user input.</p>
+
+<h2>Demo Screenshots</h2>
 <p>While there is also a live demo, so you can try out the finished product for yourself, we were requested to include screenshots to prove 
     that our website was working correctly. So, to begin, here is the page displaying the initial database before any new information was 
     added to it:</p>

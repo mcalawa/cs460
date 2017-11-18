@@ -73,6 +73,9 @@
 @section PageScripts
 {
     <script>
+        //All sorts of error checking to make sure you can't submit the form when it's not complete or has
+        //inputs that aren't valid
+
         $("#driverID").change(function () {
             var id = $(this).val();
 
@@ -91,10 +94,11 @@
         }) //$("#driverID").change()
 
         $("#dateOfBirth").change(function () {
+            $("#errorMessage").empty();
             if (isComplete() && $("#submitButton").is(":disabled")) {
                 $("#submitButton").removeAttr("disabled");
             }
-        })
+        }) //$("#dateOfBirth").change()
 
         $("#fullName").change(function () {
             var name = $(this).val();
@@ -130,6 +134,7 @@
         }) //$("#address").change()
 
         $("#city").change(function () {
+            $("#errorMessage").empty();
             if ($(this).val().length > 0) {
                 if (isComplete() && $("#submitButton").is(":disabled")) {
                     $("#submitButton").removeAttr("disabled");
@@ -162,6 +167,7 @@
         $("#county").change(function () {
             var county = $(this).val().split(" ");
 
+            $("#errorMessage").empty();
             if ($(this).val().length > 0 && county.length == 1)
             {
                 if (isComplete() && $("#submitButton").is(":disabled")) {
@@ -176,10 +182,11 @@
         }) //$("#county").change()
 
         $("#dateOfChange").change(function () {
+            $("#errorMessage").empty();
             if (isComplete() && $("#submitButton").is(":disabled")) {
                 $("#submitButton").removeAttr("disabled");
             }
-        })
+        }) //$("#dateOfChange").change()
 
         function isComplete()
         {
