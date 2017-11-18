@@ -97,6 +97,10 @@
     <Content Include="App_Data\up.sql" />
     <Content Include="css\site.css" />
     <Content Include="Global.asax" />
+    <Content Include="favicon.ico" />
+    <Content Include="images\demo1.png" />
+    <Content Include="images\demo2.png" />
+    <Content Include="images\demo3.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
