@@ -30,6 +30,15 @@ namespace HW6.Controllers
             ViewBag.Id = product;
             ViewBag.Title = "| " + ViewBag.Action;
             ViewBag.Header = ViewBag.Action;
+            ViewBag.Type = "Category";
+            var subCategories = db.ProductSubcategories.Where(p => p.ProductCategory.Name == "Bikes")
+                .OrderBy(p => p.Name)
+                .Select(p => new
+                {
+                    Name = p.Name,
+                    Count = p.Products.Count()
+                })
+                .ToArray();
             
             if(id != null)
             {
@@ -37,6 +46,7 @@ namespace HW6.Controllers
                 ViewBag.Sub = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(subCat);
                 ViewBag.Title = "| " + ViewBag.Sub;
                 ViewBag.Header = ViewBag.Sub;
+                ViewBag.Type = "SubCategory";
             }
             else
             {
@@ -49,6 +59,7 @@ namespace HW6.Controllers
                 ViewBag.Product = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(prodName);
                 ViewBag.Title = "| " + ViewBag.Product;
                 ViewBag.Header = ViewBag.Product;
+                ViewBag.Type = "Product";
             }
             else
             {

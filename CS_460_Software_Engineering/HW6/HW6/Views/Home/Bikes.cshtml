@@ -10,19 +10,24 @@
 <h2>@ViewBag.Header</h2>
 
 <!-- The View if they are viewing the category -->
-<div class="catWrapper">
-    <h3>Category</h3>
-</div>
+@if(ViewBag.Type == "Category")
+{
+    <div id="sideBar">
+
+    </div>
+} <!-- The View if they are viewing the category -->
 
 <!-- The View if they are viewing the subcategory -->
-<div class="subCatWrapper">
-    <h3>Subcategory</h3>
-</div>
+@if(ViewBag.Type == "SubCategory")
+{
+
+} <!-- The View if they are viewing the subcategory -->
 
 <!-- The View if they are viewing the product -->
-<div class="productWrapper">
-    <h3>Product</h3>
-</div> <!-- The View if they are viewing the product -->
+@if(ViewBag.Type == "Product")
+{
+
+} <!-- The View if they are viewing the product -->
 
 @section PageScripts {
     <script>
@@ -32,23 +37,14 @@
             if (url.length <= 2) {
                 $(".subVisibility").css("visibility", "hidden");
                 $(".productVisibility").css("visibility", "hidden");
-                $(".catWrapper").css("visibility", "visible");
-                $(".subCatWrapper").css("visibility", "hidden");
-                $(".productWrapper").css("visibility", "hidden");
             }
             else if (url.length == 3) {
                 $(".subVisibility").css("visibility", "visible");
                 $(".productVisibility").css("visibility", "hidden");
-                $(".catWrapper").css("visibility", "hidden");
-                $(".subCatWrapper").css("visibility", "visible");
-                $(".productWrapper").css("visibility", "hidden");
             }
             else {
                 $(".subVisibility").css("visibility", "visible");
                 $(".productVisibility").css("visibility", "visible");
-                $(".catWrapper").css("visibility", "hidden");
-                $(".subCatWrapper").css("visibility", "hidden");
-                $(".productWrapper").css("visibility", "visible");
             }
         }
     </script>
