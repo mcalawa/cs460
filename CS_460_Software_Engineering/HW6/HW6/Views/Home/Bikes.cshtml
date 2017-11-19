@@ -9,24 +9,24 @@
 
 <h2>@ViewBag.Header</h2>
 
+<div id="sideBar"></div>
+
 <!-- The View if they are viewing the category -->
 @if(ViewBag.Type == "Category")
 {
-    <div id="sideBar">
-
-    </div>
+    <h2>Category</h2>
 } <!-- The View if they are viewing the category -->
 
 <!-- The View if they are viewing the subcategory -->
 @if(ViewBag.Type == "SubCategory")
 {
-
+    <h2>Subcategory</h2>
 } <!-- The View if they are viewing the subcategory -->
 
 <!-- The View if they are viewing the product -->
 @if(ViewBag.Type == "Product")
 {
-
+    <h2>Product</h2>
 } <!-- The View if they are viewing the product -->
 
 @section PageScripts {
@@ -37,6 +37,8 @@
             if (url.length <= 2) {
                 $(".subVisibility").css("visibility", "hidden");
                 $(".productVisibility").css("visibility", "hidden");
+                $("#sideBar").html("<ul>");
+                $("#sideBar").append(@ViewBag.SideBar);
             }
             else if (url.length == 3) {
                 $(".subVisibility").css("visibility", "visible");

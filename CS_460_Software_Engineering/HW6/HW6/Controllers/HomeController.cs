@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using HW6.Models;
 using HW6.DAL;
+using System.Text;
 
 namespace HW6.Controllers
 {
@@ -28,44 +29,56 @@ namespace HW6.Controllers
             ViewBag.Action = "Bikes";
             ViewBag.Bikes = id;
             ViewBag.Id = product;
-            ViewBag.Title = "| " + ViewBag.Action;
-            ViewBag.Header = ViewBag.Action;
-            ViewBag.Type = "Category";
+            StringBuilder htmlString = new StringBuilder("");
             var subCategories = db.ProductSubcategories.Where(p => p.ProductCategory.Name == "Bikes")
                 .OrderBy(p => p.Name)
                 .Select(p => new
                 {
                     Name = p.Name,
                     Count = p.Products.Count()
-                })
-                .ToArray();
+                });
             
-            if(id != null)
+            //if this is the category view
+            if(id == null && product == null)
+            {
+                ViewBag.Sub = "";
+                ViewBag.Product = "";
+                ViewBag.Title = "| " + ViewBag.Action;
+                ViewBag.Header = ViewBag.Action;
+                ViewBag.Type = "Category";
+
+                foreach(var item in subCategories)
+                {
+                    string subCat = item.Name.Replace(" ", "-").ToLower();
+                    htmlString.Append("<li><a href='bikes/" + subCat + "'>" + item.Name + "</a> (" + item.Count + ")</li>");
+                }
+                ViewBag.SideBar = htmlString.ToString();
+
+                return View(db.ProductCategories.ToList());
+            }
+            else if(id != null && product == null) //if this is the subcat view
             {
                 string subCat = id.Replace("-", " ");
                 ViewBag.Sub = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(subCat);
+                ViewBag.Product = "";
                 ViewBag.Title = "| " + ViewBag.Sub;
                 ViewBag.Header = ViewBag.Sub;
                 ViewBag.Type = "SubCategory";
-            }
-            else
-            {
-                ViewBag.Sub = "";
-            }
 
-            if(product != null)
+                return View(db.ProductCategories.ToList());
+            }
+            else //if this is the product view
             {
+                string subCat = id.Replace("-", " ");
+                ViewBag.Sub = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(subCat);
                 string prodName = product.Replace("-", " ");
                 ViewBag.Product = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(prodName);
                 ViewBag.Title = "| " + ViewBag.Product;
                 ViewBag.Header = ViewBag.Product;
                 ViewBag.Type = "Product";
+
+                return View(db.ProductCategories.ToList());
             }
-            else
-            {
-                ViewBag.Product = "";
-            }
-            return View(db.ProductCategories.ToList());
         } //Bikes
 
         public ActionResult Components(string id = null, string product = null)
