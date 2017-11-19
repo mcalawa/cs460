@@ -14,9 +14,27 @@ namespace HW6
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "BikesRoute",
+                url: "bikes",
+                defaults: new { controller = "Home", action = "Bikes" }
+            );
+
+            routes.MapRoute(
+                name: "ComponentsRoute",
+                url: "components",
+                defaults: new { controller = "Home", action = "Components" }
+            );
+
+            routes.MapRoute(
+                name: "ClothingRoute",
+                url: "clothing",
+                defaults: new { controller = "Home", action = "Clothing" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "{action}/{id}/{product}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, product = UrlParameter.Optional }
             );
         }
     }

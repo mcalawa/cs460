@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Components";
+}
+
+@section Breadcrumbs {
+    <p><a href="/components">Components</a> <span class="subVisibility">></span> <a href="/components/@ViewBag.Components">@ViewBag.Sub</a> <span class="productVisibility">></span> <a href="/components/@ViewBag.Components/@ViewBag.Id">@ViewBag.Product</a></p>
+}
+
+<h2>@ViewBag.Header</h2>
+
+@section PageScripts {
+    <script>
+        function setDynamicElements() {
+            var url = window.location.pathname.split("/");
+
+            if (url.length <= 2) {
+                $(".subVisibility").css("visibility", "hidden");
+                $(".productVisibility").css("visibility", "hidden");
+            }
+            else if (url.length == 3) {
+                $(".subVisibility").css("visibility", "visible");
+                $(".productVisibility").css("visibility", "hidden");
+            }
+            else {
+                $(".subVisibility").css("visibility", "visible");
+                $(".productVisibility").css("visibility", "visible");
+            }
+        }
+    </script>
+}
+
