@@ -23,6 +23,11 @@ namespace HW6.Controllers
             return View(db.ProductCategories.ToList());
         }
 
+        public PartialViewResult Menu()
+        {
+            return PartialView("Menu", db.ProductCategories);
+        }
+
         public ActionResult Bikes(string id = null, string product = null)
         {
             ViewBag.Controller = "Home";
@@ -120,7 +125,7 @@ namespace HW6.Controllers
         {
             ViewBag.Controller = "Home";
             ViewBag.Action = "Clothing";
-            ViewBag.Components = id;
+            ViewBag.Clothing = id;
             ViewBag.Id = product;
             ViewBag.Title = "| " + ViewBag.Action;
             ViewBag.Header = ViewBag.Action;
@@ -128,7 +133,12 @@ namespace HW6.Controllers
             if (id != null)
             {
                 string subCat = id.Replace("-", " ");
-                ViewBag.Sub = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(subCat);
+                subCat = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(subCat);
+                if(subCat.Equals("Bib Shorts"))
+                {
+                    subCat = subCat.Replace(" ", "-");
+                }
+                ViewBag.Sub = subCat.ToString();
                 ViewBag.Title = "| " + ViewBag.Sub;
                 ViewBag.Header = ViewBag.Sub;
             }

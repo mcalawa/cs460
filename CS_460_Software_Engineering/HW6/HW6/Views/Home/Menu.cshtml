@@ -1,0 +1,19 @@
+﻿@model IEnumerable<HW6.Models.ProductCategory>
+<div class="productMenu">
+    @foreach (var item in Model)
+            {
+        <ul>
+            <li class="categoryHead">
+                @Html.ActionLink(@Html.DisplayFor(ModelItem => item.Name).ToString(), @Html.DisplayFor(ModelItem => item.Name).ToString().ToLower())
+                <ul>
+                    @foreach (var subitem in item.ProductSubcategories)
+                    {
+                        <li>@Html.ActionLink(@Html.DisplayFor(ModelItem => subitem.Name).ToString(), @Html.DisplayFor(ModelItem => item.Name).ToString().ToLower() + "/" + @Html.DisplayFor(ModelItem => subitem.Name).ToString().Replace(" ", "-").ToLower())</li>
+                    }
+                </ul>
+            </li>
+        </ul>
+    }
+</div>
+
+

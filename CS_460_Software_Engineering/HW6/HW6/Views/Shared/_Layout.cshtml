@@ -11,30 +11,21 @@
 </head>
 <body onpageshow="setDynamicElements()">
     <nav>
+        <div class="titleHeader">
+            <h1>Adventure Works Cycles</h1>
+        </div>
         <div class="navbar">
-            @model IEnumerable<HW6.Models.ProductCategory>
             <ul>
-                <li class="current"><a href="/">Home</a></li>
-                <li>Products
-                    <ul>
-                        @foreach (var item in Model)
-                        {
-                            <li>
-                                @Html.ActionLink(@Html.DisplayFor(ModelItem => item.Name).ToString(), @Html.DisplayFor(ModelItem => item.Name).ToString())
-                                <ul>
-                                    @foreach (var subitem in item.ProductSubcategories)
-                                    {
-                                        <li>@Html.ActionLink(@Html.DisplayFor(ModelItem => subitem.Name).ToString(), @Html.DisplayFor(ModelItem => item.Name).ToString().ToLower() + "/" + @Html.DisplayFor(ModelItem => subitem.Name).ToString().Replace(" ", "-").ToLower())</li>
-                                    }
-                                </ul>
-                            </li>
-                        }
-                    </ul>
-                </li>
+                <li><a href="/" class="current">Shop AWC</a></li>
                 <li><a href="https://mcalawa.github.io/senior_project/">Portfolio Home</a></li>
             </ul>
         </div>
     </nav>
+
+    @{
+        Html.RenderAction("Menu", "Home");
+    }
+
     <div class="content">
         @RenderSection("Breadcrumbs", required: false)
         @RenderBody()
@@ -51,7 +42,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
     <script>
-
     </script>
 
     @RenderSection("PageScripts", required: false)
