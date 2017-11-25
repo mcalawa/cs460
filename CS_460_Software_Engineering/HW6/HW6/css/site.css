@@ -3,6 +3,7 @@
 body {
     background-color: #fff;
     font-family: Arial, Helvetica, sans-serif;
+    display: flex;
 }
 
 .titleHeader {
@@ -51,6 +52,7 @@ h2{
 
 .content 
 {
+    display: inline;
     padding: 30px;
 }
 

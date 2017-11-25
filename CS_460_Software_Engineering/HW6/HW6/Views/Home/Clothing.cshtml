@@ -6,8 +6,63 @@
 @section Breadcrumbs {
     <a href="/clothing">Clothing</a> <span class="subVisibility">></span> <a href="/clothing/@ViewBag.Clothing">@ViewBag.Sub</a> <span class="productVisibility">></span> <a href="/clothing/@ViewBag.Clothing/@ViewBag.Id">@ViewBag.Product</a>
 }
-
+@model IEnumerable<HW6.Models.Product>
 <h2>@ViewBag.Header</h2>
+
+@if (ViewBag.Type != "Product")
+{
+    <p>@ViewBag.Matches</p>
+
+    if (Model != null)
+    {
+        @section Products {
+            <div class="products">
+                @foreach (var item in Model)
+                {
+                    <div class="eachProduct">
+                        @{
+                            var base64 = Convert.ToBase64String(item.ProductProductPhotoes.FirstOrDefault().ProductPhoto.ThumbNailPhoto);
+                            <a href="~/@Html.DisplayFor(ModelItem => item.ProductSubcategory.ProductCategory.Name).ToString().ToLower()/@Html.DisplayFor(ModelItem => item.ProductSubcategory.Name).ToString().Replace(" ", "-").ToLower()/@Html.DisplayFor(ModelItem => item.ProductModel.Name).ToString().Replace(" ", "-").ToLower()"><img src="data:image/png;base64,@base64" /></a>
+                        }
+                        <a href="~/@Html.DisplayFor(ModelItem => item.ProductSubcategory.ProductCategory.Name).ToString().ToLower()/@Html.DisplayFor(ModelItem => item.ProductSubcategory.Name).ToString().Replace(" ", "-").ToLower()/@Html.DisplayFor(ModelItem => item.ProductModel.Name).ToString().Replace(" ", "-").ToLower()"><h3>@Html.DisplayFor(ModelItem => item.Name).ToString()</h3></a>
+                        <p>$@Html.DisplayFor(ModelItem => item.ListPrice).ToString()</p>
+                    </div>
+                }
+            </div>
+        }
+    }
+ }
+
+@if(ViewBag.Type == "Product")
+{
+    @section ProductView {
+        <div class="productView">
+           @{
+               var base64 = Convert.ToBase64String(@Model.FirstOrDefault().ProductProductPhotoes.FirstOrDefault().ProductPhoto.LargePhoto);
+               <img src="data:image/png;base64,@base64" />
+               <p class="price">$@Model.FirstOrDefault().ListPrice</p>
+               <p class="desc">@Model.FirstOrDefault().ProductModel.ProductModelProductDescriptionCultures.FirstOrDefault().ProductDescription.Description</p>
+           }
+        </div>
+        <div class="reviews">
+            <h3>Product Reviews</h3>
+            @foreach(var item in Model)
+            {
+                foreach(var subitem in item.ProductReviews)
+                {
+                    <div class="reviewItem">
+                        <p class="reviewHead">
+                            <span class="reviewDate">@Html.DisplayFor(ModelItem => subitem.ReviewDate)</span><br />
+                            <span class="rating">@Html.DisplayFor(ModelItem => subitem.Rating)</span><br />
+                            <span class="reviewerName">@Html.DisplayFor(ModelItem => subitem.ReviewerName)</span>
+                        </p>
+                        <p class="reviewDesc">@Html.DisplayFor(ModelItem => subitem.Comments)</p>
+                    </div>
+                }
+            }
+        </div>
+    }
+}
 
 @section PageScripts {
     <script>

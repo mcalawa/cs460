@@ -20,7 +20,7 @@ namespace HW6.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View(db.ProductCategories.ToList());
+            return View();
         }
 
         public PartialViewResult Menu()
@@ -34,14 +34,6 @@ namespace HW6.Controllers
             ViewBag.Action = "Bikes";
             ViewBag.Bikes = id;
             ViewBag.Id = product;
-            StringBuilder htmlString = new StringBuilder("");
-            var subCategories = db.ProductSubcategories.Where(p => p.ProductCategory.Name == "Bikes")
-                .OrderBy(p => p.Name)
-                .Select(p => new
-                {
-                    Name = p.Name,
-                    Count = p.Products.Count()
-                });
             
             //if this is the category view
             if(id == null && product == null)
@@ -52,37 +44,86 @@ namespace HW6.Controllers
                 ViewBag.Header = ViewBag.Action;
                 ViewBag.Type = "Category";
 
-                foreach(var item in subCategories)
+                var products = db.Products.Where(p => p.ProductSubcategory.ProductCategory.Name == "Bikes"
+                    && p.FinishedGoodsFlag == true
+                    && p.SellEndDate == null
+                    && p.DiscontinuedDate == null).GroupBy(p => new { p.ProductModelID, p.ListPrice })
+                    .OrderBy(g => g.Key.ProductModelID).Select(g => g.FirstOrDefault());
+                
+                ViewBag.Matches = "(" + products.Count() + " matches)";
+                if (products.Count() > 0)
                 {
-                    string subCat = item.Name.Replace(" ", "-").ToLower();
-                    htmlString.Append("<li><a href='bikes/" + subCat + "'>" + item.Name + "</a> (" + item.Count + ")</li>");
-                }
-                ViewBag.SideBar = htmlString.ToString();
+                    if(products.Count() == 1)
+                    {
+                        ViewBag.Matches = "(" + products.Count() + " match)";
+                    }
 
-                return View(db.ProductCategories.ToList());
+                    return View(products);
+                }
+                else
+                {
+                    return View();
+                }
             }
             else if(id != null && product == null) //if this is the subcat view
             {
-                string subCat = id.Replace("-", " ");
-                ViewBag.Sub = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(subCat);
-                ViewBag.Product = "";
-                ViewBag.Title = "| " + ViewBag.Sub;
-                ViewBag.Header = ViewBag.Sub;
-                ViewBag.Type = "SubCategory";
 
-                return View(db.ProductCategories.ToList());
+                ViewBag.Product = "";
+                ViewBag.Type = "SubCategory";
+                var products = db.Products.Where(p => p.ProductSubcategory.Name.Replace(" ", "-").ToLower() == id
+                    && p.FinishedGoodsFlag == true
+                    && p.SellEndDate == null
+                    && p.DiscontinuedDate == null).GroupBy(p => new { p.ProductModelID, p.ListPrice })
+                    .OrderBy(g => g.Key.ProductModelID).Select(g => g.FirstOrDefault());
+
+                ViewBag.Matches = "(" + products.Count() + " matches)";
+                if (products.Count() > 0)
+                {
+                    if (products.Count() == 1)
+                    {
+                        ViewBag.Matches = "(" + products.Count() + " match)";
+                    }
+                    ViewBag.Sub = products.FirstOrDefault().ProductSubcategory.Name;
+                    ViewBag.Title = "| " + ViewBag.Sub;
+                    ViewBag.Header = ViewBag.Sub;
+
+                    return View(products);
+                }
+                else
+                {
+                    string subCat = id.Replace("-", " ");
+                    ViewBag.Sub = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(subCat);
+                    ViewBag.Title = "| " + ViewBag.Sub;
+                    ViewBag.Header = ViewBag.Sub;
+                    return View();
+                }
             }
             else //if this is the product view
             {
-                string subCat = id.Replace("-", " ");
-                ViewBag.Sub = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(subCat);
-                string prodName = product.Replace("-", " ");
-                ViewBag.Product = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(prodName);
-                ViewBag.Title = "| " + ViewBag.Product;
-                ViewBag.Header = ViewBag.Product;
                 ViewBag.Type = "Product";
+                var products = db.Products.Where(p => p.ProductModel.Name.Replace(" ", "-").ToLower() == product
+                    && p.FinishedGoodsFlag == true
+                    && p.SellEndDate == null
+                    && p.DiscontinuedDate == null);
 
-                return View(db.ProductCategories.ToList());
+                if(products.Count() > 0)
+                {
+                    ViewBag.Sub = products.FirstOrDefault().ProductSubcategory.Name;
+                    ViewBag.Product = products.FirstOrDefault().ProductModel.Name;
+                    ViewBag.Title = "| " + ViewBag.Product;
+                    ViewBag.Header = ViewBag.Product;
+                    ViewBag.ProductItem = products.FirstOrDefault();
+
+                    return View(products);
+                }
+                else
+                {
+                    ViewBag.Product = "Product Not Found";
+                    ViewBag.Title = "| " + ViewBag.Product;
+                    ViewBag.Header = ViewBag.Product;
+
+                    return View();
+                }
             }
         } //Bikes
 
@@ -95,30 +136,95 @@ namespace HW6.Controllers
             ViewBag.Title = "| " + ViewBag.Action;
             ViewBag.Header = ViewBag.Action;
 
-            if (id != null)
-            {
-                string subCat = id.Replace("-", " ");
-                ViewBag.Sub = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(subCat);
-                ViewBag.Title = "| " + ViewBag.Sub;
-                ViewBag.Header = ViewBag.Sub;
-            }
-            else
+            //if this is the category view
+            if (id == null && product == null)
             {
                 ViewBag.Sub = "";
-            }
+                ViewBag.Product = "";
+                ViewBag.Title = "| " + ViewBag.Action;
+                ViewBag.Header = ViewBag.Action;
+                ViewBag.Type = "Category";
 
-            if (product != null)
-            {
-                string prodName = product.Replace("-", " ");
-                ViewBag.Product = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(prodName);
-                ViewBag.Title = "| " + ViewBag.Product;
-                ViewBag.Header = ViewBag.Product;
+                var products = db.Products.Where(p => p.ProductSubcategory.ProductCategory.Name == "Components"
+                    && p.FinishedGoodsFlag == true
+                    && p.SellEndDate == null
+                    && p.DiscontinuedDate == null).GroupBy(p => new { p.ProductModelID, p.ListPrice })
+                    .OrderBy(g => g.Key.ProductModelID).Select(g => g.FirstOrDefault());
+
+                ViewBag.Matches = "(" + products.Count() + " matches)";
+                if (products.Count() > 0)
+                {
+                    if (products.Count() == 1)
+                    {
+                        ViewBag.Matches = "(" + products.Count() + " match)";
+                    }
+
+                    return View(products);
+                }
+                else
+                {
+                    return View();
+                }
             }
-            else
+            else if (id != null && product == null) //if this is the subcat view
             {
                 ViewBag.Product = "";
+                ViewBag.Type = "SubCategory";
+                var products = db.Products.Where(p => p.ProductSubcategory.Name.Replace(" ", "-").ToLower() == id
+                    && p.FinishedGoodsFlag == true
+                    && p.SellEndDate == null
+                    && p.DiscontinuedDate == null).GroupBy(p => new { p.ProductModelID, p.ListPrice })
+                    .OrderBy(g => g.Key.ProductModelID).Select(g => g.FirstOrDefault());
+
+                ViewBag.Matches = "(" + products.Count() + " matches)";
+                if (products.Count() > 0)
+                {
+                    if (products.Count() == 1)
+                    {
+                        ViewBag.Matches = "(" + products.Count() + " match)";
+                    }
+                    ViewBag.Sub = products.FirstOrDefault().ProductSubcategory.Name;
+                    ViewBag.Title = "| " + ViewBag.Sub;
+                    ViewBag.Header = ViewBag.Sub;
+
+                    return View(products);
+                }
+                else
+                {
+                    string subCat = id.Replace("-", " ");
+                    ViewBag.Sub = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(subCat);
+                    ViewBag.Title = "| " + ViewBag.Sub;
+                    ViewBag.Header = ViewBag.Sub;
+                    return View();
+                }
             }
-            return View(db.ProductCategories.ToList());
+            else //if this is the product view
+            {
+                ViewBag.Type = "Product";
+                var products = db.Products.Where(p => p.ProductModel.Name.Replace(" ", "-").ToLower() == product
+                    && p.FinishedGoodsFlag == true
+                    && p.SellEndDate == null
+                    && p.DiscontinuedDate == null);
+
+                if (products.Count() > 0)
+                {
+                    ViewBag.Sub = products.FirstOrDefault().ProductSubcategory.Name;
+                    ViewBag.Product = products.FirstOrDefault().ProductModel.Name;
+                    ViewBag.Title = "| " + ViewBag.Product;
+                    ViewBag.Header = ViewBag.Product;
+                    ViewBag.ProductItem = products.FirstOrDefault();
+
+                    return View(products);
+                }
+                else
+                {
+                    ViewBag.Product = "Product Not Found";
+                    ViewBag.Title = "| " + ViewBag.Product;
+                    ViewBag.Header = ViewBag.Product;
+
+                    return View();
+                }
+            }
         } //Components
 
         public ActionResult Clothing(string id = null, string product = null)
@@ -130,35 +236,95 @@ namespace HW6.Controllers
             ViewBag.Title = "| " + ViewBag.Action;
             ViewBag.Header = ViewBag.Action;
 
-            if (id != null)
-            {
-                string subCat = id.Replace("-", " ");
-                subCat = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(subCat);
-                if(subCat.Equals("Bib Shorts"))
-                {
-                    subCat = subCat.Replace(" ", "-");
-                }
-                ViewBag.Sub = subCat.ToString();
-                ViewBag.Title = "| " + ViewBag.Sub;
-                ViewBag.Header = ViewBag.Sub;
-            }
-            else
+            //if this is the category view
+            if (id == null && product == null)
             {
                 ViewBag.Sub = "";
-            }
+                ViewBag.Product = "";
+                ViewBag.Title = "| " + ViewBag.Action;
+                ViewBag.Header = ViewBag.Action;
+                ViewBag.Type = "Category";
 
-            if (product != null)
-            {
-                string prodName = product.Replace("-", " ");
-                ViewBag.Product = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(prodName);
-                ViewBag.Title = "| " + ViewBag.Product;
-                ViewBag.Header = ViewBag.Product;
+                var products = db.Products.Where(p => p.ProductSubcategory.ProductCategory.Name == "Clothing"
+                    && p.FinishedGoodsFlag == true
+                    && p.SellEndDate == null
+                    && p.DiscontinuedDate == null).GroupBy(p => new { p.ProductModelID, p.ListPrice })
+                    .OrderBy(g => g.Key.ProductModelID).Select(g => g.FirstOrDefault());
+
+                ViewBag.Matches = "(" + products.Count() + " matches)";
+                if (products.Count() > 0)
+                {
+                    if (products.Count() == 1)
+                    {
+                        ViewBag.Matches = "(" + products.Count() + " match)";
+                    }
+
+                    return View(products);
+                }
+                else
+                {
+                    return View();
+                }
             }
-            else
+            else if (id != null && product == null) //if this is the subcat view
             {
                 ViewBag.Product = "";
+                ViewBag.Type = "SubCategory";
+                var products = db.Products.Where(p => p.ProductSubcategory.Name.Replace(" ", "-").ToLower() == id
+                    && p.FinishedGoodsFlag == true
+                    && p.SellEndDate == null
+                    && p.DiscontinuedDate == null).GroupBy(p => new { p.ProductModelID, p.ListPrice })
+                    .OrderBy(g => g.Key.ProductModelID).Select(g => g.FirstOrDefault());
+
+                ViewBag.Matches = "(" + products.Count() + " matches)";
+                if (products.Count() > 0)
+                {
+                    if (products.Count() == 1)
+                    {
+                        ViewBag.Matches = "(" + products.Count() + " match)";
+                    }
+                    ViewBag.Sub = products.FirstOrDefault().ProductSubcategory.Name;
+                    ViewBag.Title = "| " + ViewBag.Sub;
+                    ViewBag.Header = ViewBag.Sub;
+
+                    return View(products);
+                }
+                else
+                {
+                    string subCat = id.Replace("-", " ");
+                    ViewBag.Sub = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(subCat);
+                    ViewBag.Title = "| " + ViewBag.Sub;
+                    ViewBag.Header = ViewBag.Sub;
+                    return View();
+                }
             }
-            return View(db.ProductCategories.ToList());
+            else //if this is the product view
+            {
+                ViewBag.Type = "Product";
+                var products = db.Products.Where(p => p.ProductModel.Name.Replace(" ", "-").ToLower() == product
+                    && p.FinishedGoodsFlag == true
+                    && p.SellEndDate == null
+                    && p.DiscontinuedDate == null);
+
+                if (products.Count() > 0)
+                {
+                    ViewBag.Sub = products.FirstOrDefault().ProductSubcategory.Name;
+                    ViewBag.Product = products.FirstOrDefault().ProductModel.Name;
+                    ViewBag.Title = "| " + ViewBag.Product;
+                    ViewBag.Header = ViewBag.Product;
+                    ViewBag.ProductItem = products.FirstOrDefault();
+
+                    return View(products);
+                }
+                else
+                {
+                    ViewBag.Product = "Product Not Found";
+                    ViewBag.Title = "| " + ViewBag.Product;
+                    ViewBag.Header = ViewBag.Product;
+
+                    return View();
+                }
+            }
         } //Clothing
 
         public ActionResult Accessories(string id = null, string product = null)
@@ -170,30 +336,95 @@ namespace HW6.Controllers
             ViewBag.Title = "| " + ViewBag.Action;
             ViewBag.Header = ViewBag.Action;
 
-            if (id != null)
-            {
-                string subCat = id.Replace("-", " ");
-                ViewBag.Sub = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(subCat);
-                ViewBag.Title = "| " + ViewBag.Sub;
-                ViewBag.Header = ViewBag.Sub;
-            }
-            else
+            //if this is the category view
+            if (id == null && product == null)
             {
                 ViewBag.Sub = "";
-            }
+                ViewBag.Product = "";
+                ViewBag.Title = "| " + ViewBag.Action;
+                ViewBag.Header = ViewBag.Action;
+                ViewBag.Type = "Category";
 
-            if (product != null)
-            {
-                string prodName = product.Replace("-", " ");
-                ViewBag.Product = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(prodName);
-                ViewBag.Title = "| " + ViewBag.Product;
-                ViewBag.Header = ViewBag.Product;
+                var products = db.Products.Where(p => p.ProductSubcategory.ProductCategory.Name == "Accessories"
+                    && p.FinishedGoodsFlag == true
+                    && p.SellEndDate == null
+                    && p.DiscontinuedDate == null).GroupBy(p => new { p.ProductModelID, p.ListPrice })
+                    .OrderBy(g => g.Key.ProductModelID).Select(g => g.FirstOrDefault());
+
+                ViewBag.Matches = "(" + products.Count() + " matches)";
+                if (products.Count() > 0)
+                {
+                    if (products.Count() == 1)
+                    {
+                        ViewBag.Matches = "(" + products.Count() + " match)";
+                    }
+
+                    return View(products);
+                }
+                else
+                {
+                    return View();
+                }
             }
-            else
+            else if (id != null && product == null) //if this is the subcat view
             {
                 ViewBag.Product = "";
+                ViewBag.Type = "SubCategory";
+                var products = db.Products.Where(p => p.ProductSubcategory.Name.Replace(" ", "-").ToLower() == id
+                    && p.FinishedGoodsFlag == true
+                    && p.SellEndDate == null
+                    && p.DiscontinuedDate == null).GroupBy(p => new { p.ProductModelID, p.ListPrice })
+                    .OrderBy(g => g.Key.ProductModelID).Select(g => g.FirstOrDefault());
+
+                ViewBag.Matches = "(" + products.Count() + " matches)";
+                if (products.Count() > 0)
+                {
+                    if (products.Count() == 1)
+                    {
+                        ViewBag.Matches = "(" + products.Count() + " match)";
+                    }
+                    ViewBag.Sub = products.FirstOrDefault().ProductSubcategory.Name;
+                    ViewBag.Title = "| " + ViewBag.Sub;
+                    ViewBag.Header = ViewBag.Sub;
+
+                    return View(products);
+                }
+                else
+                {
+                    string subCat = id.Replace("-", " ");
+                    ViewBag.Sub = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(subCat);
+                    ViewBag.Title = "| " + ViewBag.Sub;
+                    ViewBag.Header = ViewBag.Sub;
+                    return View();
+                }
             }
-            return View(db.ProductCategories.ToList());
+            else //if this is the product view
+            {
+                ViewBag.Type = "Product";
+                var products = db.Products.Where(p => p.ProductModel.Name.Replace(" ", "-").ToLower() == product
+                    && p.FinishedGoodsFlag == true
+                    && p.SellEndDate == null
+                    && p.DiscontinuedDate == null);
+
+                if (products.Count() > 0)
+                {
+                    ViewBag.Sub = products.FirstOrDefault().ProductSubcategory.Name;
+                    ViewBag.Product = products.FirstOrDefault().ProductModel.Name;
+                    ViewBag.Title = "| " + ViewBag.Product;
+                    ViewBag.Header = ViewBag.Product;
+                    ViewBag.ProductItem = products.FirstOrDefault();
+
+                    return View(products);
+                }
+                else
+                {
+                    ViewBag.Product = "Product Not Found";
+                    ViewBag.Title = "| " + ViewBag.Product;
+                    ViewBag.Header = ViewBag.Product;
+
+                    return View();
+                }
+            }
         } //Accessories
     }
 }
