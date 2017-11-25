@@ -101,7 +101,7 @@ namespace HW6.Controllers
             else //if this is the product view
             {
                 ViewBag.Type = "Product";
-                var products = db.Products.Where(p => p.ProductModel.Name.Replace(" ", "-").ToLower() == product
+                var products = db.Products.Where(p => p.ProductModel.Name.Replace(" ", "-").Replace("/", "-").ToLower() == product
                     && p.FinishedGoodsFlag == true
                     && p.SellEndDate == null
                     && p.DiscontinuedDate == null);
@@ -201,7 +201,7 @@ namespace HW6.Controllers
             else //if this is the product view
             {
                 ViewBag.Type = "Product";
-                var products = db.Products.Where(p => p.ProductModel.Name.Replace(" ", "-").ToLower() == product
+                var products = db.Products.Where(p => p.ProductModel.Name.Replace(" ", "-").Replace("/", "-").ToLower() == product
                     && p.FinishedGoodsFlag == true
                     && p.SellEndDate == null
                     && p.DiscontinuedDate == null);
@@ -301,7 +301,7 @@ namespace HW6.Controllers
             else //if this is the product view
             {
                 ViewBag.Type = "Product";
-                var products = db.Products.Where(p => p.ProductModel.Name.Replace(" ", "-").ToLower() == product
+                var products = db.Products.Where(p => p.ProductModel.Name.Replace(" ", "-").Replace("/", "-").ToLower() == product
                     && p.FinishedGoodsFlag == true
                     && p.SellEndDate == null
                     && p.DiscontinuedDate == null);
@@ -401,7 +401,7 @@ namespace HW6.Controllers
             else //if this is the product view
             {
                 ViewBag.Type = "Product";
-                var products = db.Products.Where(p => p.ProductModel.Name.Replace(" ", "-").ToLower() == product
+                var products = db.Products.Where(p => p.ProductModel.Name.Replace(" ", "-").Replace("/", "-").ToLower() == product
                     && p.FinishedGoodsFlag == true
                     && p.SellEndDate == null
                     && p.DiscontinuedDate == null);
