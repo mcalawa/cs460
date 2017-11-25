@@ -85,48 +85,6 @@
     }
 }
 
-<!-- The View if they are viewing the category -->
-@*@if(ViewBag.Type == "Category")
-{
-    <p>Category</p>
-    @section Products {
-        <div class="products">
-            @foreach (var item in Model)
-            {
-                <div class="eachProduct">
-                    <img />
-                    <h3>@Html.DisplayFor(ModelItem => item.Name).ToString()</h3>
-                    <p>@Html.DisplayFor(ModelItem => item.ListPrice).ToString()</p>
-                </div>
-            }
-        </div>
-    }
-} <!-- The View if they are viewing the category -->
-
-<!-- The View if they are viewing the subcategory -->
-@if(ViewBag.Type == "SubCategory")
-{
-    <p>Subcategory</p>
-    @section Products {
-    <div class="products">
-        @foreach (var item in Model)
-        {
-            <div class="eachProduct">
-                <img />
-                <h3>@Html.DisplayFor(ModelItem => item.Name).ToString()</h3>
-                <p>@Html.DisplayFor(ModelItem => item.ListPrice).ToString()</p>
-            </div>
-        }
-    </div>
-    }
-}*@ <!-- The View if they are viewing the subcategory -->
-
-<!-- The View if they are viewing the product -->
-@if(ViewBag.Type == "Product")
-{
-    <p>Product</p>
-} <!-- The View if they are viewing the product -->
-
 @section PageScripts {
     <script>
         function setDynamicElements() {
