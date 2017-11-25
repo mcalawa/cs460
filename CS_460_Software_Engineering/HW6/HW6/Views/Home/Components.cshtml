@@ -17,16 +17,34 @@
     {
         @section Products {
             <div class="products">
-                @foreach (var item in Model)
+                @if(@ViewBag.Sub == "Mountain Frames")
                 {
-                    <div class="eachProduct">
-                        @{
-                            var base64 = Convert.ToBase64String(item.ProductProductPhotoes.FirstOrDefault().ProductPhoto.ThumbNailPhoto);
-                            <a href="~/@Html.DisplayFor(ModelItem => item.ProductSubcategory.ProductCategory.Name).ToString().ToLower()/@Html.DisplayFor(ModelItem => item.ProductSubcategory.Name).ToString().Replace(" ", "-").ToLower()/@Html.DisplayFor(ModelItem => item.ProductModel.Name).ToString().Replace(" ", "-").Replace("/", "-").ToLower()"><img src="data:image/png;base64,@base64" /></a>
-                        }
-                        <a href="~/@Html.DisplayFor(ModelItem => item.ProductSubcategory.ProductCategory.Name).ToString().ToLower()/@Html.DisplayFor(ModelItem => item.ProductSubcategory.Name).ToString().Replace(" ", "-").ToLower()/@Html.DisplayFor(ModelItem => item.ProductModel.Name).ToString().Replace(" ", "-").Replace("/", "-").ToLower()"><h3>@Html.DisplayFor(ModelItem => item.Name).ToString()</h3></a>
-                        <p>$@Html.DisplayFor(ModelItem => item.ListPrice).ToString()</p>
-                    </div>
+                    foreach (var item in Model)
+                    {
+                        <div class="eachProduct">
+                            @{
+                                var base64 = Convert.ToBase64String(item.ProductProductPhotoes.FirstOrDefault().ProductPhoto.ThumbNailPhoto);
+                                <a href="~/@Html.DisplayFor(ModelItem => item.ProductSubcategory.ProductCategory.Name).ToString().ToLower()/@Html.DisplayFor(ModelItem => item.ProductSubcategory.Name).ToString().Replace(" ", "-").ToLower()/@Html.DisplayFor(ModelItem => item.ProductModel.Name).ToString().Replace(" ", "-").Replace("/", "-").ToLower()-@Html.DisplayFor(ModelItem => item.Color).ToString().ToLower()"><img src="data:image/png;base64,@base64" /></a>
+                            }
+                            <a href="~/@Html.DisplayFor(ModelItem => item.ProductSubcategory.ProductCategory.Name).ToString().ToLower()/@Html.DisplayFor(ModelItem => item.ProductSubcategory.Name).ToString().Replace(" ", "-").ToLower()/@Html.DisplayFor(ModelItem => item.ProductModel.Name).ToString().Replace(" ", "-").Replace("/", "-").ToLower()-@Html.DisplayFor(ModelItem => item.Color).ToString().ToLower()"><h3>@Html.DisplayFor(ModelItem => item.ProductModel.Name).ToString() @Html.DisplayFor(ModelItem => item.Color).ToString()</h3></a>
+                            <p>$@Html.DisplayFor(ModelItem => item.ListPrice).ToString()</p>
+                        </div>
+                    }
+                }
+
+                @if (@ViewBag.Sub != "Mountain Frames")
+                {
+                    foreach (var item in Model)
+                    {
+                        <div class="eachProduct">
+                            @{
+                                var base64 = Convert.ToBase64String(item.ProductProductPhotoes.FirstOrDefault().ProductPhoto.ThumbNailPhoto);
+                                <a href="~/@Html.DisplayFor(ModelItem => item.ProductSubcategory.ProductCategory.Name).ToString().ToLower()/@Html.DisplayFor(ModelItem => item.ProductSubcategory.Name).ToString().Replace(" ", "-").ToLower()/@Html.DisplayFor(ModelItem => item.ProductModel.Name).ToString().Replace(" ", "-").Replace("/", "-").ToLower()"><img src="data:image/png;base64,@base64" /></a>
+                            }
+                            <a href="~/@Html.DisplayFor(ModelItem => item.ProductSubcategory.ProductCategory.Name).ToString().ToLower()/@Html.DisplayFor(ModelItem => item.ProductSubcategory.Name).ToString().Replace(" ", "-").ToLower()/@Html.DisplayFor(ModelItem => item.ProductModel.Name).ToString().Replace(" ", "-").Replace("/", "-").ToLower()"><h3>@Html.DisplayFor(ModelItem => item.Name).ToString()</h3></a>
+                            <p>$@Html.DisplayFor(ModelItem => item.ListPrice).ToString()</p>
+                        </div>
+                    }
                 }
             </div>
         }

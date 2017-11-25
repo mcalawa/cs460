@@ -112,9 +112,36 @@ namespace HW6.Controllers
                     ViewBag.Product = products.FirstOrDefault().ProductModel.Name;
                     ViewBag.Title = "| " + ViewBag.Product;
                     ViewBag.Header = ViewBag.Product;
-                    ViewBag.ProductItem = products.FirstOrDefault();
 
                     return View(products);
+                }
+                else if(id == "mountain-bikes")
+                {
+                    string[] productWords = product.Split('-');
+                    int length = productWords.Length;
+                    StringBuilder productString = new StringBuilder(productWords[0]);
+
+                    for(int i = 1; i < length - 1; i++)
+                    {
+                        productString.Append("-");
+                        productString.Append(productWords[i]);
+                    }
+
+                    string productName = productString.ToString();
+                    string color = productWords[length - 1];
+
+                    var mountainProducts = db.Products.Where(p => p.ProductModel.Name.Replace(" ", "-").Replace("/", "-").ToLower() == productName
+                    && p.FinishedGoodsFlag == true
+                    && p.SellEndDate == null
+                    && p.DiscontinuedDate == null
+                    && p.Color.ToLower() == color);
+
+                    ViewBag.Sub = mountainProducts.FirstOrDefault().ProductSubcategory.Name;
+                    ViewBag.Product = mountainProducts.FirstOrDefault().ProductModel.Name;
+                    ViewBag.Title = "| " + ViewBag.Product;
+                    ViewBag.Header = ViewBag.Product;
+
+                    return View(mountainProducts);
                 }
                 else
                 {
@@ -212,9 +239,36 @@ namespace HW6.Controllers
                     ViewBag.Product = products.FirstOrDefault().ProductModel.Name;
                     ViewBag.Title = "| " + ViewBag.Product;
                     ViewBag.Header = ViewBag.Product;
-                    ViewBag.ProductItem = products.FirstOrDefault();
 
                     return View(products);
+                }
+                else if (id == "mountain-frames")
+                {
+                    string[] productWords = product.Split('-');
+                    int length = productWords.Length;
+                    StringBuilder productString = new StringBuilder(productWords[0]);
+
+                    for (int i = 1; i < length - 1; i++)
+                    {
+                        productString.Append("-");
+                        productString.Append(productWords[i]);
+                    }
+
+                    string productName = productString.ToString();
+                    string color = productWords[length - 1];
+
+                    var mountainProducts = db.Products.Where(p => p.ProductModel.Name.Replace(" ", "-").Replace("/", "-").ToLower() == productName
+                    && p.FinishedGoodsFlag == true
+                    && p.SellEndDate == null
+                    && p.DiscontinuedDate == null
+                    && p.Color.ToLower() == color);
+
+                    ViewBag.Sub = mountainProducts.FirstOrDefault().ProductSubcategory.Name;
+                    ViewBag.Product = mountainProducts.FirstOrDefault().ProductModel.Name;
+                    ViewBag.Title = "| " + ViewBag.Product;
+                    ViewBag.Header = ViewBag.Product;
+
+                    return View(mountainProducts);
                 }
                 else
                 {
@@ -312,7 +366,6 @@ namespace HW6.Controllers
                     ViewBag.Product = products.FirstOrDefault().ProductModel.Name;
                     ViewBag.Title = "| " + ViewBag.Product;
                     ViewBag.Header = ViewBag.Product;
-                    ViewBag.ProductItem = products.FirstOrDefault();
 
                     return View(products);
                 }
@@ -412,7 +465,6 @@ namespace HW6.Controllers
                     ViewBag.Product = products.FirstOrDefault().ProductModel.Name;
                     ViewBag.Title = "| " + ViewBag.Product;
                     ViewBag.Header = ViewBag.Product;
-                    ViewBag.ProductItem = products.FirstOrDefault();
 
                     return View(products);
                 }
