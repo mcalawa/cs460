@@ -141,6 +141,7 @@
     <Content Include="Views\Home\Clothing.cshtml" />
     <Content Include="Views\Home\Accessories.cshtml" />
     <Content Include="Views\Home\Menu.cshtml" />
+    <Content Include="Views\Home\Review.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
