@@ -88,11 +88,8 @@
                         Rating <input type="number" id="reviewRating" name="Rating" /><br />
                         Comments <textarea id="reviewComments" name="Comments"></textarea>
 
-                        <table id="collapse">
-                            <tr>
-                                <td><input type="hidden" value="@Model.FirstOrDefault().ProductID" name="ProductID" /><input type="hidden" id="reviewDate" name="ReviewDate" /><input type="hidden" value="@Model" name="Product" /></td>
-                            </tr>
-                        </table>
+                        <input type="hidden" value="@Model.FirstOrDefault().ProductID" name="ProductID" /><input type="hidden" id="reviewDate" onload="setDate()" name="ReviewDate" /><input type="hidden" id="modifyDate" onload="setDate()" name="ModifiedDate" /><input type="hidden" value="@Model.FirstOrDefault()" name="Product" />
+
                         <input type="submit" id="submitButton" />
                     </form>
                 </div>
@@ -117,12 +114,15 @@
                 $(".subVisibility").css("visibility", "visible");
                 $(".productVisibility").css("visibility", "visible");
             }
-        }
-    </script>
 
-    <script>
-        $(".reviewForm").submit(function () {
-            $("#reviewDate").val() = new Date();
-        })
+            var today = new Date();
+            var month = today.getMonth();
+            month += 1;
+            var dateToday = today.getFullYear().toString() + "-" + month.toString() + "-" + today.getDate().toString();
+            console.log(dateToday);
+            $("#reviewDate").val(dateToday);
+            $("#modifyDate").val(dateToday);
+            console.log($("#reviewDate").val());
+        }
     </script>
 }

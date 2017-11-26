@@ -480,55 +480,51 @@ namespace HW6.Controllers
         } //Accessories
 
         [HttpPost]
-        public ActionResult Bikes([Bind(Include = "ProductID,ReviewerName,ReviewDate,EmailAddress,Rating,Comments,Product" )] ProductReview review)
+        public ActionResult Bikes([Bind(Include = "ProductID,ReviewerName,ReviewDate,EmailAddress,Rating,Comments,ModifiedDate,Product" )] ProductReview review)
         {
             if(ModelState.IsValid)
             {
                 db.ProductReviews.Add(review);
                 db.SaveChanges();
-                return RedirectToRoute(Request.UrlReferrer.PathAndQuery);
             }
 
-            return View();
+            return Redirect(Request.UrlReferrer.PathAndQuery);
         }
 
         [HttpPost]
-        public ActionResult Components([Bind(Include = "ProductID,ReviewerName,ReviewDate,EmailAddress,Rating,Comments,Product")] ProductReview review)
+        public ActionResult Components([Bind(Include = "ProductID,ReviewerName,ReviewDate,EmailAddress,Rating,Comments,ModifiedDate,Product")] ProductReview review)
         {
             if (ModelState.IsValid)
             {
                 db.ProductReviews.Add(review);
                 db.SaveChanges();
-                return RedirectToRoute(Request.UrlReferrer.PathAndQuery);
             }
 
-            return View();
+            return Redirect(Request.UrlReferrer.PathAndQuery);
         }
 
         [HttpPost]
-        public ActionResult Clothing([Bind(Include = "ProductID,ReviewerName,ReviewDate,EmailAddress,Rating,Comments,Product")] ProductReview review)
+        public ActionResult Clothing([Bind(Include = "ProductID,ReviewerName,ReviewDate,EmailAddress,Rating,Comments,ModifiedDate,Product")] ProductReview review)
         {
             if (ModelState.IsValid)
             {
                 db.ProductReviews.Add(review);
                 db.SaveChanges();
-                return RedirectToRoute(Request.UrlReferrer.PathAndQuery);
             }
 
-            return View();
+            return Redirect(Request.UrlReferrer.PathAndQuery);
         }
 
         [HttpPost]
-        public ActionResult Accessories([Bind(Include = "ProductID,ReviewerName,ReviewDate,EmailAddress,Rating,Comments,Product")] ProductReview review)
+        public ActionResult Accessories([Bind(Include = "ProductID,ReviewerName,ReviewDate,EmailAddress,Rating,Comments,ModifiedDate,Product")] ProductReview review)
         {
             if (ModelState.IsValid)
             {
                 db.ProductReviews.Add(review);
                 db.SaveChanges();
-                return RedirectToRoute(Request.UrlReferrer.PathAndQuery);
             }
 
-            return View();
+            return Redirect(Request.UrlReferrer.PathAndQuery);
         }
     } //HomeController
 }
