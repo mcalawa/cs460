@@ -3,7 +3,6 @@
 body {
     background-color: #fff;
     font-family: Arial, Helvetica, sans-serif;
-    display: flex;
 }
 
 .titleHeader {
@@ -37,6 +36,11 @@ body {
 .navbar li .current
 {
     color: #13d5ff;
+}
+
+nav
+{
+    display: inline-block;
 }
 
 h1 {

@@ -1,0 +1,22 @@
+﻿@model IEnumerable<HW6.Models.Product>
+
+<form method="post">
+    Name <input type="text" id="reviewerName" name="ReviewerName" /><br />
+    E-mail <input type="email" id="reviewerEmail" name="EmailAddress" /><br />
+    Rating <input type="number" id="reviewRating" name="Rating" /><br />
+    Comments <textarea id="reviewComments" name="Comments"></textarea>
+
+    <table id="collapse">
+        <tr>
+            <td><input type="hidden" value="@Model.FirstOrDefault().ProductID" name="ProductID" /><input type="hidden" value="new DateTime()"id="reviewDate" name="ReviewDate"/><input type="hidden" value="@Model" name="Product" /></td>
+        </tr>
+    </table>
+    <input type="submit" id="submitButton" disabled />
+</form>
+
+@section PageScripts {
+    <script>
+        $("#submitButton").submit(function () {
+        })
+    </script>
+}

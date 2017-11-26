@@ -478,5 +478,57 @@ namespace HW6.Controllers
                 }
             }
         } //Accessories
-    }
+
+        [HttpPost]
+        public ActionResult Bikes([Bind(Include = "ProductID,ReviewerName,ReviewDate,EmailAddress,Rating,Comments,Product" )] ProductReview review)
+        {
+            if(ModelState.IsValid)
+            {
+                db.ProductReviews.Add(review);
+                db.SaveChanges();
+                return RedirectToRoute(Request.UrlReferrer.PathAndQuery);
+            }
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Components([Bind(Include = "ProductID,ReviewerName,ReviewDate,EmailAddress,Rating,Comments,Product")] ProductReview review)
+        {
+            if (ModelState.IsValid)
+            {
+                db.ProductReviews.Add(review);
+                db.SaveChanges();
+                return RedirectToRoute(Request.UrlReferrer.PathAndQuery);
+            }
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Clothing([Bind(Include = "ProductID,ReviewerName,ReviewDate,EmailAddress,Rating,Comments,Product")] ProductReview review)
+        {
+            if (ModelState.IsValid)
+            {
+                db.ProductReviews.Add(review);
+                db.SaveChanges();
+                return RedirectToRoute(Request.UrlReferrer.PathAndQuery);
+            }
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Accessories([Bind(Include = "ProductID,ReviewerName,ReviewDate,EmailAddress,Rating,Comments,Product")] ProductReview review)
+        {
+            if (ModelState.IsValid)
+            {
+                db.ProductReviews.Add(review);
+                db.SaveChanges();
+                return RedirectToRoute(Request.UrlReferrer.PathAndQuery);
+            }
+
+            return View();
+        }
+    } //HomeController
 }

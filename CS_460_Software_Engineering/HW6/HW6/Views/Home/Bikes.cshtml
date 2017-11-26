@@ -80,6 +80,22 @@
                         </div>
                     }
                 }
+
+                <div class="leaveReview">
+                    <form method="post" class="reviewForm">
+                        Name <input type="text" id="reviewerName" name="ReviewerName" /><br />
+                        E-mail <input type="email" id="reviewerEmail" name="EmailAddress" /><br />
+                        Rating <input type="number" id="reviewRating" name="Rating" /><br />
+                        Comments <textarea id="reviewComments" name="Comments"></textarea>
+
+                        <table id="collapse">
+                            <tr>
+                                <td><input type="hidden" value="@Model.FirstOrDefault().ProductID" name="ProductID" /><input type="hidden" id="reviewDate" name="ReviewDate" /><input type="hidden" value="@Model" name="Product" /></td>
+                            </tr>
+                        </table>
+                        <input type="submit" id="submitButton" />
+                    </form>
+                </div>
             </div>
         }
     }
@@ -102,5 +118,11 @@
                 $(".productVisibility").css("visibility", "visible");
             }
         }
+    </script>
+
+    <script>
+        $(".reviewForm").submit(function () {
+            $("#reviewDate").val() = new Date();
+        })
     </script>
 }
