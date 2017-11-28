@@ -2,12 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\CS_460_Software_Engineering",
-    "\\CS_460_Software_Engineering\\HW3\\images",
     "\\CS_460_Software_Engineering\\HW4",
     "\\CS_460_Software_Engineering\\HW4\\HW4",
     "\\CS_460_Software_Engineering\\HW4\\HW4\\Views",
-    "\\CS_460_Software_Engineering\\HW4\\HW4\\Views\\Home"
+    "\\CS_460_Software_Engineering\\HW6",
+    "\\CS_460_Software_Engineering\\HW6\\HW6",
+    "\\CS_460_Software_Engineering\\HW6\\HW6\\Controllers",
+    "\\CS_460_Software_Engineering\\HW6\\HW6\\Views",
+    "\\CS_460_Software_Engineering\\HW6\\HW6\\Views\\Home"
   ],
-  "SelectedNode": "\\CS_460_Software_Engineering\\HW4",
+  "SelectedNode": "\\CS_460_Software_Engineering\\HW6\\HW6\\Controllers\\HomeController.cs",
   "PreviewInSolutionExplorer": false
 }
