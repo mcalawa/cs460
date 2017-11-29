@@ -1,22 +1,37 @@
-﻿body {
+﻿@import url(//fonts.googleapis.com/css?family=Pacifico);
+
+body {
+    background-color: #0a0a0a;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    background-color: #d20040;
+    color: #fff;
+    padding: 5px;
+    font-family: Pacifico;
 }
 
 .content {
     padding: 30px;
+    padding-top: 0;
     text-align: center;
+    margin-top: 15px;
 }
 
-#searchResults
+#colorChange
 {
+    color: #fff;
+}
+
+#searchResults {
     padding: 25px;
-    display: inline-block;
 }
 
-.gifContainer
-{
+.gifContainer {
+    display: inline-grid;
     margin: 5px;
-    display: inline-block;
-    width: 200px;
 }
 
 img
