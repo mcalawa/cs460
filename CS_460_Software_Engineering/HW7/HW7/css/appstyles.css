@@ -1,0 +1,26 @@
+﻿body {
+}
+
+.content {
+    padding: 30px;
+    text-align: center;
+}
+
+#searchResults
+{
+    padding: 25px;
+    display: inline-block;
+}
+
+.gifContainer
+{
+    margin: 5px;
+    display: inline-block;
+    width: 200px;
+}
+
+img
+{
+    height: 200px;
+    width: 200px;
+}
