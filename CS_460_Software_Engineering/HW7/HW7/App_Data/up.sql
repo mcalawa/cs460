@@ -1,0 +1,9 @@
+﻿CREATE TABLE dbo.SearchLogs
+(
+	[SearchID] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[SearchQuery] NVARCHAR(128) NOT NULL,
+	[NumberRequested] INT NOT NULL,
+	[TimeStamp] DATETIME NOT NULL,
+	[RequesterIP] NVARCHAR(15) NOT NULL,
+	[BrowserAgent] NVARCHAR(128) NOT NULL
+);

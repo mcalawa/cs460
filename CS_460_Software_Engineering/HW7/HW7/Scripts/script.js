@@ -56,6 +56,6 @@ function displayGifs(results, limit)
 
 function errorOnAjax()
 {
-    console.log("Error");
+    console.log("Ajax error");
 }
 
