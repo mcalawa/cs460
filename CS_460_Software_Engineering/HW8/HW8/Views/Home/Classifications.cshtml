@@ -1,0 +1,78 @@
+﻿@model IEnumerable<HW8.Models.Classifications>
+@{
+}
+
+<h2>Artists</h2>
+<table>
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ArtWorks.Artists.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.ArtWorks.Artists.DoB)</th>
+            <th>@Html.DisplayNameFor(model => model.ArtWorks.Artists.BirthCity)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(ModelItem => item.ArtWorks.Artists.Name)</td>
+                <td>@Html.DisplayFor(ModelItem => item.ArtWorks.Artists.DoB)</td>
+                <td>@Html.DisplayFor(ModelItem => item.ArtWorks.Artists.BirthCity)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Art Works</h2>
+<table>
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ArtWorks.Title)</th>
+            <th>@Html.DisplayNameFor(model => model.ArtWorks.Artists.Name)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(ModelItem => item.ArtWorks.Title)</td>
+                <td>@Html.DisplayFor(ModelItem => item.ArtWorks.Artists.Name)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Classifications</h2>
+<table>
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ArtWorkId)</th>
+            <th>@Html.DisplayNameFor(model => model.GenreId)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(ModelItem => item.ArtWorks.Title)</td>
+                <td>@Html.DisplayFor(ModelItem => item.Genres.Name)</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section PageScripts {
+    <script>
+        /*Script taken from https://stackoverflow.com/questions/8234107/remove-duplicate-trs-through-jquery */
+        $(document).ready(function () {
+            var seen = {};
+            $('table tr').each(function () {
+                var txt = $(this).text();
+                if (seen[txt])
+                    $(this).remove();
+                else
+                    seen[txt] = true;
+            });
+        });
+    </script>
+}

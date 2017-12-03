@@ -1,0 +1,44 @@
+﻿<!-- DOCTYPE -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CS 460 Homework 8</title>
+    <meta charset="utf-8">
+    <!-- Viewport Meta Tag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <!-- Main Style Sheet -->
+    <link href="~/css/styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <!-- YOUR CONTENT STARTS HERE -->
+    <nav>
+        <div class="navbar">
+            <h1>CS 460 Homework 8</h1>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li>@Html.ActionLink("Artists", "Artists")</li>
+                <li>@Html.ActionLink("Art Works", "ArtWorks")</li>
+                <li>@Html.ActionLink("Classifications", "Classifications")</li>
+                <li><a href="https://mcalawa.github.io/senior_project/">Portfolio Home</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="content">
+        @RenderBody()
+    </div>
+
+    <!-- YOUR CONTENT ENDS HERE -->
+    <!-- JavaScript: placed at the end of the document so the pages load faster -->
+    <!-- jQuery library -->
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified Bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+    @RenderSection("PageScripts", required: false)
+</body>
+</html>
