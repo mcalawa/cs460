@@ -1,7 +1,85 @@
-﻿
+﻿@model IEnumerable<HW8.Models.Artists>
 @{
-    ViewBag.Title = "Create";
 }
 
 <h2>Create</h2>
+<hr />
+<form method="post">
+    @Html.DisplayNameFor(model => model.Name) <input type="text" name="Name" id="artistName" /><br />
+    @Html.DisplayNameFor(model => model.BirthCity) <input type="text" name="BirthCity" id="birthCity" /><br />
+    @Html.DisplayNameFor(model => model.DoB) <input type="date" name="DoB" id="dateOfBirth" /><br />
+    <div id="errorMessage"></div>
+    <input type="submit" id="submitButton" disabled/> @Html.ActionLink("Cancel", "Index")
+</form>
 
+@section PageScripts {
+    <script>
+        $("#artistName").change(function () {
+            $("#errorMessage").empty();
+            isComplete();
+        })
+
+        $("#birthCity").change(function () {
+            $("#errorMessage").empty();
+            isComplete();
+        })
+
+        $("#dateOfBirth").change(function () {
+            $("#errorMessage").empty();
+            console.log($(this).val());
+            isComplete();
+        })
+
+        function isComplete() {
+            if ($("#artistName").val().length <= 0 || $("#birthCity").val().length <= 0 || $("#dateOfBirth").val().length <= 0)
+            {
+                $("#errorMessage").append("All three fields must be completed.");
+                $("#submitButton").attr("disabled", "disabled");
+            }
+            else
+            {
+                var dob = $("#dateOfBirth").val();
+                var dobParts = dob.split("-");
+                var today = new Date();
+                var thisYear = today.getFullYear();
+                var thisMonth = today.getMonth();
+                thisMonth += 1;
+                var thisDay = today.getDate();
+
+                console.log("Today:");
+                console.log(today);
+
+                if (dobParts.length != 3)
+                {
+                    $("#errorMessage").append("Date of birth must be entered in the format mm/dd/yyyy.");
+                    $("#submitButton").attr("disabled", "disabled");
+                }
+                else if (isNaN(dobParts[0]) == true || isNaN(dobParts[1]) == true || isNaN(dobParts[2]) == true)
+                {
+                    $("#errorMessage").append("Month, day, and year values must be numeric and in the format mm/dd/yyyy.");
+                    $("#submitButton").attr("disabled", "disabled");
+                }
+                else if (((dobParts[1] == 1 || dobParts[1] == 3 || dobParts[1] == 5 || dobParts[1] == 7 || dobParts[1] == 8 || dobParts[1] == 10 || dobParts[1] == 12) && dobParts[2] > 31) ||
+                    ((dobParts[1] == 4 || dobParts[1] == 6 || dobParts[1] == 9 || dobParts[1] == 11) && dobParts[2] > 30) || (dobParts[1] == 2 && dobParts[2] > 29) ||
+                    (dobParts[1] == 2 && (dobParts[0] % 4 != 0 || dobParts[0] % 100 == 0 || dobParts[0] % 400 != 0) && dobParts[2] > 28) ||
+                    dobParts[1] > 12 || dobParts[1] < 1 || dobParts[0].length != 4)
+                {
+                    $("#errorMessage").append("The date of birth must be a valid date.");
+                    $("#submitButton").attr("disabled", "disabled");
+                }
+                else if (dobParts[0] > thisYear || (dobParts[0] == thisYear && dobParts[1] > thisMonth) ||
+                    (dobParts[0] == thisYear && dobParts[1] == thisMonth && dobParts[2] > thisDay))
+                {
+                    $("#errorMessage").append("An artist's date of birth must have already occurred.");
+                    $("#submitButton").attr("disabled", "disabled");
+                }
+                else
+                {
+                    if ($("#submitButton").is(":disabled")) {
+                        $("#submitButton").removeAttr("disabled");
+                    }
+                }
+            }
+        }
+    </script>
+}

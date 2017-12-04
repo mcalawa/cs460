@@ -7,6 +7,7 @@ using HW8.DAL;
 using HW8.Models;
 using System.Net;
 using System.Data;
+using System.Text;
 
 namespace HW8.Controllers
 {
@@ -23,34 +24,56 @@ namespace HW8.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            return View(db.Artists);
         }
 
-        public ActionResult Details()
+        [HttpPost]
+        public ActionResult Create([Bind(Include = "Name,BirthCity,DoB")] Artists artist)
         {
-            return View();
+            if(ModelState.IsValid)
+            {
+                db.Artists.Add(artist);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(artist);
         }
 
+        public ActionResult Details(int id)
+        {
+            var toDisplay = db.Artists.Where(i => i.ArtistId == id);
+
+            return View(toDisplay);
+        }
+
+        [HttpGet]
         public ActionResult Edit(int id)
         {
             var toUpdate = db.Artists.Where(i => i.ArtistId == id);
 
-            if (TryUpdateModel(toUpdate, "",
-                new string[] { "Name", "BirthCity", "DoB" }))
-            {
-                try
-                {
-                    db.SaveChanges();
-
-                    return RedirectToAction("Index");
-                }
-                catch (DataException /* dex */)
-                {
-                    //Log the error (uncomment dex variable name and add a line here to write a log.
-                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
-                }
-            }
             return View(toUpdate);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection form)
+        {
+            var toUpdate = db.Artists.Where(i => i.ArtistId == id);
+            string dateString = form["DoB"];
+            string[] dateParts = dateString.Split('-');
+            StringBuilder dateOfBirth = new StringBuilder(dateParts[1]);
+            dateOfBirth.Append("/");
+            dateOfBirth.Append(dateParts[2]);
+            dateOfBirth.Append("/");
+            dateOfBirth.Append(dateParts[0]);
+            string dob = dateOfBirth.ToString();
+
+            toUpdate.FirstOrDefault().Name = form["Name"];
+            toUpdate.FirstOrDefault().BirthCity = form["BirthCity"];
+            toUpdate.FirstOrDefault().DoB = DateTime.Parse(form["DoB"]);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
         public ActionResult Delete()

@@ -1,7 +1,29 @@
-﻿
+﻿@model IEnumerable<HW8.Models.Artists>
 @{
-    ViewBag.Title = "Details";
 }
 
 <h2>Details</h2>
+<hr />
+@foreach (var item in Model)
+{
+    <p><span class="detail">@Html.DisplayNameFor(model => model.Name)</span><br />
+    @Html.DisplayFor(ModelItem => item.Name)</p>
 
+    <p><span class="detail">@Html.DisplayNameFor(model => model.BirthCity)</span><br />
+    @Html.DisplayFor(ModelItem => item.BirthCity)</p>
+
+    <p><span class="detail">@Html.DisplayNameFor(model => model.DoB)</span><br />
+    @Html.DisplayFor(ModelItem => item.DoB)</p>
+
+    <table>
+        <tr>
+            <th>Art Works</th>
+        </tr>
+        @foreach (var subitem in item.ArtWorks)
+        {
+            <tr>
+                <td>@Html.DisplayFor(ModelItem => subitem.Title)</td>
+            </tr>
+        }
+    </table>
+}

@@ -66,3 +66,7 @@ th {
     font-size: 110%;
     color: #411;
 }
+
+.detail {
+    font-weight: bold;
+}
