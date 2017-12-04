@@ -1,0 +1,12 @@
+﻿@model IEnumerable<HW8.Models.Artists>
+@{
+}
+
+<h2>Edit</h2>
+<form>
+    @Html.DisplayNameFor(model => model.Name) <input type="text" name="Name" value="@Html.DisplayFor(model => model.FirstOrDefault().Name)" /><br />
+    @Html.DisplayNameFor(model => model.BirthCity) <input type="text" name="BirthCity" value="@Html.DisplayFor(model => model.FirstOrDefault().BirthCity)" /><br />
+    @Html.DisplayNameFor(model => model.DoB) <input type="date" name="DoB" value="@Html.DisplayFor(model => model.FirstOrDefault().DoB)" /><br />
+
+    <input type="submit" />
+</form>

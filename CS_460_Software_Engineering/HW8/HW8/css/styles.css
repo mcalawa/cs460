@@ -51,28 +51,18 @@ nav li > a:hover {
 }
 
 table {
-    border: 3px solid;
-    border-color: #411;
     margin-bottom: 20px;
 }
 
 td, th {
-    border: 1px solid #411;
+    border: 1px solid #bababa;
+    border-right: none;
+    border-left: none;
     padding: 5px;
 }
 
 th {
-    border-bottom: 3px solid;
     font-family: "Patrick Hand SC";
     font-size: 110%;
     color: #411;
-    background-color: #f76;
-}
-
-tr:nth-child(odd) {
-    background-color: #fec;
-}
-
-tr:nth-child(even) {
-    background-color: #ffe;
 }

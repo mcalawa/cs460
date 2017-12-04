@@ -1,9 +1,9 @@
 ﻿CREATE TABLE dbo.Artists
 (
 	[ArtistId] INT IDENTITY (1,1) NOT NULL PRIMARY KEY,
-	[Name] VARCHAR(384) NOT NULL,
-	[BirthCity] VARCHAR(128),
-	[DoB] DATETIME
+	[Name] VARCHAR(50) NOT NULL,
+	[BirthCity] VARCHAR(128) NOT NULL,
+	[DoB] DATETIME NOT NULL
 );
 
 CREATE TABLE dbo.Genres
@@ -36,10 +36,10 @@ INSERT INTO dbo.Genres ([Name]) VALUES
 	('Renaissance');
 
 INSERT INTO dbo.Artists ([Name],[BirthCity],[DoB]) VALUES
-	('M.C. Escher','Leeuwarden, Netherlands', 1898-06-17),
-	('Leonardo Da Vinci', 'Vinci, Italy', 1519-05-02),
-	('Hatip Mehmed Efendi', 'Unknown', 1680-11-18),
-	('Salvador Dali', 'Figueres, Spain', 1904-05-11);
+	('M.C. Escher','Leeuwarden, Netherlands', 06-17-1898),
+	('Leonardo Da Vinci', 'Vinci, Italy', 05-02-1519),
+	('Hatip Mehmed Efendi', 'Unknown', 11-18-1680),
+	('Salvador Dali', 'Figueres, Spain', 05-11-1904);
 
 INSERT INTO dbo.ArtWorks ([ArtistId],[Title]) VALUES
 	('1', 'Circle Limit III'),

@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ArtistController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\ArtContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -123,6 +124,11 @@
     <Content Include="Views\Home\Classifications.cshtml" />
     <None Include="Properties\PublishProfiles\CS460HW8 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\CS460HW8 - Web Deploy.pubxml" />
+    <Content Include="Views\Artist\Index.cshtml" />
+    <Content Include="Views\Artist\Create.cshtml" />
+    <Content Include="Views\Artist\Details.cshtml" />
+    <Content Include="Views\Artist\Edit.cshtml" />
+    <Content Include="Views\Artist\Delete.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

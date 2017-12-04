@@ -28,7 +28,6 @@ namespace HW8.Models
 
         [DataType(DataType.Date)]
         [Display(Name = "Date of Birth")]
-        [DisplayFormat(NullDisplayText = "Unknown")]
         public DateTime DoB { get; set; }
 
         public virtual ICollection<ArtWorks> ArtWorks { get; set; }
