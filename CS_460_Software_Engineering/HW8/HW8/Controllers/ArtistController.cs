@@ -31,7 +31,6 @@ namespace HW8.Controllers
             return View();
         }
 
-        [HttpPost]
         public ActionResult Edit(int id)
         {
             var toUpdate = db.Artists.Where(i => i.ArtistId == id);
