@@ -19,7 +19,7 @@
     <script>
         function selectGenre(id)
         {
-            var source = "/Home/Classifications/" + id;
+            var source = "/Home/ByGenre/" + id;
 
             console.log("Made it to the selectGenre function!");
 
@@ -59,10 +59,10 @@
 
             jQuery.each(results, function () {
                 trow = $("<tr>");
-                n = $(this).ArtWorks.Title.val();
+                n = val["Title"];
                 tdat = $("<td>").html(n);
                 tdat.appendTo(trow);
-                n = $(this).ArtWorks.Artists.Name.val();
+                n = val["Artist"];
                 tdat = $("<td>").html(n);
                 tdat.appendTo(trow);
                 trow.appendTo(tbody);

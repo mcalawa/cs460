@@ -26,11 +26,11 @@ namespace HW8.Controllers
 
         public ActionResult Classifications(int? id)
         {
-            if(id == null)
-            {
-                return View(db.Classifications);
-            }
+            return View(db.Classifications);
+        }
 
+        public ActionResult ByGenre(int id)
+        {
             var byGenre = db.Classifications.Where(i => i.GenreId == id);
 
             return View(byGenre);
