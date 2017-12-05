@@ -1,5 +1,78 @@
-﻿@{
+﻿@model IEnumerable<HW8.Models.Genres>
+@{
 }
 
 <h2>Welcome</h2>
 <p>Welcome to the Gallery of Art, where you can add and view new artists and art works.</p>
+
+<h2>Works of Art</h2>
+<form>
+    @foreach (var item in Model)
+    {
+        <input type="button" onclick="selectGenre(@item.GenreId)" value="@Html.DisplayFor(ModelItem => item.Name)" />
+    }
+</form>
+
+<div id="resultsTable"></div>
+
+@section PageScripts {
+    <script>
+        function selectGenre(id)
+        {
+            var source = "/Home/Classifications/" + id;
+
+            console.log("Made it to the selectGenre function!");
+
+            $.ajax({
+                type: "GET",
+                dataType: "json",
+                url: source,
+                success: displayResults,
+                error: errorOnAjax
+            });
+        }
+
+        function displayResults(results) {
+            console.log("Made it to displayResults!");
+
+            $("#resultsTable").empty();
+            $("#resultsTable").append(displayArtWork(results));
+        }
+
+        function displayArtWork(results)
+        {
+            "use strict";
+            console.log("Made it to displayArtWork!");
+            var tab = $("<table>");
+            var thead = $("<thead>\
+                                <tr>\
+                                    <th>Title</th>\
+                                    <th>Artist</th>\
+                                </tr>\
+                            </thead>");
+            thead.appendTo(tab);
+
+            var tbody = $("<tbody>");
+            var trow = null;
+            var tdat = null;
+            var n = null;
+
+            jQuery.each(results, function () {
+                trow = $("<tr>");
+                n = $(this).ArtWorks.Title.val();
+                tdat = $("<td>").html(n);
+                tdat.appendTo(trow);
+                n = $(this).ArtWorks.Artists.Name.val();
+                tdat = $("<td>").html(n);
+                tdat.appendTo(trow);
+                trow.appendTo(tbody);
+            });
+
+            tbody.appendTo(tab);
+        }
+
+        function errorOnAjax() {
+            console.log("Ajax error");
+        }
+    </script>
+}

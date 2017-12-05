@@ -16,12 +16,7 @@ namespace HW8.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
-        }
-
-        public ActionResult Artists()
-        {
-            return View(db.Artists);
+            return View(db.Genres);
         }
 
         public ActionResult ArtWorks()
@@ -29,9 +24,16 @@ namespace HW8.Controllers
             return View(db.ArtWorks);
         }
 
-        public ActionResult Classifications()
+        public ActionResult Classifications(int? id)
         {
-            return View(db.Classifications);
+            if(id == null)
+            {
+                return View(db.Classifications);
+            }
+
+            var byGenre = db.Classifications.Where(i => i.GenreId == id);
+
+            return View(byGenre);
         }
     }
 }

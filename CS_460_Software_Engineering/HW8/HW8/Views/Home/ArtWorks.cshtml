@@ -2,27 +2,6 @@
 @{
 }
 
-<h2>Artist</h2>
-<table>
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.Artists.Name)</th>
-            <th>@Html.DisplayNameFor(model => model.Artists.DoB)</th>
-            <th>@Html.DisplayNameFor(model => model.Artists.BirthCity)</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(ModelItem => item.Artists.Name)</td>
-                <td>@Html.DisplayFor(ModelItem => item.Artists.DoB)</td>
-                <td>@Html.DisplayFor(ModelItem => item.Artists.BirthCity)</td>
-            </tr>
-        }
-    </tbody>
-</table>
-
 <h2>Art Works</h2>
 <table>
     <thead>
@@ -38,28 +17,6 @@
                 <td>@Html.DisplayFor(ModelItem => item.Title)</td>
                 <td>@Html.DisplayFor(ModelItem => item.Artists.Name)</td>
             </tr>
-        }
-    </tbody>
-</table>
-
-<h2>Classifications</h2>
-<table>
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.Classifications.FirstOrDefault().ArtWorkId)</th>
-            <th>@Html.DisplayNameFor(model => model.Classifications.FirstOrDefault().GenreId)</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var item in Model)
-        {
-            foreach(var subitem in item.Classifications)
-            {
-                <tr>
-                    <td>@Html.DisplayFor(ModelItem => subitem.ArtWorks.Title)</td>
-                    <td>@Html.DisplayFor(ModelItem => subitem.Genres.Name)</td>
-                </tr>
-            }
         }
     </tbody>
 </table>

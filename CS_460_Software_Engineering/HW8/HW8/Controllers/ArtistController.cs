@@ -76,9 +76,21 @@ namespace HW8.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Delete()
+        [HttpGet]
+        public ActionResult Delete(int id)
         {
-            return View();
+            var toDelete = db.Artists.Where(i => i.ArtistId == id);
+
+            return View(toDelete);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection form)
+        {
+            db.Artists.Remove(db.Artists.Find(id));
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }

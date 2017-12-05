@@ -2,46 +2,6 @@
 @{
 }
 
-<h2>Artists</h2>
-<table>
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.ArtWorks.Artists.Name)</th>
-            <th>@Html.DisplayNameFor(model => model.ArtWorks.Artists.DoB)</th>
-            <th>@Html.DisplayNameFor(model => model.ArtWorks.Artists.BirthCity)</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(ModelItem => item.ArtWorks.Artists.Name)</td>
-                <td>@Html.DisplayFor(ModelItem => item.ArtWorks.Artists.DoB)</td>
-                <td>@Html.DisplayFor(ModelItem => item.ArtWorks.Artists.BirthCity)</td>
-            </tr>
-        }
-    </tbody>
-</table>
-
-<h2>Art Works</h2>
-<table>
-    <thead>
-        <tr>
-            <th>@Html.DisplayNameFor(model => model.ArtWorks.Title)</th>
-            <th>@Html.DisplayNameFor(model => model.ArtWorks.Artists.Name)</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach(var item in Model)
-        {
-            <tr>
-                <td>@Html.DisplayFor(ModelItem => item.ArtWorks.Title)</td>
-                <td>@Html.DisplayFor(ModelItem => item.ArtWorks.Artists.Name)</td>
-            </tr>
-        }
-    </tbody>
-</table>
-
 <h2>Classifications</h2>
 <table>
     <thead>
