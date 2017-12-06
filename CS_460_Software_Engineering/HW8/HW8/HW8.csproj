@@ -128,7 +128,6 @@
     <Content Include="Views\Artist\Details.cshtml" />
     <Content Include="Views\Artist\Edit.cshtml" />
     <Content Include="Views\Artist\Delete.cshtml" />
-    <Content Include="Views\Home\ByGenre.cshtml" />
     <Content Include="Views\Shared\_BlankLayout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

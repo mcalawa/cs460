@@ -24,16 +24,21 @@ namespace HW8.Controllers
             return View(db.ArtWorks);
         }
 
-        public ActionResult Classifications(int? id)
+        public ActionResult Classifications()
         {
             return View(db.Classifications);
         }
 
-        public ActionResult ByGenre(int id)
+        public JsonResult ByGenre(int id)
         {
-            var byGenre = db.Classifications.Where(i => i.GenreId == id);
+            var artwork = db.Classifications.Where(i => i.GenreId == id)
+                            .Select(a => a.ArtWorks)
+                            .Select(a => new {
+                                Title = a.Title,
+                                Artist = a.Artists.Name
+                            });
 
-            return View(byGenre);
+            return Json(artwork, JsonRequestBehavior.AllowGet);
         }
     }
 }

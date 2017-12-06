@@ -1,6 +1,0 @@
-﻿@model IEnumerable<HW8.Models.Classifications>
-@{ 
-    Layout = "~/Views/Shared/_BlankLayout.cshtml";
-}
-
-[@foreach (var item in Model) {<span>{"@Html.DisplayNameFor(model => model.ArtWorks.Title)":"@Html.DisplayFor(ModelItem => item.ArtWorks.Title)","@Html.DisplayNameFor(model => model.ArtWorks.Artists.Name)":"@Html.DisplayFor(ModelItem => item.ArtWorks.Artists.Name)"}@if (item != Model.Last()) {<span>,</span>}</span>}]

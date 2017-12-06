@@ -57,18 +57,20 @@
             var tdat = null;
             var n = null;
 
-            jQuery.each(results, function () {
+            jQuery.each(results, function (i, data) {
                 trow = $("<tr>");
-                n = val["Title"];
+                n = data.Title;
                 tdat = $("<td>").html(n);
                 tdat.appendTo(trow);
-                n = val["Artist"];
+                n = data.Artist;
                 tdat = $("<td>").html(n);
                 tdat.appendTo(trow);
                 trow.appendTo(tbody);
             });
 
             tbody.appendTo(tab);
+
+            return tab;
         }
 
         function errorOnAjax() {
