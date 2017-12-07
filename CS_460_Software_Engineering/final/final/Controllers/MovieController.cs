@@ -21,22 +21,65 @@ namespace final.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            return View(db.Movies);
+        }
+
+        [HttpPost]
+        public ActionResult Create([Bind(Include = "DirectorId,Name,Year")] Movies movie)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Movies.Add(movie);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(movie);
         }
 
         public ActionResult Details(int id)
         {
-            return View();
+            var movieDetails = db.Movies.Where(i => i.MovieId == id);
+
+            return View(movieDetails);
         }
 
+        [HttpGet]
         public ActionResult Edit(int id)
         {
-            return View();
+            var toEdit = db.Movies.Where(i => i.MovieId == id);
+
+            return View(toEdit);
         }
 
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection form)
+        {
+            var toEdit = db.Movies.Where(i => i.MovieId == id);
+
+            toEdit.FirstOrDefault().Title = form["Title"];
+            toEdit.FirstOrDefault().Year = Int32.Parse(form["Year"]);
+            toEdit.FirstOrDefault().DirectorId = Int32.Parse(form["DirectorId"]);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
         public ActionResult Delete(int id)
         {
-            return View();
+            var toDelete = db.Movies.Where(i => i.MovieId == id);
+
+            return View(toDelete);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection form)
+        {
+            db.Movies.Remove(db.Movies.Find(id));
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }

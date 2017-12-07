@@ -1,0 +1,76 @@
+﻿@model IEnumerable<final.Models.Movies>
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+<form method="post">
+    @Html.DisplayNameFor(model => model.Title) <input type="text" name="Title" value="@Html.DisplayFor(model => model.FirstOrDefault().Title)" id="title" /><br />
+    @Html.DisplayNameFor(model => model.Year) <input type="number" name="Year" value="@Html.DisplayFor(model => model.FirstOrDefault().Year)" id="year" /><br />
+    @Html.DisplayNameFor(model => model.DirectorId) <select name="DirectorId" id="directorId">
+        @foreach (var item in Model)
+        {
+            <option value="@Html.DisplayFor(ModelItem => item.DirectorId)">@Html.DisplayFor(ModelItem => item.Directors.Name)</option>
+        }
+    </select><br />
+    <div id="errorMessage"></div>
+    <input type="submit" id="submitButton" disabled /> | @Html.ActionLink("Cancel", "Index")
+</form>
+
+@section scripts{
+    <script>
+        /*Script originally taken from https://stackoverflow.com/questions/8234107/remove-duplicate-trs-through-jquery and previously
+        used in HW8*/
+        $(document).ready(function () {
+            var seen = {};
+            $('select option').each(function () {
+                var txt = $(this).text();
+                if (seen[txt])
+                    $(this).remove();
+                else
+                    seen[txt] = true;
+            });
+        });
+
+        $("#title").change(function () {
+            $("#errorMessage").empty();
+            isComplete();
+        });
+
+        $("#year").change(function () {
+            $("#errorMessage").empty();
+            isComplete();
+        });
+
+        $("#directorId").change(function () {
+            $("#errorMessage").empty();
+            isComplete();
+        });
+
+        function isComplete() {
+            var title = $("#title").val();
+            var year = $("#year").val();
+
+            if (title.length < 1 || year.length < 1) {
+                $("#errorMessage").append("All three fields must be completed.");
+                $("#submitButton").attr("disabled", "disabled");
+            }
+            else if (isNaN(year) == true || year.length != 4 || year < 1880 || Math.floor(year) != year)
+            {
+                $("#errorMessage").append("The year of a film's release must be after 1879.");
+                $("#submitButton").attr("disabled", "disabled");
+            }
+            else if (title.length >= 50)
+            {
+                $("#errorMessage").append("Titles cannot be longer than 49 characters.");
+                $("#submitButton").attr("disabled", "disabled");
+            }
+            else
+            {
+                if ($("#submitButton").is(":disabled")) {
+                    $("#submitButton").removeAttr("disabled");
+                }
+            }
+        }
+    </script>
+}

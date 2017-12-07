@@ -8,6 +8,8 @@ namespace final.Models
 {
     public class Casts
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+
         [Key]
         [Required]
         public int CastId { get; set; }

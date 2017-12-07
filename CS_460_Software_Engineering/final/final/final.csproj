@@ -190,6 +190,10 @@
     <Content Include="Views\Home\Actor.cshtml" />
     <Content Include="Views\Home\Cast.cshtml" />
     <Content Include="Views\Movie\Index.cshtml" />
+    <Content Include="Views\Movie\Create.cshtml" />
+    <Content Include="Views\Movie\Details.cshtml" />
+    <Content Include="Views\Movie\Edit.cshtml" />
+    <Content Include="Views\Movie\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

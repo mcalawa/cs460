@@ -1,31 +1,78 @@
-﻿@{
+﻿@model IEnumerable<final.Models.Actors>
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<h2>Welcome!</h2>
+<p>Welcome to the Film Database. Select an actor below to view their films.</p>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+<form>
+    @foreach (var item in Model)
+    {
+        <input type="button" onclick="selectActor(@item.ActorId)" value="@Html.DisplayFor(ModelItem => item.Name)" />
+    }
+</form>
+
+<div id="resultsTable"></div>
+
+@section scripts{
+    <script>
+        function selectActor(id) {
+            var source = "/Home/ByActor/" + id;
+
+            $.ajax({
+                type: "GET",
+                dataType: "json",
+                url: source,
+                success: displayResults,
+                error: errorOnAjax
+            });
+        }
+
+        function displayResults(results) {
+            $("#resultsTable").empty();
+            $("#resultsTable").append(displayMovies(results));
+        }
+
+        function displayMovies(results) {
+            "use strict";
+            var tab = $("<table>");
+            var thead = $("<thead>\
+                                <tr>\
+                                    <th>Actor</th>\
+                                    <th>Movie</th>\
+                                    <th>Director</th>\
+                                </tr>\
+                            </thead>");
+            thead.appendTo(tab);
+
+            var tbody = $("<tbody>");
+            var trow = null;
+            var tdat = null;
+            var n = null;
+
+            jQuery.each(results, function (i, data) {
+                trow = $("<tr>");
+                n = data.Actor;
+                tdat = $("<td>").html(n);
+                tdat.appendTo(trow);
+                n = data.Movie;
+                tdat = $("<td>").html(n);
+                tdat.appendTo(trow);
+                n = data.Director;
+                tdat = $("<td>").html(n);
+                tdat.appendTo(trow);
+                trow.appendTo(tbody);
+            });
+
+            tbody.appendTo(tab);
+
+            return tab;
+        }
+
+        function errorOnAjax() {
+            console.log("Ajax error");
+        }
+</script>
+
+}

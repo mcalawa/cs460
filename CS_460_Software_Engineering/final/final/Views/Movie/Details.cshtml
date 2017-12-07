@@ -1,0 +1,33 @@
+﻿@model IEnumerable<final.Models.Movies>
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+@foreach(var item in Model)
+{
+    <p><span class="detail">@Html.DisplayNameFor(model => model.Title)</span><br />
+    @Html.DisplayFor(ModelItem => item.Title)</p>
+
+    <p><span class="detail">@Html.DisplayNameFor(model => model.Year)</span><br />
+    @Html.DisplayFor(ModelItem => item.Year)</p>
+
+    <p><span class="detail">@Html.DisplayNameFor(model => model.DirectorId)</span><br />
+    @Html.DisplayFor(ModelItem => item.Directors.Name)</p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Cast</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var subitem in item.Casts)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(ModelItem => subitem.Actors.Name)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

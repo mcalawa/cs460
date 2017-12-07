@@ -8,6 +8,7 @@ namespace final.Models
 {
     public class Movies
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Movies()
         {
             Casts = new HashSet<Casts>();

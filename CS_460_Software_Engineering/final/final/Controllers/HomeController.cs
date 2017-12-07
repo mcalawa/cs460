@@ -27,5 +27,20 @@ namespace final.Controllers
         {
             return View(db.Casts);
         }
+
+        public JsonResult ByActor(int id)
+        {
+            var actor = db.Actors.Where(i => i.ActorId == id)
+                            .Select(m => m.Casts)
+                            .FirstOrDefault()
+                            .Select(m => new
+                            {
+                                Actor = m.Actors.Name,
+                                Movie = m.Movies.Title,
+                                Director = m.Movies.Directors.Name
+                            });
+
+            return Json(actor, JsonRequestBehavior.AllowGet);
+        }
     }
 }
