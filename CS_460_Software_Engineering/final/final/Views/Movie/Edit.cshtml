@@ -7,12 +7,6 @@
 <form method="post">
     @Html.DisplayNameFor(model => model.Title) <input type="text" name="Title" value="@Html.DisplayFor(model => model.FirstOrDefault().Title)" id="title" /><br />
     @Html.DisplayNameFor(model => model.Year) <input type="number" name="Year" value="@Html.DisplayFor(model => model.FirstOrDefault().Year)" id="year" /><br />
-    @Html.DisplayNameFor(model => model.DirectorId) <select name="DirectorId" id="directorId">
-        @foreach (var item in Model)
-        {
-            <option value="@Html.DisplayFor(ModelItem => item.DirectorId)">@Html.DisplayFor(ModelItem => item.Directors.Name)</option>
-        }
-    </select><br />
     <div id="errorMessage"></div>
     <input type="submit" id="submitButton" disabled /> | @Html.ActionLink("Cancel", "Index")
 </form>

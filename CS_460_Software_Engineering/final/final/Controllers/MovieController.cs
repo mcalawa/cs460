@@ -59,7 +59,6 @@ namespace final.Controllers
 
             toEdit.FirstOrDefault().Title = form["Title"];
             toEdit.FirstOrDefault().Year = Int32.Parse(form["Year"]);
-            toEdit.FirstOrDefault().DirectorId = Int32.Parse(form["DirectorId"]);
             db.SaveChanges();
 
             return RedirectToAction("Index");

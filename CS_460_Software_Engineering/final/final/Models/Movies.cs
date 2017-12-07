@@ -12,6 +12,7 @@ namespace final.Models
         public Movies()
         {
             Casts = new HashSet<Casts>();
+            Directors = new Directors();
         }
 
         [Key]
