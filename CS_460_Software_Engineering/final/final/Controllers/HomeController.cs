@@ -15,17 +15,17 @@ namespace final.Controllers
 
         public ActionResult Index()
         {
-            return View(db.Actors);
+            return View(db.Actors.ToList());
         }
 
         public ActionResult Actor()
         {
-            return View(db.Actors);
+            return View(db.Actors.ToList());
         }
 
         public ActionResult Cast()
         {
-            return View(db.Casts);
+            return View(db.Casts.ToList());
         }
 
         public JsonResult ByActor(int id)
@@ -38,7 +38,8 @@ namespace final.Controllers
                                 Actor = m.Actors.Name,
                                 Movie = m.Movies.Title,
                                 Director = m.Movies.Directors.Name
-                            });
+                            })
+                            .ToList();
 
             return Json(actor, JsonRequestBehavior.AllowGet);
         }

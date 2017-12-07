@@ -16,12 +16,12 @@ namespace final.Controllers
         // GET: Movie
         public ActionResult Index()
         {
-            return View(db.Movies);
+            return View(db.Movies.ToList());
         }
 
         public ActionResult Create()
         {
-            return View(db.Movies);
+            return View(db.Movies.ToList());
         }
 
         [HttpPost]
@@ -41,7 +41,7 @@ namespace final.Controllers
         {
             var movieDetails = db.Movies.Where(i => i.MovieId == id);
 
-            return View(movieDetails);
+            return View(movieDetails.ToList());
         }
 
         [HttpGet]
@@ -49,7 +49,7 @@ namespace final.Controllers
         {
             var toEdit = db.Movies.Where(i => i.MovieId == id);
 
-            return View(toEdit);
+            return View(toEdit.ToList());
         }
 
         [HttpPost]
@@ -59,6 +59,7 @@ namespace final.Controllers
 
             toEdit.FirstOrDefault().Title = form["Title"];
             toEdit.FirstOrDefault().Year = Int32.Parse(form["Year"]);
+            toEdit.FirstOrDefault().DirectorId = Int32.Parse(form["DirectorId"]);
             db.SaveChanges();
 
             return RedirectToAction("Index");
@@ -69,7 +70,7 @@ namespace final.Controllers
         {
             var toDelete = db.Movies.Where(i => i.MovieId == id);
 
-            return View(toDelete);
+            return View(toDelete.ToList());
         }
 
         [HttpPost]
