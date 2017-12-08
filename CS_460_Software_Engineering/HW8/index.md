@@ -1,6 +1,6 @@
 ---
-Title: CS 460 Homework 8/9
-Layout: hw8
+title: CS 460 Homework 8/9
+layout: hw8
 ---
 ## About Homework 8/9
 
