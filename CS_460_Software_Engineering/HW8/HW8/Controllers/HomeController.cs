@@ -16,17 +16,17 @@ namespace HW8.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View(db.Genres);
+            return View(db.Genres.ToList());
         }
 
         public ActionResult ArtWorks()
         {
-            return View(db.ArtWorks);
+            return View(db.ArtWorks.ToList());
         }
 
         public ActionResult Classifications()
         {
-            return View(db.Classifications);
+            return View(db.Classifications.ToList());
         }
 
         public JsonResult ByGenre(int id)
@@ -36,7 +36,8 @@ namespace HW8.Controllers
                             .Select(a => new {
                                 Title = a.Title,
                                 Artist = a.Artists.Name
-                            });
+                            })
+                            .ToList();
 
             return Json(artwork, JsonRequestBehavior.AllowGet);
         }
