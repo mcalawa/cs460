@@ -1,6 +1,4 @@
 ﻿@model IEnumerable<HW8.Models.Artists>
-@{
-}
 
 <h2>Edit</h2>
 <hr />
@@ -9,7 +7,7 @@
     @Html.DisplayNameFor(model => model.BirthCity) <input type="text" name="BirthCity" value="@Html.DisplayFor(model => model.FirstOrDefault().BirthCity)" id="birthCity" /><br />
     @Html.DisplayNameFor(model => model.DoB) <input type="date" name="DoB" value='@Model.FirstOrDefault().DoB.ToString("yyyy-MM-dd")' id="dateOfBirth" /><br />
     <div id="errorMessage"></div>
-    <input type="submit" id="submitButton" disabled/> @Html.ActionLink("Cancel", "Index")
+    <input type="submit" id="submitButton" disabled/> | @Html.ActionLink("Cancel", "Index")
 </form>
 
 @section PageScripts {
