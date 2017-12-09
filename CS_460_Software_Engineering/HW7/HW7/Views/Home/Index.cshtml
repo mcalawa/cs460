@@ -1,8 +1,14 @@
-﻿<form id="gifSearch">
+﻿<!--The form for searching for gifs-->
+<form id="gifSearch">
+    <!--The input for the query and the number of requested results, as well as a button to submit the request; the button receives
+        its commands from the JavaScript file linked at the bottom of the page. The input for the number of results uses min and step
+        attributes to make sure the number of requested results is not negative or a non-whole number. It also has a list of defaults
+        that are suggested numbers of results to return. The inputs both have a placeholder to tell the user what should be put in them. -->
     <input type="search" id="searchTerm" name="SearchQuery" placeholder="Search Query" /> <span id="colorChange">x</span> 
     <input type="number" id="resultNum" name="NumberRequested" placeholder="Number of Results" step="1" min="1" list="defaultNumbers"/>
     <input type="button" id="submitButton" name="search" value="Search"/>
 
+    <!--A list of default, suggested values for number of results to return-->
     <datalist id="defaultNumbers">
         <option value="5">
         <option value="10">
@@ -12,6 +18,7 @@
     </datalist>
 </form>
 
+<!--Where the results will be displayed-->
 <div id="searchResults"></div>
 
 @section PageScripts {
