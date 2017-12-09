@@ -156,4 +156,135 @@ namespace HW8.DAL
 As the other model members are similar, I will move onto the database context. The big difference here is that there is more than one DbSet that is part of the database context. As you might have guessed, this is due to having more than one table in the database. Unlike the models themselves, nothing extra is required in the constructor to populate the virtual members of the database context.
 
 ## Creating CRUD Functionality for Artists
-After creating some list views of the various database tables (which I won't be addressing because I've done so for previous assignments and not much has changed), I needed to create CRUD functionality for the Artists table. CRUD stands for Create, Read, Update, and Delete. Adding CRUD functionality basically means adding the ability to interact with the database tables. 
+After creating some list views of the various database tables (which I won't be addressing because I've done so for previous assignments and not much has changed), I needed to create CRUD functionality for the Artists table. CRUD stands for Create, Read, Update, and Delete. Adding CRUD functionality basically means adding the ability to interact with the database tables. I decided to make a separate controller for artists. The Index of this controller would display all of the artists and the links for the various CRUD functionalities:
+
+```html
+@model IEnumerable<HW8.Models.Artists>
+
+<h2>Index</h2>
+@Html.ActionLink("Create New", "Create")
+
+<table id="crudTable">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Name)</th>
+            <th>@Html.DisplayNameFor(model => model.DoB)</th>
+            <th>@Html.DisplayNameFor(model => model.BirthCity)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(ModelItem => item.Name)</td>
+                <td>@Html.DisplayFor(ModelItem => item.DoB)</td>
+                <td>@Html.DisplayFor(ModelItem => item.BirthCity)</td>
+                <td><a href="~/Artist/Edit/@Html.DisplayFor(ModelItem => item.ArtistId)">Edit</a> | <a href="~/Artist/Details/@Html.DisplayFor(ModelItem => item.ArtistId)">Details</a> | <a href="~/Artist/Delete/@Html.DisplayFor(ModelItem => item.ArtistId)">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+```
+
+Both the create and edit views have a form for entering information and JavaScript error checking similar to what I've done on previous assignments. The only difference between the create and edit views is that there is already a value in the inputs on the edit page (which is the same value as whatever you are editing.) As such, I won't show you either view and will let you look at the code on your own if you so desire. The action for create uses model binding. This is also almost identical to what I've done in previous assignments, so I won't bore you with the details. All of the pages other than create have a parameter, an int called id, that lets the app know which table item it is manipulating. An example of this can be seen in the actions for edit:
+
+```cs
+[HttpGet]
+public ActionResult Edit(int id)
+{
+    var toUpdate = db.Artists.Where(i => i.ArtistId == id).ToList();
+
+    return View(toUpdate);
+}
+
+[HttpPost]
+public ActionResult Edit(int id, FormCollection form)
+{
+    var toUpdate = db.Artists.Where(i => i.ArtistId == id);
+
+    toUpdate.FirstOrDefault().Name = form["Name"];
+    toUpdate.FirstOrDefault().BirthCity = form["BirthCity"];
+    toUpdate.FirstOrDefault().DoB = DateTime.Parse(form["DoB"]);
+    db.SaveChanges();
+
+    return RedirectToAction("Index");
+}
+```
+In additon to being able to see how the id of the item to be edited is passed to the action, you can also see how the editing itself is done in the HttpPost version of the action. The changes are made manually, simply by assigning new values from the form inputs to the values of the artist that is being updated. The changes to the database are then saved and the view is redirected to the list view of all the artists that can be found on the index page of the Artist controller.
+
+Similarly to the edit and create views, the views for details and delete are almost identical. Both display the details of a specific artist, but where details ends with the artist's art works, delete ends with a delete button. The reason both of these views display the details of an artist is so that a user can see the artist they are thinking of deleting before making the choice to delete them. Actually deleting an artist is very simple. I put a submit button inside of form with the post method so that I could have two different delete action methods by having one of them pass the "results" of a form. The code to delete the item looks like this:
+
+```cs
+[HttpPost]
+public ActionResult Delete(int id, FormCollection form)
+{
+    db.Artists.Remove(db.Artists.Find(id));
+    db.SaveChanges();
+
+    return RedirectToAction("Index");
+}
+```
+
+## Sorting Art Work by Genre Using Ajax
+Once all of the CRUD functionality had been implimented, there was only one thing left to add. The first part of this was to add buttons to the homepage using a Razor foreach loop, one for each of the genres:
+
+```html
+@model IEnumerable<HW8.Models.Genres>
+
+<h2>Welcome</h2>
+<p>Welcome to the Gallery of Art, where you can add and view new artists and art works.</p>
+
+<h2>Works of Art</h2>
+<form>
+    @foreach (var item in Model)
+    {
+        <input type="button" onclick="selectGenre(@item.GenreId)" value="@Html.DisplayFor(ModelItem => item.Name)" />
+    }
+</form>
+
+<div id="resultsTable"></div>
+```
+
+The next part of the assignment was to make it so that when the buttons are clicked on, the works of art with that genre would be displayed. This is done using Ajax, which means that there first needs to be a JsonResult action in the Home controller:
+
+```cs
+public JsonResult ByGenre(int id)
+{
+    var artwork = db.Classifications.Where(i => i.GenreId == id)
+                        .Select(a => a.ArtWorks)
+                        .Select(a => new {
+                            Title = a.Title,
+                            Artist = a.Artists.Name
+                        })
+                        .ToList();
+
+    return Json(artwork, JsonRequestBehavior.AllowGet);
+}
+```
+The app is then able to access that data with JavaScript:
+
+```js
+function selectGenre(id)
+{
+    var source = "/Home/ByGenre/" + id;
+
+    console.log("Made it to the selectGenre function!");
+
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: source,
+        success: displayResults,
+        error: errorOnAjax
+    });
+}
+```
+As you might remember, the Ajax itself is very similar to what was used on the previous assignment. The method of displaying the results is also almost identical to what was used on the previous assignment, so I will let you look up the code yourself if you so desire.
+
+## A Video Demo to Go With the Live Demo
+And finally, homework 9: deploying the site in the Cloud. As I had already done so for previous sites (and like to deploy early and republish to the Cloud as I go), doing so proved relatively simple and I won't go over the process at this point in time. I have created and uploaded a video to go with my live demo. For the purposes of this demonstration video, I added some data that wasn't included with the seed data. The data I added can be found in the hokusai.sql file. 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UDuwofljdBM" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+
+After posting the video, I deleted the classifications and genres I added in order to make the website less cluttered. I did, however, keep Georgia O'Keeffe on the list of artists so that it was clear this was all done on Azure. Now, go check out the [live demo](http://cs460hw8.azurewebsites.net/).

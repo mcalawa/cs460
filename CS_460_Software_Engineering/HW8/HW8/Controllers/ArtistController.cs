@@ -19,12 +19,12 @@ namespace HW8.Controllers
         // GET: Artist
         public ActionResult Index()
         {
-            return View(db.Artists);
+            return View(db.Artists.ToList());
         }
 
         public ActionResult Create()
         {
-            return View(db.Artists);
+            return View(db.Artists.ToList());
         }
 
         [HttpPost]
@@ -42,7 +42,7 @@ namespace HW8.Controllers
 
         public ActionResult Details(int id)
         {
-            var toDisplay = db.Artists.Where(i => i.ArtistId == id);
+            var toDisplay = db.Artists.Where(i => i.ArtistId == id).ToList();
 
             return View(toDisplay);
         }
@@ -50,7 +50,7 @@ namespace HW8.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var toUpdate = db.Artists.Where(i => i.ArtistId == id);
+            var toUpdate = db.Artists.Where(i => i.ArtistId == id).ToList();
 
             return View(toUpdate);
         }
@@ -59,14 +59,6 @@ namespace HW8.Controllers
         public ActionResult Edit(int id, FormCollection form)
         {
             var toUpdate = db.Artists.Where(i => i.ArtistId == id);
-            string dateString = form["DoB"];
-            string[] dateParts = dateString.Split('-');
-            StringBuilder dateOfBirth = new StringBuilder(dateParts[1]);
-            dateOfBirth.Append("/");
-            dateOfBirth.Append(dateParts[2]);
-            dateOfBirth.Append("/");
-            dateOfBirth.Append(dateParts[0]);
-            string dob = dateOfBirth.ToString();
 
             toUpdate.FirstOrDefault().Name = form["Name"];
             toUpdate.FirstOrDefault().BirthCity = form["BirthCity"];
@@ -79,7 +71,7 @@ namespace HW8.Controllers
         [HttpGet]
         public ActionResult Delete(int id)
         {
-            var toDelete = db.Artists.Where(i => i.ArtistId == id);
+            var toDelete = db.Artists.Where(i => i.ArtistId == id).ToList();
 
             return View(toDelete);
         }
