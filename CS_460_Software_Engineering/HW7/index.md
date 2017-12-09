@@ -32,7 +32,7 @@ namespace HW7.Controllers
 ```
 As you can see, the only thing the Index view of the Result controller does is return the view of the Home controller's Index. The Home controller's Index is relatively simple and can be seen below:
 
-```cshtml
+```html
 <!--The form for searching for gifs-->
 <form id="gifSearch">
     <!--The input for the query and the number of requested results, as well as a button to submit the request; the button receives
